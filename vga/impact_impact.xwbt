@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/jheckey/ece253/vga/impact.xsl
+OUTFILE=/home/jheckey/ece253/vga/impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=/home/jheckey/ece253/vga
+LICENSE=iMPACT
+USER_INFO=iMPACT

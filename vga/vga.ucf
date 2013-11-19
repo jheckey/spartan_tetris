@@ -1,0 +1,26 @@
+
+
+NET "vga_B" LOC = G15;
+NET "vga_R" LOC = H14;
+NET "vga_HS" LOC = F15;
+NET "vga_VS" LOC = F14;
+NET "vga_G" LOC = H15;
+
+
+NET "vga_G" IOSTANDARD = LVCMOS33;
+
+
+NET "rst" LOC = K17;
+NET "clk" LOC = C9;
+
+
+NET "clk" IOSTANDARD = LVCMOS33;
+NET "rst" IOSTANDARD = LVCMOS33;
+NET "rst" PULLDOWN;
+
+NET "vga_HS" IOSTANDARD = LVCMOS33;
+NET "vga_VS" IOSTANDARD = LVCMOS33;
+NET "vga_B" IOSTANDARD = LVCMOS33;
+NET "vga_R" IOSTANDARD = LVCMOS33;
+#Created by Constraints Editor (xc3s500e-fg320-4) - 2013/11/12
+NET "clk" TNM_NET = "clk";

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jheckey/ece253/vga/vga.ncd
+OUTFILE=/home/jheckey/ece253/vga/vga.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=/home/jheckey/ece253/vga
+LICENSE=ISE
+USER_INFO=174131348_174131349_210550171_020

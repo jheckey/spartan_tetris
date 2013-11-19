@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# PlanAhead v14.3 (64-bit)
+# Build 209282 by xbuild on Thu Oct 18 20:46:04 MDT 2012
+# Start of session at: Tue Nov 12 21:02:08 2013
+# Process ID: 17591
+# Log file: /home/jheckey/ece253/vga/planAhead_run_2/planAhead.log
+# Journal file: /home/jheckey/ece253/vga/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/jheckey/ece253/vga/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+refresh_design
+startgroup
+set_property package_pin K17 [get_ports rst]
+endgroup
+startgroup
+set_property package_pin C9 [get_ports clk]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list clk]]
+set_property iostandard LVCMOS25 [get_ports [list rst]]
+set_property iostandard LVCMOS33 [get_ports [list rst]]
+set_property pulltype PULLDOWN [get_ports [list rst]]
+save_design -force
+refresh_design
+set_property iostandard LVCMOS33 [get_ports [list vga_HS]]
+set_property iostandard LVCMOS33 [get_ports [list vga_VS]]
+set_property iostandard LVCMOS33 [get_ports [list vga_B]]
+set_property iostandard LVCMOS33 [get_ports [list vga_G]]
+set_property iostandard LVCMOS33 [get_ports [list vga_R]]
+save_design
