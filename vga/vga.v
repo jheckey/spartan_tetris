@@ -15,6 +15,10 @@ module vga (
     input   wire        clk,        // 50MHz
     input   wire        rst,
     input   wire [47:0] pixels,
+    // Counters are 1 bit larger than they need to be to downscale from 50MHz to
+    // 25MHz
+    output  reg  [10:0] cnt_X,
+    output  reg  [9:0]  cnt_Y,
     output  reg         vga_HS,
     output  reg         vga_VS,
     output  reg         vga_R,
@@ -22,10 +26,6 @@ module vga (
     output  reg         vga_B
 );
 
-// Counters are 1 bit larger than they need to be to downscale from 50MHz to
-// 25MHz
-reg  [10:0] cnt_X;
-reg  [9:0]  cnt_Y;
 reg  [47:0] buffer;
 
 reg  [10:0] cnt_X_n;
