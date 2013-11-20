@@ -5,7 +5,52 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">vga_R</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;vga_G&gt; &lt;vga_B&gt; </arg>
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">cnt_X&lt;4:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">tile_y&lt;5:3&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">tile_x&lt;5:3&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">offset_y&lt;3:0&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen1</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_7&gt; &lt;pixels_13&gt; &lt;pixels_19&gt; &lt;pixels_25&gt; &lt;pixels_31&gt; &lt;pixels_37&gt; &lt;pixels_43&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen1</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_8&gt; &lt;pixels_14&gt; &lt;pixels_20&gt; &lt;pixels_26&gt; &lt;pixels_32&gt; &lt;pixels_38&gt; &lt;pixels_44&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen1</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_9&gt; &lt;pixels_15&gt; &lt;pixels_21&gt; &lt;pixels_27&gt; &lt;pixels_33&gt; &lt;pixels_39&gt; &lt;pixels_45&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen1</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_10&gt; &lt;pixels_16&gt; &lt;pixels_22&gt; &lt;pixels_28&gt; &lt;pixels_34&gt; &lt;pixels_40&gt; &lt;pixels_46&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen1</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_11&gt; &lt;pixels_17&gt; &lt;pixels_23&gt; &lt;pixels_29&gt; &lt;pixels_35&gt; &lt;pixels_41&gt; &lt;pixels_47&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen1</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_6&gt; &lt;pixels_12&gt; &lt;pixels_18&gt; &lt;pixels_24&gt; &lt;pixels_30&gt; &lt;pixels_36&gt; &lt;pixels_42&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_7&gt; &lt;pixels_13&gt; &lt;pixels_19&gt; &lt;pixels_25&gt; &lt;pixels_31&gt; &lt;pixels_37&gt; &lt;pixels_43&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_8&gt; &lt;pixels_14&gt; &lt;pixels_20&gt; &lt;pixels_26&gt; &lt;pixels_32&gt; &lt;pixels_38&gt; &lt;pixels_44&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_9&gt; &lt;pixels_15&gt; &lt;pixels_21&gt; &lt;pixels_27&gt; &lt;pixels_33&gt; &lt;pixels_39&gt; &lt;pixels_45&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_10&gt; &lt;pixels_16&gt; &lt;pixels_22&gt; &lt;pixels_28&gt; &lt;pixels_34&gt; &lt;pixels_40&gt; &lt;pixels_46&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_11&gt; &lt;pixels_17&gt; &lt;pixels_23&gt; &lt;pixels_29&gt; &lt;pixels_35&gt; &lt;pixels_41&gt; &lt;pixels_47&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">pixels_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">siggen</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixels_6&gt; &lt;pixels_12&gt; &lt;pixels_18&gt; &lt;pixels_24&gt; &lt;pixels_30&gt; &lt;pixels_36&gt; &lt;pixels_42&gt; </arg>
 </msg>
 
 </messages>

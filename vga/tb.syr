@@ -1,0 +1,471 @@
+Release 14.3 - xst P.40xd (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: tb.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "tb.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "tb"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : tb
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "vga.v" in library work
+Compiling verilog file "siggen.v" in library work
+Module <vga> compiled
+Compiling verilog file "tb.v" in library work
+Module <siggen> compiled
+Module <tb> compiled
+No errors in compilation
+Analysis of file <"tb.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <tb> in library <work>.
+
+Analyzing hierarchy for module <vga> in library <work> with parameters.
+	VGA_TDISP_H = "00000000000000000000011000100000"
+	VGA_TDISP_V = "00000000000000000000000111101100"
+	VGA_TFP_H = "00000000000000000000000011100000"
+	VGA_TFP_V = "00000000000000000000000000001100"
+	VGA_TPULSE_H = "00000000000000000000000011000000"
+	VGA_TPULSE_V = "00000000000000000000000000000010"
+	VGA_TSYNC_H = "00000000000000000000011001000000"
+	VGA_TSYNC_V = "00000000000000000000001000001001"
+
+Analyzing hierarchy for module <siggen> in library <work> with parameters.
+	XOFFSET = "00000000000000000000000000001000"
+	YOFFSET = "00000000000000000000000000001100"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <tb>.
+Module <tb> is correct for synthesis.
+ 
+Analyzing module <vga> in library <work>.
+	VGA_TDISP_H = 32'sb00000000000000000000011000100000
+	VGA_TDISP_V = 32'sb00000000000000000000000111101100
+	VGA_TFP_H = 32'sb00000000000000000000000011100000
+	VGA_TFP_V = 32'sb00000000000000000000000000001100
+	VGA_TPULSE_H = 32'sb00000000000000000000000011000000
+	VGA_TPULSE_V = 32'sb00000000000000000000000000000010
+	VGA_TSYNC_H = 32'sb00000000000000000000011001000000
+	VGA_TSYNC_V = 32'sb00000000000000000000001000001001
+Module <vga> is correct for synthesis.
+ 
+Analyzing module <siggen> in library <work>.
+	XOFFSET = 32'sb00000000000000000000000000001000
+	YOFFSET = 32'sb00000000000000000000000000001100
+Module <siggen> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <vga>.
+    Related source file is "vga.v".
+    Found 1-bit register for signal <vga_HS>.
+    Found 11-bit register for signal <cnt_X>.
+    Found 10-bit register for signal <cnt_Y>.
+    Found 1-bit register for signal <vga_VS>.
+    Found 1-bit register for signal <vga_B>.
+    Found 1-bit register for signal <vga_G>.
+    Found 1-bit register for signal <vga_R>.
+    Found 48-bit register for signal <buffer>.
+    Found 48-bit 4-to-1 multiplexer for signal <buffer_n>.
+    Found 11-bit adder for signal <cnt_X_n$addsub0000> created at line 77.
+    Found 12-bit comparator less for signal <cnt_X_n$cmp_lt0000> created at line 76.
+    Found 10-bit adder for signal <cnt_Y_n$addsub0000> created at line 82.
+    Found 11-bit comparator less for signal <cnt_Y_n$cmp_lt0000> created at line 82.
+    Found 11-bit comparator less for signal <vga_HS_n$cmp_lt0000> created at line 72.
+    Found 11-bit comparator greatequal for signal <vga_R_n$cmp_ge0000> created at line 86.
+    Found 10-bit comparator greatequal for signal <vga_R_n$cmp_ge0001> created at line 86.
+    Found 12-bit comparator less for signal <vga_R_n$cmp_lt0000> created at line 86.
+    Found 10-bit comparator less for signal <vga_R_n$cmp_lt0001> created at line 86.
+    Found 10-bit comparator less for signal <vga_VS_n$cmp_lt0000> created at line 73.
+    Summary:
+	inferred  74 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   8 Comparator(s).
+	inferred  48 Multiplexer(s).
+Unit <vga> synthesized.
+
+
+Synthesizing Unit <siggen>.
+    Related source file is "siggen.v".
+WARNING:Xst:647 - Input <cnt_X<4:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <tile_y<5:3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <tile_x<5:3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <offset_y<3:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 48-bit register for signal <pixels>.
+    Found 10-bit subtractor for signal <offset_y>.
+    Found 6-bit subtractor for signal <tile_x>.
+    Summary:
+	inferred  48 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+Unit <siggen> synthesized.
+
+
+Synthesizing Unit <tb>.
+    Related source file is "tb.v".
+Unit <tb> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 1
+ 10-bit subtractor                                     : 1
+ 11-bit adder                                          : 1
+ 6-bit subtractor                                      : 1
+# Registers                                            : 9
+ 1-bit register                                        : 5
+ 10-bit register                                       : 1
+ 11-bit register                                       : 1
+ 48-bit register                                       : 2
+# Comparators                                          : 8
+ 10-bit comparator greatequal                          : 1
+ 10-bit comparator less                                : 2
+ 11-bit comparator greatequal                          : 1
+ 11-bit comparator less                                : 2
+ 12-bit comparator less                                : 2
+# Multiplexers                                         : 1
+ 48-bit 4-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <pixels_1> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_7> <pixels_13> <pixels_19> <pixels_25> <pixels_31> <pixels_37> <pixels_43> 
+INFO:Xst:2261 - The FF/Latch <pixels_2> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_8> <pixels_14> <pixels_20> <pixels_26> <pixels_32> <pixels_38> <pixels_44> 
+INFO:Xst:2261 - The FF/Latch <pixels_3> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_9> <pixels_15> <pixels_21> <pixels_27> <pixels_33> <pixels_39> <pixels_45> 
+INFO:Xst:2261 - The FF/Latch <pixels_4> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_10> <pixels_16> <pixels_22> <pixels_28> <pixels_34> <pixels_40> <pixels_46> 
+INFO:Xst:2261 - The FF/Latch <pixels_5> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_11> <pixels_17> <pixels_23> <pixels_29> <pixels_35> <pixels_41> <pixels_47> 
+INFO:Xst:2261 - The FF/Latch <pixels_0> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_6> <pixels_12> <pixels_18> <pixels_24> <pixels_30> <pixels_36> <pixels_42> 
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 1
+ 11-bit adder                                          : 1
+ 3-bit subtractor                                      : 1
+ 7-bit subtractor                                      : 1
+# Registers                                            : 122
+ Flip-Flops                                            : 122
+# Comparators                                          : 8
+ 10-bit comparator greatequal                          : 1
+ 10-bit comparator less                                : 2
+ 11-bit comparator greatequal                          : 1
+ 11-bit comparator less                                : 2
+ 12-bit comparator less                                : 2
+# Multiplexers                                         : 1
+ 48-bit 4-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <pixels_1> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_7> <pixels_13> <pixels_19> <pixels_25> <pixels_31> <pixels_37> <pixels_43> 
+INFO:Xst:2261 - The FF/Latch <pixels_2> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_8> <pixels_14> <pixels_20> <pixels_26> <pixels_32> <pixels_38> <pixels_44> 
+INFO:Xst:2261 - The FF/Latch <pixels_3> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_9> <pixels_15> <pixels_21> <pixels_27> <pixels_33> <pixels_39> <pixels_45> 
+INFO:Xst:2261 - The FF/Latch <pixels_4> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_10> <pixels_16> <pixels_22> <pixels_28> <pixels_34> <pixels_40> <pixels_46> 
+INFO:Xst:2261 - The FF/Latch <pixels_5> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_11> <pixels_17> <pixels_23> <pixels_29> <pixels_35> <pixels_41> <pixels_47> 
+INFO:Xst:2261 - The FF/Latch <pixels_0> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_6> <pixels_12> <pixels_18> <pixels_24> <pixels_30> <pixels_36> <pixels_42> 
+
+Optimizing unit <tb> ...
+
+Optimizing unit <vga> ...
+
+Optimizing unit <siggen> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block tb, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 80
+ Flip-Flops                                            : 80
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : tb.ngr
+Top Level Output File Name         : tb
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 7
+
+Cell Usage :
+# BELS                             : 258
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 19
+#      LUT2                        : 12
+#      LUT2_L                      : 5
+#      LUT3                        : 55
+#      LUT3_D                      : 2
+#      LUT3_L                      : 44
+#      LUT4                        : 72
+#      LUT4_D                      : 4
+#      LUT4_L                      : 1
+#      MUXCY                       : 19
+#      VCC                         : 1
+#      XORCY                       : 21
+# FlipFlops/Latches                : 80
+#      FDC                         : 80
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 6
+#      IBUF                        : 1
+#      OBUF                        : 5
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      114  out of   4656     2%  
+ Number of Slice Flip Flops:             80  out of   9312     0%  
+ Number of 4 input LUTs:                216  out of   9312     2%  
+ Number of IOs:                           7
+ Number of bonded IOBs:                   7  out of    232     3%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 80    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst                                | IBUF                   | 80    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.719ns (Maximum Frequency: 148.832MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 4.283ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.719ns (frequency: 148.832MHz)
+  Total number of paths / destination ports: 2558 / 80
+-------------------------------------------------------------------------
+Delay:               6.719ns (Levels of Logic = 4)
+  Source:            vga1/cnt_Y_3 (FF)
+  Destination:       vga1/vga_R (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: vga1/cnt_Y_3 to vga1/vga_R
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              8   0.591   0.932  vga1/cnt_Y_3 (vga1/cnt_Y_3)
+     LUT3:I0->O            1   0.704   0.424  vga1/buffer_n_and0000285 (vga1/buffer_n_and0000285)
+     LUT4:I3->O            3   0.704   0.535  vga1/buffer_n_and00002124_SW0 (N143)
+     LUT4_D:I3->O         16   0.704   1.113  vga1/buffer_n_and00002124 (vga1/N7)
+     LUT2:I1->O            1   0.704   0.000  vga1/vga_R_n1 (vga1/vga_R_n)
+     FDC:D                     0.308          vga1/vga_R
+    ----------------------------------------
+    Total                      6.719ns (3.715ns logic, 3.004ns route)
+                                       (55.3% logic, 44.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            vga1/vga_HS (FF)
+  Destination:       vga_HS (PAD)
+  Source Clock:      clk rising
+
+  Data Path: vga1/vga_HS to vga_HS
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              1   0.591   0.420  vga1/vga_HS (vga1/vga_HS)
+     OBUF:I->O                 3.272          vga_HS_OBUF (vga_HS)
+    ----------------------------------------
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.15 secs
+ 
+--> 
+
+
+Total memory usage is 513816 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :   12 (   0 filtered)
+

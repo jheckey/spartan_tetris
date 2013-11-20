@@ -1,0 +1,42 @@
+//! **************************************************************************
+// Written by: Map P.40xd on Tue Nov 19 19:48:21 2013
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "C9" LEVEL 1;
+COMP "vga_B" LOCATE = SITE "G15" LEVEL 1;
+COMP "vga_G" LOCATE = SITE "H15" LEVEL 1;
+COMP "vga_R" LOCATE = SITE "H14" LEVEL 1;
+COMP "vga_HS" LOCATE = SITE "F15" LEVEL 1;
+COMP "vga_VS" LOCATE = SITE "F14" LEVEL 1;
+COMP "rst" LOCATE = SITE "K17" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+TIMEGRP clk = BEL "vga1/buffer_47" BEL "vga1/buffer_46" BEL "vga1/buffer_45"
+        BEL "vga1/buffer_44" BEL "vga1/buffer_43" BEL "vga1/buffer_42" BEL
+        "vga1/buffer_41" BEL "vga1/buffer_40" BEL "vga1/buffer_39" BEL
+        "vga1/buffer_38" BEL "vga1/buffer_37" BEL "vga1/buffer_36" BEL
+        "vga1/buffer_35" BEL "vga1/buffer_34" BEL "vga1/buffer_33" BEL
+        "vga1/buffer_32" BEL "vga1/buffer_31" BEL "vga1/buffer_30" BEL
+        "vga1/buffer_29" BEL "vga1/buffer_28" BEL "vga1/buffer_27" BEL
+        "vga1/buffer_26" BEL "vga1/buffer_25" BEL "vga1/buffer_24" BEL
+        "vga1/buffer_23" BEL "vga1/buffer_22" BEL "vga1/buffer_21" BEL
+        "vga1/buffer_20" BEL "vga1/buffer_19" BEL "vga1/buffer_18" BEL
+        "vga1/buffer_17" BEL "vga1/buffer_16" BEL "vga1/buffer_15" BEL
+        "vga1/buffer_14" BEL "vga1/buffer_13" BEL "vga1/buffer_12" BEL
+        "vga1/buffer_11" BEL "vga1/buffer_10" BEL "vga1/buffer_9" BEL
+        "vga1/buffer_8" BEL "vga1/buffer_7" BEL "vga1/buffer_6" BEL
+        "vga1/buffer_5" BEL "vga1/buffer_4" BEL "vga1/buffer_3" BEL
+        "vga1/buffer_2" BEL "vga1/buffer_1" BEL "vga1/buffer_0" BEL
+        "vga1/vga_G" BEL "vga1/vga_R" BEL "vga1/vga_B" BEL "vga1/vga_VS" BEL
+        "vga1/vga_HS" BEL "vga1/cnt_Y_9" BEL "vga1/cnt_Y_8" BEL "vga1/cnt_Y_7"
+        BEL "vga1/cnt_Y_6" BEL "vga1/cnt_Y_5" BEL "vga1/cnt_Y_4" BEL
+        "vga1/cnt_Y_3" BEL "vga1/cnt_Y_2" BEL "vga1/cnt_Y_1" BEL
+        "vga1/cnt_Y_0" BEL "vga1/cnt_X_10" BEL "vga1/cnt_X_9" BEL
+        "vga1/cnt_X_8" BEL "vga1/cnt_X_7" BEL "vga1/cnt_X_6" BEL
+        "vga1/cnt_X_5" BEL "vga1/cnt_X_4" BEL "vga1/cnt_X_3" BEL
+        "vga1/cnt_X_2" BEL "vga1/cnt_X_1" BEL "vga1/cnt_X_0" BEL
+        "siggen1/pixels_5" BEL "siggen1/pixels_4" BEL "siggen1/pixels_3" BEL
+        "siggen1/pixels_2" BEL "siggen1/pixels_1" BEL "siggen1/pixels_0" BEL
+        "clk_BUFGP/BUFG.GCLKMUX" BEL "clk_BUFGP/BUFG";
+SCHEMATIC END;
+

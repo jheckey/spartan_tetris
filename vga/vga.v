@@ -1,15 +1,3 @@
-// Counter max value in 50MHz clocks from 0
-`define VGA_TSYNC_H     1600
-`define VGA_TDISP_H     1504
-`define VGA_TPULSE_H    192
-`define VGA_TFP_H       224
-//`define VGA_TBP_H       1600
-// In lines
-`define VGA_TSYNC_V     521
-`define VGA_TDISP_V     492
-`define VGA_TPULSE_V    2
-`define VGA_TFP_V       12
-//`define VGA_TBP_V       521
 
 module vga (
     input   wire        clk,        // 50MHz
@@ -25,6 +13,18 @@ module vga (
     output  reg         vga_G,
     output  reg         vga_B
 );
+
+// In clocks (2*pixel clocks)
+localparam VGA_TSYNC_H  = 1600;
+localparam VGA_TDISP_H  = 1568;
+localparam VGA_TPULSE_H	= 192;
+localparam VGA_TFP_H		= 224;
+
+// In lines
+localparam VGA_TSYNC_V  = 521;
+localparam VGA_TDISP_V  = 492;
+localparam VGA_TPULSE_V	= 2;
+localparam VGA_TFP_V		= 12;
 
 reg  [47:0] buffer;
 
@@ -69,22 +69,22 @@ always @* begin
     cnt_Y_n     = cnt_Y;
 
     // Sync pulses
-    vga_HS_n = ( cnt_X < `VGA_TPULSE_H ) ? 1'b0 : 1'b1;   // High while active, low pulse
-    vga_VS_n = ( cnt_Y < `VGA_TPULSE_H ) ? 1'b0 : 1'b1;   // High while active, low pulse
+    vga_HS_n = ( cnt_X < VGA_TPULSE_H ) ? 1'b0 : 1'b1;   // High while active, low pulse
+    vga_VS_n = ( cnt_Y < VGA_TPULSE_H ) ? 1'b0 : 1'b1;   // High while active, low pulse
 
     // inc counters, wrap at the end (*2 because of 50MHz clock)
-    if ( cnt_X < `VGA_TSYNC_H ) begin
+    if ( cnt_X < VGA_TSYNC_H ) begin
         cnt_X_n = cnt_X + 10'd1;
     end
     else begin
         cnt_X_n = 10'd0;
         // Increment at end of line
-        cnt_Y_n = ( cnt_Y < `VGA_TSYNC_V ) ? cnt_Y + 10'd1 : 10'd0;
+        cnt_Y_n = ( cnt_Y < VGA_TSYNC_V ) ? cnt_Y + 10'd1 : 10'd0;
     end
 
     // Display active between Tfp and Tdisp
-    if ( cnt_X >= `VGA_TFP_H && cnt_X < `VGA_TDISP_H && 
-         cnt_Y >= `VGA_TFP_V && cnt_Y < `VGA_TDISP_V ) begin
+    if ( cnt_X >= VGA_TFP_H && cnt_X < VGA_TDISP_H && 
+         cnt_Y >= VGA_TFP_V && cnt_Y < VGA_TDISP_V ) begin
         vga_R_n = buffer[2];
         vga_G_n = buffer[1];
         vga_B_n = buffer[0];
@@ -100,11 +100,12 @@ always @* begin
     // -- Do this even if not in the display area because the buffer will not
     // -- be used and we will not drop the first 16 pixels in a line due to
     // -- checking only in the display area
-    if ( cnt_X[5:0] == 5'h3F ) begin
+    if ( cnt_X[4:0] == 5'h1F ) begin
         buffer_n = pixels;
     end
-    else if ( cnt_X >= `VGA_TFP_H && cnt_X < `VGA_TDISP_H && 
-              cnt_Y >= `VGA_TFP_V && cnt_Y < `VGA_TDISP_V ) begin
+    else if ( cnt_X >= VGA_TFP_H && cnt_X < VGA_TDISP_H && 
+              cnt_Y >= VGA_TFP_V && cnt_Y < VGA_TDISP_V &&
+				  cnt_X[0] == 1'b1) begin
         buffer_n = buffer >> 3; // shift out displayed pixels
     end
     else begin
