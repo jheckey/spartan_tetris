@@ -1,0 +1,243 @@
+1-mark-time
+2-target-exec-status
+3-target-exec-status
+4-target-exec-status
+5-get-values 0 0 752 0 1 760 
+6-get-values 0 0 928 0 1 936 
+7-get-values 0 0 1104 0 1 1112 
+8-get-values 0 0 1280 0 1 1288 
+9-get-values 0 0 1456 0 1 1464 
+10-get-values 0 0 1632 0 8 1640 
+11-get-values 0 0 5728 0 32 5744 
+12-get-values 0 0 5912 0 1 5920 
+13-get-values 0 0 6088 0 1 6096 
+14-get-values 0 0 1808 0 48 1824 
+15-get-values 0 0 1992 0 11 2000 
+16-get-values 0 0 2168 0 10 2176 
+17-get-values 0 0 6264 0 1 6272 
+18-get-values 0 0 6440 0 1 6448 
+19-ntrace-select -n 0 -on
+20-ntrace-select -n 1 -on
+21-ntrace-select -n 2 -on
+22-ntrace-select -n 3 -on
+23-ntrace-select -n 4 -on
+24-ntrace-select -n 57 -on
+25-ntrace-select -n 60 -on
+26-ntrace-select -n 9 -on
+27-ntrace-select -n 10 -on
+28-ntrace-select -n 11 -on
+29-ntrace-select -n 82 -on
+30-ntrace-select -n 81 -on
+31-ntrace-select -n 12 -on
+32-ntrace-select -n 13 -on
+33-ntrace-select -n 0 -on
+34-ntrace-select -n 1 -on
+35-ntrace-select -n 2 -on
+36-ntrace-select -n 3 -on
+37-ntrace-select -n 4 -on
+38-ntrace-select -n 57 -on
+39-ntrace-select -n 60 -on
+40-ntrace-select -n 9 -on
+41-ntrace-select -n 10 -on
+42-ntrace-select -n 11 -on
+43-ntrace-select -n 82 -on
+44-ntrace-select -n 81 -on
+45-ntrace-select -n 12 -on
+46-ntrace-select -n 13 -on
+47-target-exec-status
+48-target-exec-status
+49-exec-continue -time 5000000000
+50-mark-time
+51-target-exec-status
+52-target-exec-status
+53-mark-time
+54-target-exec-status
+55-target-exec-status
+56-mark-time
+57-target-exec-status
+58-target-exec-status
+59-mark-time
+60-target-exec-status
+61-target-exec-status
+62-mark-time
+63-target-exec-status
+64-target-exec-status
+65-mark-time
+66-target-exec-status
+67-target-exec-status
+68-mark-time
+69-target-exec-status
+70-target-exec-status
+71-mark-time
+72-target-exec-status
+73-target-exec-status
+74-mark-time
+75-target-exec-status
+76-target-exec-status
+77-mark-time
+78-target-exec-status
+79-get-values 0 0 752 0 1 760 
+80-get-values 0 0 928 0 1 936 
+81-get-values 0 0 1104 0 1 1112 
+82-get-values 0 0 1280 0 1 1288 
+83-get-values 0 0 1456 0 1 1464 
+84-get-values 0 0 1632 0 8 1640 
+85-get-values 0 0 5728 0 32 5744 
+86-get-values 0 0 5912 0 1 5920 
+87-get-values 0 0 6088 0 1 6096 
+88-get-values 0 0 1808 0 48 1824 
+89-get-values 0 0 1992 0 11 2000 
+90-get-values 0 0 2168 0 10 2176 
+91-get-values 0 0 6264 0 1 6272 
+92-get-values 0 0 6440 0 1 6448 
+93-target-exec-status
+94-target-exec-status
+95-target-exec-status
+96-target-exec-status
+97-exec-continue -time 50000000
+98-mark-time
+99-target-exec-status
+100-target-exec-status
+101-mark-time
+102-target-exec-status
+103-get-values 0 0 752 0 1 760 
+104-get-values 0 0 928 0 1 936 
+105-get-values 0 0 1104 0 1 1112 
+106-get-values 0 0 1280 0 1 1288 
+107-get-values 0 0 1456 0 1 1464 
+108-get-values 0 0 1632 0 8 1640 
+109-get-values 0 0 5728 0 32 5744 
+110-get-values 0 0 5912 0 1 5920 
+111-get-values 0 0 6088 0 1 6096 
+112-get-values 0 0 1808 0 48 1824 
+113-get-values 0 0 1992 0 11 2000 
+114-get-values 0 0 2168 0 10 2176 
+115-get-values 0 0 6264 0 1 6272 
+116-get-values 0 0 6440 0 1 6448 
+117-target-exec-status
+118-target-exec-status
+119-target-exec-status
+120-target-exec-status
+121-exec-continue -time 50000000000
+122-mark-time
+123-target-exec-status
+124-target-exec-status
+125-mark-time
+126-target-exec-status
+127-target-exec-status
+128-mark-time
+129-target-exec-status
+130-target-exec-status
+131-mark-time
+132-target-exec-status
+133-target-exec-status
+134-mark-time
+135-target-exec-status
+136-target-exec-status
+137-mark-time
+138-target-exec-status
+139-target-exec-status
+140-mark-time
+141-target-exec-status
+142-target-exec-status
+143-mark-time
+144-target-exec-status
+145-target-exec-status
+146-mark-time
+147-target-exec-status
+148-target-exec-status
+149-mark-time
+150-target-exec-status
+151-target-exec-status
+152-mark-time
+153-target-exec-status
+154-target-exec-status
+155-mark-time
+156-target-exec-status
+157-target-exec-status
+158-mark-time
+159-target-exec-status
+160-target-exec-status
+161-mark-time
+162-target-exec-status
+163-target-exec-status
+164-mark-time
+165-target-exec-status
+166-target-exec-status
+167-mark-time
+168-target-exec-status
+169-target-exec-status
+170-mark-time
+171-target-exec-status
+172-target-exec-status
+173-mark-time
+174-target-exec-status
+175-target-exec-status
+176-mark-time
+177-target-exec-status
+178-target-exec-status
+179-mark-time
+180-target-exec-status
+181-target-exec-status
+182-mark-time
+183-target-exec-status
+184-target-exec-status
+185-mark-time
+186-target-exec-status
+187-target-exec-status
+188-mark-time
+189-target-exec-status
+190-target-exec-status
+191-mark-time
+192-target-exec-status
+193-target-exec-status
+194-mark-time
+195-target-exec-status
+196-target-exec-status
+197-mark-time
+198-target-exec-status
+199-target-exec-status
+200-mark-time
+201-target-exec-status
+202-target-exec-status
+203-mark-time
+204-target-exec-status
+205-target-exec-status
+206-exec-interrupt
+207-mark-time
+208-target-exec-status
+209-target-exec-status
+210-mark-time
+211-target-exec-status
+212-get-values 0 0 6264 0 1 6272 
+213-get-values 0 0 6440 0 1 6448 
+214-get-values 0 0 2344 0 1 2352 
+215-get-values 0 0 2520 0 1 2528 
+216-get-values 0 0 1808 0 48 1824 
+217-get-values 0 0 6616 0 11 6624 
+218-get-values 0 0 6792 0 10 6800 
+219-get-values 0 0 6968 0 1 6976 
+220-get-values 0 0 7144 0 1 7152 
+221-get-values 0 0 7320 0 1 7328 
+222-get-values 0 0 7496 0 1 7504 
+223-get-values 0 0 7672 0 1 7680 
+224-get-values 0 0 7848 0 48 7864 
+225-get-values 0 0 8032 0 11 8040 
+226-get-values 0 0 8208 0 10 8216 
+227-get-values 0 0 8384 0 48 8400 
+228-get-values 0 0 8568 0 1 8576 
+229-get-values 0 0 8744 0 1 8752 
+230-get-values 0 0 8920 0 1 8928 
+231-get-values 0 0 9096 0 1 9104 
+232-get-values 0 0 9272 0 1 9280 
+233-get-values 2 0 15152 0 32 0 
+234-get-values 2 0 15160 0 32 0 
+235-get-values 2 0 15168 0 32 0 
+236-get-values 2 0 15176 0 32 0 
+237-get-values 2 0 15184 0 32 0 
+238-get-values 2 0 15192 0 32 0 
+239-get-values 2 0 15200 0 32 0 
+240-get-values 2 0 15208 0 32 0 
+241-target-exec-status
+242-target-exec-status
+243-gdb-exit

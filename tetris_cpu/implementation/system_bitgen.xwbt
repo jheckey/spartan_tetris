@@ -1,0 +1,7 @@
+INFILE=/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/system.ncd
+OUTFILE=/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/system.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation
+LICENSE=ISE
+USER_INFO=174131348_174131349_210570246_460

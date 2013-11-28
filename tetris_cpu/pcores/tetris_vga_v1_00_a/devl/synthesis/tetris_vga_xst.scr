@@ -1,0 +1,12 @@
+run
+-opt_level 2
+-opt_mode speed
+-ifmt mixed
+-ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_00_a/devl/synthesis/tetris_vga_xst.prj"
+-top tetris_vga
+-p virtex6
+-ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_00_a/devl/synthesis/tetris_vga_xst.ngc"
+-iobuf NO
+-rtlview YES
+-hierarchy_separator /
+-work_lib tetris_vga_v1_00_a

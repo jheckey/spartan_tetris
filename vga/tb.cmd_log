@@ -171,3 +171,441 @@ map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.
 par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
 bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga.ucf -p xc3s500e-fg320-4 tb.ngc tb.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tb_map.ncd tb.ngd tb.pcf 
+par -w -intstyle ise -ol high -t 1 tb_map.ncd tb.ncd tb.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml tb.twx tb.ncd -o tb.twr tb.pcf -ucf vga.ucf 
+bitgen -intstyle ise -f tb.ut tb.ncd 

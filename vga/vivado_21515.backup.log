@@ -1,0 +1,153 @@
+#-----------------------------------------------------------
+# Vivado v2012.3 (64-bit)
+# Build 209282 by xbuild on Thu Oct 18 20:46:04 MDT 2012
+# Start of session at: Sat Nov 23 15:57:01 2013
+# Process ID: 19344
+# Log file: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vivado.log
+# Journal file: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Common 17-81] Feature available: Synthesis
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+create_project vga /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2715.211 ; gain = 15.020
+import_xise /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.xise
+CRITICAL WARNING: [Project 1-21] Could not resolve ISE project part 'xc3s500e-4-fg320'. Part replaced with default 'xc7vx485tffg1157-1'.
+CRITICAL WARNING: [Designutils 20-1001] Failed to set Target Constraint File Type to UCF for fileset constrs_1. UCF is not supported in Vivado.
+CRITICAL WARNING: [Designutils 20-1001] Failed to set Target Constraint File Type to UCF for fileset constrs_1. UCF is not supported in Vivado.
+INFO: [Project 1-195] The current run uses Vivado Strategies; hence no ISE run options will be mapped to this run during the import operation.
+                           Please see the summary report file for details.
+
+WARNING: [Project 1-99] The behavioral simulation 'top' could not be imported. Please set it manually on the simulation fileset.
+INFO: [Project 1-52] Generating summary report file '/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/import_ise_summary.txt'...
+INFO: [Project 1-88] Report file generated.
+
+WARNING: [Project 1-91] Some exceptions were encountered while importing contents of the ISE project file. Please review the "EXCEPTIONS" section in the summary log file /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/import_ise_summary.txt at line 44 for details.
+
+INFO: [Coretcl 2-54] ISE import finished.
+import_xise: Time (s): cpu = 00:00:13 ; elapsed = 00:00:10 . Memory (MB): peak = 2718.215 ; gain = 3.004
+INFO: [Vivado 12-2251] Check running snapshot 'unknown_behav'
+INFO: [Vivado 12-2251] Check running snapshot 'unknown_behav'
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'unknown_behav'
+INFO: [Runs 36-130] *** Running xelab
+    with args "-m64 --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot unknown_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.sim/sim_1/behav/unknown.prj   work.unknown   work.glbl"
+/opt/Xilinx/Vivado/2012.3/bin/xelab: 33: /opt/Xilinx/Vivado/2012.3/bin/setupEnv.sh: Bad substitution
+Vivado Simulator 2012.3
+Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/14.3/ISE_DS/PlanAhead/bin/unwrapped/lnx64.o/xelab --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot unknown_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.sim/sim_1/behav/unknown.prj work.unknown work.glbl 
+Multi-threading in on. Using 11 slave threads
+Determining compilation order of HDL files
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+ERROR: [XSIM 43-3225] Can not find design unit work.unknown in library work located at xsim.dir/work 
+ERROR: [Runs 36-25] xelab application returned error(s). Please see '/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.sim/sim_1/behav/xelab.log' file for more details.
+ERROR: [Common 17-69] Command failed: Failed to compile the design!
+launch_runs synth_1
+[Sat Nov 23 15:59:24 2013] Launched synth_1...
+Run output will be captured here: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.runs/synth_1/runme.log
+launch_runs impl_1
+[Sat Nov 23 16:00:40 2013] Launched impl_1...
+Run output will be captured here: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.runs/impl_1/runme.log
+set_property runtime {10000 ns} [get_filesets sim_1]
+INFO: [Vivado 12-2251] Check running snapshot 'unknown_behav'
+INFO: [Vivado 12-2251] Check running snapshot 'unknown_behav'
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'unknown_behav'
+INFO: [Runs 36-130] *** Running xelab
+    with args "-m64 --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot unknown_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.sim/sim_1/behav/unknown.prj   work.unknown   work.glbl"
+/opt/Xilinx/Vivado/2012.3/bin/xelab: 33: /opt/Xilinx/Vivado/2012.3/bin/setupEnv.sh: Bad substitution
+Vivado Simulator 2012.3
+Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/14.3/ISE_DS/PlanAhead/bin/unwrapped/lnx64.o/xelab --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot unknown_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.sim/sim_1/behav/unknown.prj work.unknown work.glbl 
+Multi-threading in on. Using 11 slave threads
+Determining compilation order of HDL files
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+ERROR: [XSIM 43-3225] Can not find design unit work.unknown in library work located at xsim.dir/work 
+ERROR: [Runs 36-25] xelab application returned error(s). Please see '/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.sim/sim_1/behav/xelab.log' file for more details.
+ERROR: [Common 17-69] Command failed: Failed to compile the design!
+set_property top tb [get_filesets sim_1]
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+INFO: [Runs 36-130] *** Running xelab
+    with args "-m64 --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.sim/sim_1/behav/tb.prj   work.tb   work.glbl"
+/opt/Xilinx/Vivado/2012.3/bin/xelab: 33: /opt/Xilinx/Vivado/2012.3/bin/setupEnv.sh: Bad substitution
+Vivado Simulator 2012.3
+Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/14.3/ISE_DS/PlanAhead/bin/unwrapped/lnx64.o/xelab --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.sim/sim_1/behav/tb.prj work.tb work.glbl 
+Multi-threading in on. Using 11 slave threads
+Determining compilation order of HDL files
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING: [VRFC 10-1239] port tile is not connected to this instance [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v:36]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.vga
+Compiling module work.siggen
+Compiling module work.tb
+Compiling module work.glbl
+Built simulation snapshot tb_behav
+INFO: [Runs 36-26] xelab completed.
+INFO: [Vivado 12-1390] *** Running xsim
+    with args "tb_behav -tclbatch {tb.tcl} -log {tb_behav.log}"
+Vivado Simulator 2012.3
+Time resolution is 1 ps
+INFO: [Vivado 12-1395] XSim completed. Design snapshot 'tb_behav' loaded.
+launch_xsim: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 2764.965 ; gain = 24.078
+open_run impl_1
+Loading clock regions from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/virtex7/xc7vx485t/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/virtex7/xc7vx485t/ClockBuffers.xml
+Loading clock placement rules from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/ClockPlacerRules.xml
+Loading package pin functions from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/PinFunctions.xml...
+Loading package from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/virtex7/xc7vx485t/ffg1157/Package.xml
+Loading io standards from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/./parts/xilinx/virtex7/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/ConfigModes.xml
+Loading list of drcs for the architecture : /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/./parts/xilinx/virtex7/drc.xml
+Parsing XDC File [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/.Xil/Vivado-19344-everest/dcp/tb_routed.xdc]
+Finished Parsing XDC File [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/.Xil/Vivado-19344-everest/dcp/tb_routed.xdc]
+Reading XDEF placement.
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3223.512 ; gain = 0.000
+Restoring placement.
+Restored 46 out of 46 XDEF sites from archive | CPU: 0.110000 secs | Memory: 2.037704 MB |
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 45 instances were transformed.
+  FD => FDCE: 2 instances
+  FDR => FDRE: 43 instances
+
+Phase 0 | Netlist Checksum: de872154
+open_run: Time (s): cpu = 00:00:24 ; elapsed = 00:00:17 . Memory (MB): peak = 3400.734 ; gain = 635.770
+reset_run synth_1
+launch_runs synth_1
+[Sat Nov 23 16:05:32 2013] Launched synth_1...
+Run output will be captured here: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Sat Nov 23 16:07:25 2013] Launched synth_1...
+Run output will be captured here: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Sat Nov 23 16:11:00 2013] Launched synth_1...
+Run output will be captured here: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.runs/synth_1/runme.log
+set_property UNIT_UNDER_TEST {} [get_filesets sim_1]
+set_property flow {XST 14} [get_runs synth_1]
+set_property strategy {XST Defaults} [get_runs synth_1]
+set_property strategy QuickEffort [get_runs impl_1]
+ERROR: [#UNDEF] *** Exception: java.lang.ClassCastException: ui.h.e.d cannot be cast to ui.h.e.a (See /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vivado_pid19344.debug)
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 23 16:16:56 2013...

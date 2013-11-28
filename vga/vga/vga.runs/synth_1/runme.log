@@ -1,0 +1,208 @@
+
+*** Running vivado
+    with args -log tb.rds -m64 -mode batch -messageDb vivado.pb -source tb.tcl
+
+
+****** Vivado v2012.3 (64-bit)
+  **** Build 209282 by xbuild on Thu Oct 18 20:46:04 MDT 2012
+    ** Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Common 17-81] Feature available: Synthesis
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+source tb.tcl
+# create_project -in_memory
+# set_property part xc7vx485tffg1157-1 [current_project]
+# set_param project.compositeFile.enableAutoGeneration 0
+# read_verilog {
+#   /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v
+#   /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v
+#   /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v
+# }
+# set_property webtalk.parent_dir /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.data/wt [current_project]
+# set_property parent.project_dir /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga [current_project]
+# synth_design -top tb -part xc7vx485tffg1157-1
+
+Starting synthesis...
+
+INFO: [Common 17-347] Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+Using Xilinx IP in: /opt/Xilinx/14.3/ISE_DS/ISE/coregen/ip/xilinx/primary/com/xilinx/ip
+starting synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 171.988 ; gain = 60.723
+INFO: [Synth 8-638] synthesizing module 'tb' [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v:2]
+INFO: [Synth 8-638] synthesizing module 'vga' [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v:2]
+INFO: [Synth 8-256] done synthesizing module 'vga' (1#3) [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v:2]
+INFO: [Synth 8-638] synthesizing module 'siggen' [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v:2]
+INFO: [Synth 8-256] done synthesizing module 'siggen' (2#3) [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v:2]
+WARNING: [Synth 8-85] always block has no event control specified [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v:53]
+INFO: [Synth 8-3845] merging register 'clear_reg' into 'enable_reg' in module 'tb' [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v:45]
+INFO: [Synth 8-256] done synthesizing module 'tb' (3#3) [/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v:2]
+finished synthesize : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 462.340 ; gain = 351.074
+
+---------------------------------------------------------------------------------
+Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx485tffg1157-1
+Loading clock regions from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/virtex7/xc7vx485t/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/virtex7/xc7vx485t/ClockBuffers.xml
+Loading clock placement rules from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/ClockPlacerRules.xml
+Loading package pin functions from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/PinFunctions.xml...
+Loading package from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/virtex7/xc7vx485t/ffg1157/Package.xml
+Loading io standards from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/./parts/xilinx/virtex7/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/virtex7/ConfigModes.xml
+Loading list of drcs for the architecture : /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/./parts/xilinx/virtex7/drc.xml
+Part Resources:
+DSPs: 2800 (col length:140)
+BRAMs: 2060 (col length: RAMB8 0 RAMB16 0 RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 610.488 ; gain = 499.223
+---------------------------------------------------------------------------------
+
+No constraint files found.
+
+---------------------------------------------------------------------------------
+RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 2     
++---Registers : 
+	               48 Bit    Registers := 2     
+	               32 Bit    Registers := 1     
+	               11 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[0] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[1] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[2] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[3] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[4] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[5] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[6] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[7] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[8] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[9] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[10] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[11] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[12] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[13] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[14] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[15] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[16] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[17] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[18] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[19] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[20] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[21] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[22] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[23] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[24] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[25] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[26] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[27] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[28] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[29] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[30] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[31] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[32] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[33] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[34] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[35] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[36] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[37] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[38] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[39] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[40] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[41] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[42] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[43] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[44] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[45] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[46] ) is unused and will be removed from module reg__8.
+INFO: [Synth 8-3332] Sequential element (\siggen1/pixels_reg[47] ) is unused and will be removed from module reg__8.
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 611.520 ; gain = 500.254
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (enable_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\vga1/buffer_reg[45] )
+INFO: [Synth 8-3332] Sequential element (\vga1/vga_B_reg ) is unused and will be removed from module tb.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 50 times and further instances of the messages will be disabled. Use the Tcl command set_msg_limit to change the current settings.
+INFO: [Synth 8-3332] Sequential element (\vga1/buffer_reg[0] ) is unused and will be removed from module tb.
+No constraint files found.
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 633.574 ; gain = 522.309
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 633.574 ; gain = 522.309
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 633.574 ; gain = 522.309
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Final Netlist Cleanup
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+/opt/Xilinx/Vivado/2012.3/bin/rdiArgs.sh: line 95: 21415 Segmentation fault      (core dumped) "$RDI_PROG" "$@"

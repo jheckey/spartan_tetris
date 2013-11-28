@@ -1,0 +1,34 @@
+#-----------------------------------------------------------
+# Vivado v2012.3 (64-bit)
+# Build 209282 by xbuild on Thu Oct 18 20:46:04 MDT 2012
+# Start of session at: Sat Nov 23 15:57:01 2013
+# Process ID: 19344
+# Log file: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vivado.log
+# Journal file: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vivado.jou
+#-----------------------------------------------------------
+start_gui
+create_project vga /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga
+import_xise /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.xise
+launch_xsim -simset sim_1 -mode behavioral
+launch_runs synth_1
+wait_on_run synth_1
+launch_runs impl_1
+wait_on_run impl_1
+set_property runtime {10000 ns} [get_filesets sim_1]
+launch_xsim -simset sim_1 -mode behavioral
+set_property top tb [get_filesets sim_1]
+launch_xsim -simset sim_1 -mode behavioral
+open_run impl_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+set_property UNIT_UNDER_TEST {} [get_filesets sim_1]
+set_property flow {XST 14} [get_runs synth_1]
+set_property strategy {XST Defaults} [get_runs synth_1]
+set_property strategy QuickEffort [get_runs impl_1]

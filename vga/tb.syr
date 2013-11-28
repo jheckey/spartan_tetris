@@ -133,7 +133,7 @@ Analyzing hierarchy for module <vga> in library <work> with parameters.
 	VGA_TSYNC_V = "00000000000000000000001000001001"
 
 Analyzing hierarchy for module <siggen> in library <work> with parameters.
-	XOFFSET = "00000000000000000000000000001000"
+	XOFFSET = "00000000000000000000000011011101"
 	YOFFSET = "00000000000000000000000000001100"
 
 
@@ -155,7 +155,7 @@ Analyzing module <vga> in library <work>.
 Module <vga> is correct for synthesis.
  
 Analyzing module <siggen> in library <work>.
-	XOFFSET = 32'sb00000000000000000000000000001000
+	XOFFSET = 32'sb00000000000000000000000011011101
 	YOFFSET = 32'sb00000000000000000000000000001100
 Module <siggen> is correct for synthesis.
  
@@ -165,28 +165,30 @@ Module <siggen> is correct for synthesis.
 =========================================================================
 
 Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <enable> in unit <tb> has a constant value of 1 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <clear> in unit <tb> has a constant value of 0 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <vga>.
     Related source file is "vga.v".
     Found 1-bit register for signal <vga_HS>.
-    Found 11-bit register for signal <cnt_X>.
-    Found 10-bit register for signal <cnt_Y>.
     Found 1-bit register for signal <vga_VS>.
     Found 1-bit register for signal <vga_B>.
     Found 1-bit register for signal <vga_G>.
+    Found 11-bit register for signal <hcnt>.
     Found 1-bit register for signal <vga_R>.
+    Found 10-bit register for signal <vcnt>.
     Found 48-bit register for signal <buffer>.
     Found 48-bit 4-to-1 multiplexer for signal <buffer_n>.
-    Found 11-bit adder for signal <cnt_X_n$addsub0000> created at line 77.
-    Found 12-bit comparator less for signal <cnt_X_n$cmp_lt0000> created at line 76.
-    Found 10-bit adder for signal <cnt_Y_n$addsub0000> created at line 82.
-    Found 11-bit comparator less for signal <cnt_Y_n$cmp_lt0000> created at line 82.
-    Found 11-bit comparator less for signal <vga_HS_n$cmp_lt0000> created at line 72.
-    Found 11-bit comparator greatequal for signal <vga_R_n$cmp_ge0000> created at line 86.
-    Found 10-bit comparator greatequal for signal <vga_R_n$cmp_ge0001> created at line 86.
-    Found 12-bit comparator less for signal <vga_R_n$cmp_lt0000> created at line 86.
-    Found 10-bit comparator less for signal <vga_R_n$cmp_lt0001> created at line 86.
-    Found 10-bit comparator less for signal <vga_VS_n$cmp_lt0000> created at line 73.
+    Found 11-bit adder for signal <hcnt_n$addsub0000> created at line 89.
+    Found 12-bit comparator less for signal <hcnt_n$cmp_lt0000> created at line 88.
+    Found 10-bit adder for signal <vcnt_n$addsub0000> created at line 94.
+    Found 11-bit comparator less for signal <vcnt_n$cmp_lt0000> created at line 94.
+    Found 11-bit comparator less for signal <vga_HS_n$cmp_lt0000> created at line 84.
+    Found 11-bit comparator greatequal for signal <vga_R_n$cmp_ge0000> created at line 98.
+    Found 10-bit comparator greatequal for signal <vga_R_n$cmp_ge0001> created at line 98.
+    Found 12-bit comparator less for signal <vga_R_n$cmp_lt0000> created at line 98.
+    Found 10-bit comparator less for signal <vga_R_n$cmp_lt0001> created at line 98.
+    Found 10-bit comparator less for signal <vga_VS_n$cmp_lt0000> created at line 85.
     Summary:
 	inferred  74 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
@@ -197,13 +199,13 @@ Unit <vga> synthesized.
 
 Synthesizing Unit <siggen>.
     Related source file is "siggen.v".
-WARNING:Xst:647 - Input <cnt_X<4:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:646 - Signal <tile_y<5:3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <tile_x<5:3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <offset_y<3:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <tile_y<0:2>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <tile_x<0:2>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <offset_y<6:9>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <offset_x<6:10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 48-bit register for signal <pixels>.
+    Found 11-bit subtractor for signal <offset_x>.
     Found 10-bit subtractor for signal <offset_y>.
-    Found 6-bit subtractor for signal <tile_x>.
     Summary:
 	inferred  48 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
@@ -212,6 +214,9 @@ Unit <siggen> synthesized.
 
 Synthesizing Unit <tb>.
     Related source file is "tb.v".
+    Found 32-bit up counter for signal <counter>.
+    Summary:
+	inferred   1 Counter(s).
 Unit <tb> synthesized.
 
 
@@ -223,7 +228,9 @@ Macro Statistics
  10-bit adder                                          : 1
  10-bit subtractor                                     : 1
  11-bit adder                                          : 1
- 6-bit subtractor                                      : 1
+ 11-bit subtractor                                     : 1
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
 # Registers                                            : 9
  1-bit register                                        : 5
  10-bit register                                       : 1
@@ -244,12 +251,12 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-INFO:Xst:2261 - The FF/Latch <pixels_1> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_7> <pixels_13> <pixels_19> <pixels_25> <pixels_31> <pixels_37> <pixels_43> 
-INFO:Xst:2261 - The FF/Latch <pixels_2> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_8> <pixels_14> <pixels_20> <pixels_26> <pixels_32> <pixels_38> <pixels_44> 
-INFO:Xst:2261 - The FF/Latch <pixels_3> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_9> <pixels_15> <pixels_21> <pixels_27> <pixels_33> <pixels_39> <pixels_45> 
-INFO:Xst:2261 - The FF/Latch <pixels_4> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_10> <pixels_16> <pixels_22> <pixels_28> <pixels_34> <pixels_40> <pixels_46> 
-INFO:Xst:2261 - The FF/Latch <pixels_5> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_11> <pixels_17> <pixels_23> <pixels_29> <pixels_35> <pixels_41> <pixels_47> 
-INFO:Xst:2261 - The FF/Latch <pixels_0> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_6> <pixels_12> <pixels_18> <pixels_24> <pixels_30> <pixels_36> <pixels_42> 
+INFO:Xst:2261 - The FF/Latch <pixels_44> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_38> <pixels_32> <pixels_26> <pixels_20> <pixels_14> <pixels_8> <pixels_2> 
+INFO:Xst:2261 - The FF/Latch <pixels_45> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_39> <pixels_33> <pixels_27> <pixels_21> <pixels_15> <pixels_9> <pixels_3> 
+INFO:Xst:2261 - The FF/Latch <pixels_46> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_40> <pixels_34> <pixels_28> <pixels_22> <pixels_16> <pixels_10> <pixels_4> 
+INFO:Xst:2261 - The FF/Latch <pixels_42> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_36> <pixels_30> <pixels_24> <pixels_18> <pixels_12> <pixels_6> <pixels_0> 
+INFO:Xst:2261 - The FF/Latch <pixels_47> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_41> <pixels_35> <pixels_29> <pixels_23> <pixels_17> <pixels_11> <pixels_5> 
+INFO:Xst:2261 - The FF/Latch <pixels_43> in Unit <siggen1> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_37> <pixels_31> <pixels_25> <pixels_19> <pixels_13> <pixels_7> <pixels_1> 
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -258,8 +265,10 @@ Macro Statistics
 # Adders/Subtractors                                   : 4
  10-bit adder                                          : 1
  11-bit adder                                          : 1
- 3-bit subtractor                                      : 1
  7-bit subtractor                                      : 1
+ 8-bit subtractor                                      : 1
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
 # Registers                                            : 122
  Flip-Flops                                            : 122
 # Comparators                                          : 8
@@ -276,12 +285,12 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <pixels_1> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_7> <pixels_13> <pixels_19> <pixels_25> <pixels_31> <pixels_37> <pixels_43> 
-INFO:Xst:2261 - The FF/Latch <pixels_2> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_8> <pixels_14> <pixels_20> <pixels_26> <pixels_32> <pixels_38> <pixels_44> 
-INFO:Xst:2261 - The FF/Latch <pixels_3> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_9> <pixels_15> <pixels_21> <pixels_27> <pixels_33> <pixels_39> <pixels_45> 
-INFO:Xst:2261 - The FF/Latch <pixels_4> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_10> <pixels_16> <pixels_22> <pixels_28> <pixels_34> <pixels_40> <pixels_46> 
-INFO:Xst:2261 - The FF/Latch <pixels_5> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_11> <pixels_17> <pixels_23> <pixels_29> <pixels_35> <pixels_41> <pixels_47> 
-INFO:Xst:2261 - The FF/Latch <pixels_0> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_6> <pixels_12> <pixels_18> <pixels_24> <pixels_30> <pixels_36> <pixels_42> 
+INFO:Xst:2261 - The FF/Latch <pixels_44> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_38> <pixels_32> <pixels_26> <pixels_20> <pixels_14> <pixels_8> <pixels_2> 
+INFO:Xst:2261 - The FF/Latch <pixels_45> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_39> <pixels_33> <pixels_27> <pixels_21> <pixels_15> <pixels_9> <pixels_3> 
+INFO:Xst:2261 - The FF/Latch <pixels_46> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_40> <pixels_34> <pixels_28> <pixels_22> <pixels_16> <pixels_10> <pixels_4> 
+INFO:Xst:2261 - The FF/Latch <pixels_42> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_36> <pixels_30> <pixels_24> <pixels_18> <pixels_12> <pixels_6> <pixels_0> 
+INFO:Xst:2261 - The FF/Latch <pixels_47> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_41> <pixels_35> <pixels_29> <pixels_23> <pixels_17> <pixels_11> <pixels_5> 
+INFO:Xst:2261 - The FF/Latch <pixels_43> in Unit <siggen> is equivalent to the following 7 FFs/Latches, which will be removed : <pixels_37> <pixels_31> <pixels_25> <pixels_19> <pixels_13> <pixels_7> <pixels_1> 
 
 Optimizing unit <tb> ...
 
@@ -299,8 +308,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 80
- Flip-Flops                                            : 80
+# Registers                                            : 112
+ Flip-Flops                                            : 112
 
 =========================================================================
 
@@ -326,31 +335,32 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 7
+# IOs                              : 15
 
 Cell Usage :
-# BELS                             : 258
+# BELS                             : 367
 #      GND                         : 1
-#      INV                         : 2
-#      LUT1                        : 19
-#      LUT2                        : 12
-#      LUT2_L                      : 5
-#      LUT3                        : 55
+#      INV                         : 3
+#      LUT1                        : 50
+#      LUT2                        : 9
+#      LUT2_D                      : 1
+#      LUT3                        : 54
 #      LUT3_D                      : 2
-#      LUT3_L                      : 44
-#      LUT4                        : 72
-#      LUT4_D                      : 4
-#      LUT4_L                      : 1
-#      MUXCY                       : 19
+#      LUT3_L                      : 48
+#      LUT4                        : 87
+#      LUT4_D                      : 5
+#      LUT4_L                      : 3
+#      MUXCY                       : 50
 #      VCC                         : 1
-#      XORCY                       : 21
-# FlipFlops/Latches                : 80
-#      FDC                         : 80
+#      XORCY                       : 53
+# FlipFlops/Latches                : 112
+#      FDR                         : 110
+#      FDRS                        : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 6
+# IO Buffers                       : 14
 #      IBUF                        : 1
-#      OBUF                        : 5
+#      OBUF                        : 13
 =========================================================================
 
 Device utilization summary:
@@ -358,11 +368,11 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      114  out of   4656     2%  
- Number of Slice Flip Flops:             80  out of   9312     0%  
- Number of 4 input LUTs:                216  out of   9312     2%  
- Number of IOs:                           7
- Number of bonded IOBs:                   7  out of    232     3%  
+ Number of Slices:                      138  out of   4656     2%  
+ Number of Slice Flip Flops:            112  out of   9312     1%  
+ Number of 4 input LUTs:                262  out of   9312     2%  
+ Number of IOs:                          15
+ Number of bonded IOBs:                  15  out of    232     6%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -386,24 +396,20 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 80    |
+clk                                | BUFGP                  | 112   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
------------------------------------+------------------------+-------+
-Control Signal                     | Buffer(FF name)        | Load  |
------------------------------------+------------------------+-------+
-rst                                | IBUF                   | 80    |
------------------------------------+------------------------+-------+
+No asynchronous control signals found in this design
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 6.719ns (Maximum Frequency: 148.832MHz)
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 4.283ns
+   Minimum period: 6.675ns (Maximum Frequency: 149.813MHz)
+   Minimum input arrival time before clock: 5.548ns
+   Maximum output required time after clock: 4.394ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -412,60 +418,80 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.719ns (frequency: 148.832MHz)
-  Total number of paths / destination ports: 2558 / 80
+  Clock period: 6.675ns (frequency: 149.813MHz)
+  Total number of paths / destination ports: 4134 / 146
 -------------------------------------------------------------------------
-Delay:               6.719ns (Levels of Logic = 4)
-  Source:            vga1/cnt_Y_3 (FF)
-  Destination:       vga1/vga_R (FF)
+Delay:               6.675ns (Levels of Logic = 4)
+  Source:            vga1/vcnt_7 (FF)
+  Destination:       vga1/buffer_0 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: vga1/cnt_Y_3 to vga1/vga_R
+  Data Path: vga1/vcnt_7 to vga1/buffer_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              8   0.591   0.932  vga1/cnt_Y_3 (vga1/cnt_Y_3)
+     FDR:C->Q              8   0.591   0.932  vga1/vcnt_7 (vga1/vcnt_7)
      LUT3:I0->O            1   0.704   0.424  vga1/buffer_n_and0000285 (vga1/buffer_n_and0000285)
-     LUT4:I3->O            3   0.704   0.535  vga1/buffer_n_and00002124_SW0 (N143)
-     LUT4_D:I3->O         16   0.704   1.113  vga1/buffer_n_and00002124 (vga1/N7)
-     LUT2:I1->O            1   0.704   0.000  vga1/vga_R_n1 (vga1/vga_R_n)
-     FDC:D                     0.308          vga1/vga_R
+     LUT4:I3->O            3   0.704   0.566  vga1/buffer_n_and00002124_SW0 (N143)
+     LUT4_D:I2->O         16   0.704   1.038  vga1/buffer_n_and00002124 (vga1/vga_R_n_and0000)
+     LUT4:I3->O            1   0.704   0.000  vga1/Mmux_buffer_n34 (vga1/buffer_n<25>)
+     FDR:D                     0.308          vga1/buffer_25
     ----------------------------------------
-    Total                      6.719ns (3.715ns logic, 3.004ns route)
-                                       (55.3% logic, 44.7% route)
+    Total                      6.675ns (3.715ns logic, 2.960ns route)
+                                       (55.7% logic, 44.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 112 / 112
+-------------------------------------------------------------------------
+Offset:              5.548ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       counter_31 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to counter_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            81   1.218   1.453  rst_IBUF (rst_IBUF)
+     LUT3:I0->O           32   0.704   1.262  counter_or0000166 (counter_or0000)
+     FDR:R                     0.911          counter_31
+    ----------------------------------------
+    Total                      5.548ns (2.833ns logic, 2.715ns route)
+                                       (51.1% logic, 48.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 5 / 5
+  Total number of paths / destination ports: 11 / 11
 -------------------------------------------------------------------------
-Offset:              4.283ns (Levels of Logic = 1)
-  Source:            vga1/vga_HS (FF)
-  Destination:       vga_HS (PAD)
+Offset:              4.394ns (Levels of Logic = 1)
+  Source:            counter_24 (FF)
+  Destination:       leds<2> (PAD)
   Source Clock:      clk rising
 
-  Data Path: vga1/vga_HS to vga_HS
+  Data Path: counter_24 to leds<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              1   0.591   0.420  vga1/vga_HS (vga1/vga_HS)
-     OBUF:I->O                 3.272          vga_HS_OBUF (vga_HS)
+     FDR:C->Q              3   0.591   0.531  counter_24 (counter_24)
+     OBUF:I->O                 3.272          leds_2_OBUF (leds<2>)
     ----------------------------------------
-    Total                      4.283ns (3.863ns logic, 0.420ns route)
-                                       (90.2% logic, 9.8% route)
+    Total                      4.394ns (3.863ns logic, 0.531ns route)
+                                       (87.9% logic, 12.1% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.15 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.30 secs
  
 --> 
 
 
-Total memory usage is 513816 kilobytes
+Total memory usage is 514464 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    4 (   0 filtered)
-Number of infos    :   12 (   0 filtered)
+Number of infos    :   14 (   0 filtered)
 

@@ -1,0 +1,1 @@
+--incremental --debug "typical" --O2 --relax --mt "auto" -L "work" -L "unisims_ver" -L "unimacro_ver" -L "xilinxcorelib_ver" -L "secureip" --snapshot "tb_behav" --prj "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga/vga.sim/sim_1/behav/tb.prj" "work.tb" "work.glbl" 

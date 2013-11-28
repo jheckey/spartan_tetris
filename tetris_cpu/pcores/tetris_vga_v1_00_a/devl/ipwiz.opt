@@ -1,0 +1,13 @@
+-batch 
+-create tetris_vga 
+-ver 1.00.a 
+-dir "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu" 
+-lang verilog 
+-bus plbv46 s 
+-rst 
+-isc 3 
+-intrn 1 6 
+-reg 58 
+-xps 
+-ise 
+-driver 

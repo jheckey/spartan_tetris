@@ -1,0 +1,320 @@
+#-----------------------------------------------------------
+# Vivado v2012.3 (64-bit)
+# Build 209282 by xbuild on Thu Oct 18 20:46:04 MDT 2012
+# Start of session at: Sat Nov 23 16:16:57 2013
+# Process ID: 21515
+# Log file: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vivado.log
+# Journal file: /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-81] Feature available: Implementation
+INFO: [Common 17-81] Feature available: Synthesis
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+create_project project_1 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1 -part xc7vx485tffg1157-1
+add_files -fileset sim_1 -norecurse {/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v}
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+INFO: [Runs 36-130] *** Running xelab
+    with args "-m64 --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj   work.tb   work.glbl"
+/opt/Xilinx/Vivado/2012.3/bin/xelab: 33: /opt/Xilinx/Vivado/2012.3/bin/setupEnv.sh: Bad substitution
+Vivado Simulator 2012.3
+Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/14.3/ISE_DS/PlanAhead/bin/unwrapped/lnx64.o/xelab --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj work.tb work.glbl 
+Multi-threading in on. Using 11 slave threads
+Determining compilation order of HDL files
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.vga
+Compiling module work.siggen
+Compiling module work.tb
+Compiling module work.glbl
+Built simulation snapshot tb_behav
+INFO: [Runs 36-26] xelab completed.
+INFO: [Vivado 12-1390] *** Running xsim
+    with args "tb_behav -tclbatch {tb.tcl} -log {tb_behav.log}"
+Vivado Simulator 2012.3
+Time resolution is 1 ps
+INFO: [Vivado 12-1395] XSim completed. Design snapshot 'tb_behav' loaded.
+set_property runtime 10000ns [get_filesets sim_1]
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+ERROR: [Common 17-344] 'run' was cancelled
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10 us
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 100 ns
+add_files -fileset sim_1 -norecurse {/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v}
+set_property top tb [current_fileset]
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+ERROR: [Vivado 12-1501] Simulator for snapshot 'tb_behav' is already running. To launch simulation, change the snapshot name in the simulation fileset settings or close the current simulation.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+INFO: [Runs 36-130] *** Running xelab
+    with args "-m64 --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj   work.tb   work.glbl"
+/opt/Xilinx/Vivado/2012.3/bin/xelab: 33: /opt/Xilinx/Vivado/2012.3/bin/setupEnv.sh: Bad substitution
+Vivado Simulator 2012.3
+Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/14.3/ISE_DS/PlanAhead/bin/unwrapped/lnx64.o/xelab --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj work.tb work.glbl 
+Multi-threading in on. Using 11 slave threads
+Determining compilation order of HDL files
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.vga
+Compiling module work.siggen
+Compiling module work.tb
+Compiling module work.glbl
+Built simulation snapshot tb_behav
+INFO: [Runs 36-26] xelab completed.
+INFO: [Vivado 12-1390] *** Running xsim
+    with args "tb_behav -tclbatch {tb.tcl} -log {tb_behav.log}"
+Vivado Simulator 2012.3
+Time resolution is 1 ps
+INFO: [Vivado 12-1395] XSim completed. Design snapshot 'tb_behav' loaded.
+add_wave {{/tb/vga_HS}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 20 ms
+run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:29 . Memory (MB): peak = 2794.020 ; gain = 0.125
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+ERROR: [Vivado 12-1501] Simulator for snapshot 'tb_behav' is already running. To launch simulation, change the snapshot name in the simulation fileset settings or close the current simulation.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_xsim help
+ERROR: [Common 17-165] Too many positional options when parsing 'help', please type 'launch_xsim -help' for usage info.
+help launch_xsim
+launch_xsim
+
+Description: 
+Launch simulation using XSim simulator
+
+Syntax: 
+launch_xsim  [-simset <arg>] [-noclean_dir] [-scripts_only] [-mode <arg>]
+             [-type <arg>] [-quiet] [-verbose]
+
+Usage: 
+  Name             Description
+  ----------------------------
+  [-simset]        Name of the simulation fileset
+  [-noclean_dir]   Do not remove simulation run directory files
+  [-scripts_only]  Only generate scripts
+  [-mode]          Simulation mode. Values: behavioral, post-synthesis, 
+                   post-implementation
+                   Default: behavioral
+  [-type]          Netlist type. Values: functional, timing
+  [-quiet]         Ignore command errors
+  [-verbose]       Suspend message limits during command execution
+
+Categories: 
+ToolLaunch, Simulation
+
+Description:
+
+  Launch the integrated Vivado simulator.
+
+  Launching the Vivado simulator first runs xelab, the RTL elaborator,
+  compiler, and linker used to create a simulation snapshot used by the
+  Vivado simulator.
+
+  The Vivado simulator is then launched, using the xelab created snapshot.
+
+  The command returns the transcript of xelab and xsim.
+
+
+Arguments:
+
+  -simset - (Optional) Name of the simulation fileset containing the
+  simulation test benches and sources to be used during simulation. If not
+  specified, the current simulation fileset is used.
+
+  -noclean_dir - (Optional) Do not remove simulation run directory files
+  prior to launching the simulator. However, some of the files generated for
+  use by the simulator will be overwritten or updated by re-launching the
+  simulator. The default is to remove the simulation run directory before
+  launching the simulator.
+
+  -mode [ behavioral | post_synthesis | post_implementation ] - (Optional)
+  Simulation mode. Specifies either a behavioral simulation of the HDL design
+  sources to verify syntax and confirm that the design performs as intended,
+  a simulation of the post-synthesis netlist, or a simulation of the post
+  implementation design to verify circuit operation after place and route.
+  The default mode is behavioral.
+
+  -type [ functional | timing ] - (Optional) Specifies functional simulation
+  of just the netlist, or timing simulation of the netlist and SDF file.
+  Post-synthesis timing simulation uses SDF delays from the synth_design
+  command. Post-implementation timing simulation uses SDF delays from the
+  place_design and route_design commands.
+
+  -quiet - (Optional) Execute the command quietly, ignoring any command line
+  errors and returning no error messages if the command fails. The command
+  also returns TCL_OK regardless of any errors encountered during execution.
+
+  -verbose - (Optional) Temporarily override any message limits and return
+  all messages from this command.
+
+  Note: Message limits can be defined with the set_msg_limit command.
+
+
+Examples:
+
+  The following example launches the simulator in post implementation mode:
+
+    launch_xsim -mode post_implementation
+
+
+See Also:
+
+   *  close_sim
+   *  current_sim
+
+
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+INFO: [Runs 36-130] *** Running xelab
+    with args "-m64 --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj   work.tb   work.glbl"
+/opt/Xilinx/Vivado/2012.3/bin/xelab: 33: /opt/Xilinx/Vivado/2012.3/bin/setupEnv.sh: Bad substitution
+Vivado Simulator 2012.3
+Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/14.3/ISE_DS/PlanAhead/bin/unwrapped/lnx64.o/xelab --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj work.tb work.glbl 
+Multi-threading in on. Using 11 slave threads
+Determining compilation order of HDL files
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.vga
+Compiling module work.siggen
+Compiling module work.tb
+Compiling module work.glbl
+Built simulation snapshot tb_behav
+INFO: [Runs 36-26] xelab completed.
+INFO: [Vivado 12-1390] *** Running xsim
+    with args "tb_behav -tclbatch {tb.tcl} -log {tb_behav.log}"
+Vivado Simulator 2012.3
+Time resolution is 1 ps
+INFO: [Vivado 12-1395] XSim completed. Design snapshot 'tb_behav' loaded.
+tb_behav
+run 20 ms
+run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:27 . Memory (MB): peak = 2806.180 ; gain = 2.000
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 20 ms
+run: Time (s): cpu = 00:00:04 ; elapsed = 00:00:27 . Memory (MB): peak = 2808.180 ; gain = 1.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+INFO: [Runs 36-130] *** Running xelab
+    with args "-m64 --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj   work.tb   work.glbl"
+/opt/Xilinx/Vivado/2012.3/bin/xelab: 33: /opt/Xilinx/Vivado/2012.3/bin/setupEnv.sh: Bad substitution
+Vivado Simulator 2012.3
+Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/14.3/ISE_DS/PlanAhead/bin/unwrapped/lnx64.o/xelab --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj work.tb work.glbl 
+Multi-threading in on. Using 11 slave threads
+Determining compilation order of HDL files
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.vga
+Compiling module work.siggen
+Compiling module work.tb
+Compiling module work.glbl
+Built simulation snapshot tb_behav
+INFO: [Runs 36-26] xelab completed.
+INFO: [Vivado 12-1390] *** Running xsim
+    with args "tb_behav -tclbatch {tb.tcl} -log {tb_behav.log}"
+Vivado Simulator 2012.3
+Time resolution is 1 ps
+INFO: [Vivado 12-1395] XSim completed. Design snapshot 'tb_behav' loaded.
+tb_behav
+run all
+run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:29 . Memory (MB): peak = 2862.496 ; gain = 0.000
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+run: Time (s): cpu = 00:00:03 ; elapsed = 00:00:18 . Memory (MB): peak = 2862.496 ; gain = 0.000
+ERROR: [Common 17-344] 'run' was cancelled
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property runtime 5ms [get_filesets sim_1]
+launch_xsim -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2251] Check running snapshot 'tb_behav'
+INFO: [Runs 36-130] *** Running xelab
+    with args "-m64 --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj   work.tb   work.glbl"
+/opt/Xilinx/Vivado/2012.3/bin/xelab: 33: /opt/Xilinx/Vivado/2012.3/bin/setupEnv.sh: Bad substitution
+Vivado Simulator 2012.3
+Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/14.3/ISE_DS/PlanAhead/bin/unwrapped/lnx64.o/xelab --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj work.tb work.glbl 
+Multi-threading in on. Using 11 slave threads
+Determining compilation order of HDL files
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.vga
+Compiling module work.siggen
+Compiling module work.tb
+Compiling module work.glbl
+Built simulation snapshot tb_behav
+INFO: [Runs 36-26] xelab completed.
+INFO: [Vivado 12-1390] *** Running xsim
+    with args "tb_behav -tclbatch {tb.tcl} -log {tb_behav.log}"
+Vivado Simulator 2012.3
+Time resolution is 1 ps
+run: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 3031.035 ; gain = 0.000
+xsim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 3031.035 ; gain = 8.008
+INFO: [Vivado 12-1395] XSim completed. Design snapshot 'tb_behav' loaded.
+launch_xsim: Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 3031.035 ; gain = 8.008
+tb_behav
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 23 17:30:59 2013...

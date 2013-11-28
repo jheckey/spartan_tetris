@@ -1,0 +1,19 @@
+Vivado Simulator 2012.3
+Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/14.3/ISE_DS/PlanAhead/bin/unwrapped/lnx64.o/xelab --incremental --debug typical --O2 --relax --mt auto -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip --snapshot tb_behav --prj /home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/project_1/project_1.sim/sim_1/behav/tb.prj work.tb work.glbl 
+Multi-threading in on. Using 11 slave threads
+Determining compilation order of HDL files
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/vga.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/siggen.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.v" into library work
+INFO: [VRFC 10-165] Analyzing Verilog file "/opt/Xilinx/14.3/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.vga
+Compiling module work.siggen
+Compiling module work.tb
+Compiling module work.glbl
+Built simulation snapshot tb_behav
