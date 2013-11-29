@@ -1,10 +1,13 @@
 *.sw?
+*.log
 *.rpt
 *.xrpt
 *.xreport
 *.xmsgs
 *.dbg
+*.debug
 *.jou
+XpsGuiSessionLock
 
 *.elf
 *.elf.size
@@ -15,3 +18,4 @@
 
 synthesis/
 implementation/
+project_1/
