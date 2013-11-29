@@ -20,6 +20,8 @@ reg         clear;
 wire [0:47] pixels;
 wire [0:10] hcnt;
 wire [0:9]  vcnt;
+wire [0:200*8-1] tiles = 1600'd0;
+wire [0:16*8-1]  next_tile = 128'd0;
 
 `ifdef SIM
 reg        clk;        // 50MHz
@@ -50,12 +52,24 @@ vga vga1(
     .vga_B(vga_B)
 );
 
+/*
 siggen siggen1(
     .clk(clk),
     .rst(rst),
     .hcnt(hcnt),
     .vcnt(vcnt),
     .pixels(pixels)
+);
+*/
+
+raster render(
+  .clk      (clk),
+  .rst      (rst),
+  .hcnt     (hcnt),
+  .vcnt     (vcnt),
+  .tiles    (tiles),
+  .next_tile(next_tile),
+  .pixels   (pixels)
 );
 
 assign leds = {enable, clear, counter[24:29]};

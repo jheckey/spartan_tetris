@@ -18,9 +18,10 @@ int main () {
 
 	xil_printf("Loaded...");
 	TETRIS_VGA_mWriteReg(TETRIS_VGA_START, 0, 1);
-	i = TETRIS_VGA_mReadReg(TETRIS_VGA_START, 0);
-	if (i)
-		xil_printf("VGA Enabled\n");
+	ret = TETRIS_VGA_mReadReg(TETRIS_VGA_START, 0);
+	if (ret)
+		xil_printf("VGA Enabled (%d)\n", ret);
+	TETRIS_VGA_mWriteReg(TETRIS_VGA_START, 2*4, 0x71234567);
 
 	for (i=0;i<58; i++) {
 		xil_printf("reg %d: %08x\n", i, TETRIS_VGA_mReadReg(TETRIS_VGA_START, i<<2));
@@ -28,9 +29,11 @@ int main () {
 
 //	for (;;) {
 //		i = 0;
-//		while (10000000<i++) {}
+		while (100000000<i++) {}
 //		TETRIS_VGA_mWriteReg(TETRIS_VGA_USER_SLV_SPACE_OFFSET, 1, 512);
 //		i = TETRIS_VGA_mReadReg(TETRIS_VGA_USER_SLV_SPACE_OFFSET, 1);
 //		xil_printf("vcnt = 0x%04x, hcnt = 0x%04x\n", i & 0xFFFF, i >> 16);
 //	}
+	xil_printf("Bye!");
+	return 0;
 }

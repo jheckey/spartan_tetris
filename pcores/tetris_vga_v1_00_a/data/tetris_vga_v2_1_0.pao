@@ -10,4 +10,5 @@ lib interrupt_control_v2_01_a all vhdl
 lib tetris_vga_v1_00_a user_logic verilog
 lib tetris_vga_v1_00_a siggen verilog
 lib tetris_vga_v1_00_a vga verilog
+lib tetris_vga_v1_00_a raster verilog
 lib tetris_vga_v1_00_a tetris_vga vhdl

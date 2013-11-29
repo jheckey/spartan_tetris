@@ -1,9 +1,17 @@
+*.sw?
 *.rpt
 *.xrpt
+*.xreport
+*.xmsgs
 *.dbg
-*.elf
-*.so
 *.jou
+
+*.elf
+*.elf.size
+*.o
+*.a
+*.so
+*.vho
 
 synthesis/
 implementation/
