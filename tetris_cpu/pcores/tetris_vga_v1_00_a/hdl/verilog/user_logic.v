@@ -185,7 +185,7 @@ output     [0 : C_NUM_INTR-1]             IP2Bus_IntrEvent;
   // --USER logic implementation added here
   // -- Implement decode logic here
   wire                                      IP2Bus_IntrEvent = 1'b0;
-  wire      [0:47]                          pixels;
+  wire      [0:47]                          pixels, r_pixels, t_pixels;
   wire      [0:10]                          hcnt;
   wire      [0:9]                           vcnt;
   wire      [0:31]                          score = slv_reg56;
@@ -204,6 +204,9 @@ output     [0 : C_NUM_INTR-1]             IP2Bus_IntrEvent;
                                                       slv_reg37, slv_reg38, slv_reg39, slv_reg40, slv_reg41,
                                                       slv_reg42, slv_reg43, slv_reg44, slv_reg45, slv_reg46,
                                                       slv_reg47, slv_reg48, slv_reg49, slv_reg50, slv_reg51 };
+
+  assign pixels = (test_patt) ? t_pixels : r_pixels;
+
   vga driver(
       .clk      (Bus2IP_Clk),
       .rst      (Bus2IP_Reset),
@@ -224,7 +227,17 @@ output     [0 : C_NUM_INTR-1]             IP2Bus_IntrEvent;
       .rst      (Bus2IP_Reset),
       .hcnt     (hcnt),
       .vcnt     (vcnt),
-      .pixels   (pixels)
+      .pixels   (t_pixels)
+  );
+
+  raster render(
+      .clk      (Bus2IP_Clk),
+      .rst      (Bus2IP_Reset),
+      .hcnt     (hcnt),
+      .vcnt     (vcnt),
+      .tiles    (tiles),
+      .next_tile(next_tile),
+      .pixels   (r_pixels)
   );
 
   // ------------------------------------------------------

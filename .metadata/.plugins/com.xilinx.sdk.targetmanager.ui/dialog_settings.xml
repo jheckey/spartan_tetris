@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris/Debug/tetris.elf" key="spartan_tetris_hw_platform-microblaze_0-initElf"/>
+	<item value="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/spartan_tetris_hw_platform/system.bit" key="spartan_tetris_hw_platform-bitFile"/>
+	<item value="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/spartan_tetris_hw_platform/system_bd.bmm" key="spartan_tetris_hw_platform-bmmFile"/>
+</section>

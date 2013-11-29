@@ -13,11 +13,11 @@ entity system is
     fpga_0_DIP_Switches_4Bit_GPIO_IO_I_pin : in std_logic_vector(0 to 3);
     fpga_0_clk_1_sys_clk_pin : in std_logic;
     fpga_0_rst_1_sys_rst_pin : in std_logic;
-    tetris_vga_0_VGA_Hs_pin : out std_logic;
+    tetris_vga_0_VGA_R_pin : out std_logic;
     tetris_vga_0_VGA_Vs_pin : out std_logic;
     tetris_vga_0_VGA_G_pin : out std_logic;
     tetris_vga_0_VGA_B_pin : out std_logic;
-    tetris_vga_0_VGA_R_pin : out std_logic
+    tetris_vga_0_VGA_Hs_pin : out std_logic
   );
 end system;
 
@@ -1618,6 +1618,55 @@ architecture STRUCTURE of system is
     );
   end component;
 
+  component system_xps_intc_0_wrapper is
+    port (
+      SPLB_Clk : in std_logic;
+      SPLB_Rst : in std_logic;
+      PLB_ABus : in std_logic_vector(0 to 31);
+      PLB_PAValid : in std_logic;
+      PLB_masterID : in std_logic_vector(0 to 0);
+      PLB_RNW : in std_logic;
+      PLB_BE : in std_logic_vector(0 to 3);
+      PLB_size : in std_logic_vector(0 to 3);
+      PLB_type : in std_logic_vector(0 to 2);
+      PLB_wrDBus : in std_logic_vector(0 to 31);
+      PLB_UABus : in std_logic_vector(0 to 31);
+      PLB_SAValid : in std_logic;
+      PLB_rdPrim : in std_logic;
+      PLB_wrPrim : in std_logic;
+      PLB_abort : in std_logic;
+      PLB_busLock : in std_logic;
+      PLB_MSize : in std_logic_vector(0 to 1);
+      PLB_lockErr : in std_logic;
+      PLB_wrBurst : in std_logic;
+      PLB_rdBurst : in std_logic;
+      PLB_wrPendReq : in std_logic;
+      PLB_rdPendReq : in std_logic;
+      PLB_wrPendPri : in std_logic_vector(0 to 1);
+      PLB_rdPendPri : in std_logic_vector(0 to 1);
+      PLB_reqPri : in std_logic_vector(0 to 1);
+      PLB_TAttribute : in std_logic_vector(0 to 15);
+      Sl_addrAck : out std_logic;
+      Sl_SSize : out std_logic_vector(0 to 1);
+      Sl_wait : out std_logic;
+      Sl_rearbitrate : out std_logic;
+      Sl_wrDAck : out std_logic;
+      Sl_wrComp : out std_logic;
+      Sl_rdDBus : out std_logic_vector(0 to 31);
+      Sl_rdDAck : out std_logic;
+      Sl_rdComp : out std_logic;
+      Sl_MBusy : out std_logic_vector(0 to 1);
+      Sl_MWrErr : out std_logic_vector(0 to 1);
+      Sl_MRdErr : out std_logic_vector(0 to 1);
+      Sl_wrBTerm : out std_logic;
+      Sl_rdWdAddr : out std_logic_vector(0 to 3);
+      Sl_rdBTerm : out std_logic;
+      Sl_MIRQ : out std_logic_vector(0 to 1);
+      Intr : in std_logic_vector(2 downto 0);
+      Irq : out std_logic
+    );
+  end component;
+
   component system_tetris_vga_0_wrapper is
     port (
       VGA_Hs : out std_logic;
@@ -1668,55 +1717,6 @@ architecture STRUCTURE of system is
       Sl_MRdErr : out std_logic_vector(0 to 1);
       Sl_MIRQ : out std_logic_vector(0 to 1);
       IP2INTC_Irpt : out std_logic
-    );
-  end component;
-
-  component system_xps_intc_0_wrapper is
-    port (
-      SPLB_Clk : in std_logic;
-      SPLB_Rst : in std_logic;
-      PLB_ABus : in std_logic_vector(0 to 31);
-      PLB_PAValid : in std_logic;
-      PLB_masterID : in std_logic_vector(0 to 0);
-      PLB_RNW : in std_logic;
-      PLB_BE : in std_logic_vector(0 to 3);
-      PLB_size : in std_logic_vector(0 to 3);
-      PLB_type : in std_logic_vector(0 to 2);
-      PLB_wrDBus : in std_logic_vector(0 to 31);
-      PLB_UABus : in std_logic_vector(0 to 31);
-      PLB_SAValid : in std_logic;
-      PLB_rdPrim : in std_logic;
-      PLB_wrPrim : in std_logic;
-      PLB_abort : in std_logic;
-      PLB_busLock : in std_logic;
-      PLB_MSize : in std_logic_vector(0 to 1);
-      PLB_lockErr : in std_logic;
-      PLB_wrBurst : in std_logic;
-      PLB_rdBurst : in std_logic;
-      PLB_wrPendReq : in std_logic;
-      PLB_rdPendReq : in std_logic;
-      PLB_wrPendPri : in std_logic_vector(0 to 1);
-      PLB_rdPendPri : in std_logic_vector(0 to 1);
-      PLB_reqPri : in std_logic_vector(0 to 1);
-      PLB_TAttribute : in std_logic_vector(0 to 15);
-      Sl_addrAck : out std_logic;
-      Sl_SSize : out std_logic_vector(0 to 1);
-      Sl_wait : out std_logic;
-      Sl_rearbitrate : out std_logic;
-      Sl_wrDAck : out std_logic;
-      Sl_wrComp : out std_logic;
-      Sl_rdDBus : out std_logic_vector(0 to 31);
-      Sl_rdDAck : out std_logic;
-      Sl_rdComp : out std_logic;
-      Sl_MBusy : out std_logic_vector(0 to 1);
-      Sl_MWrErr : out std_logic_vector(0 to 1);
-      Sl_MRdErr : out std_logic_vector(0 to 1);
-      Sl_wrBTerm : out std_logic;
-      Sl_rdWdAddr : out std_logic_vector(0 to 3);
-      Sl_rdBTerm : out std_logic;
-      Sl_MIRQ : out std_logic_vector(0 to 1);
-      Intr : in std_logic_vector(2 downto 0);
-      Irq : out std_logic
     );
   end component;
 
@@ -1902,8 +1902,8 @@ architecture STRUCTURE of system is
   attribute BOX_TYPE of system_clock_generator_0_wrapper : component is "user_black_box";
   attribute BOX_TYPE of system_mdm_0_wrapper : component is "user_black_box";
   attribute BOX_TYPE of system_proc_sys_reset_0_wrapper : component is "user_black_box";
-  attribute BOX_TYPE of system_tetris_vga_0_wrapper : component is "user_black_box";
   attribute BOX_TYPE of system_xps_intc_0_wrapper : component is "user_black_box";
+  attribute BOX_TYPE of system_tetris_vga_0_wrapper : component is "user_black_box";
 
 begin
 
@@ -1911,11 +1911,11 @@ begin
 
   CLK_S <= fpga_0_clk_1_sys_clk_pin;
   sys_rst_s <= fpga_0_rst_1_sys_rst_pin;
-  tetris_vga_0_VGA_Hs_pin <= tetris_vga_0_VGA_Hs;
+  tetris_vga_0_VGA_R_pin <= tetris_vga_0_VGA_R;
   tetris_vga_0_VGA_Vs_pin <= tetris_vga_0_VGA_Vs;
   tetris_vga_0_VGA_G_pin <= tetris_vga_0_VGA_G;
   tetris_vga_0_VGA_B_pin <= tetris_vga_0_VGA_B;
-  tetris_vga_0_VGA_R_pin <= tetris_vga_0_VGA_R;
+  tetris_vga_0_VGA_Hs_pin <= tetris_vga_0_VGA_Hs;
   pgassign1(2) <= xps_intc_0_Irq;
   pgassign1(1) <= xps_timer_0_Interrupt;
   pgassign1(0) <= tetris_vga_0_IP2INTC_Irpt;
@@ -3513,31 +3513,26 @@ begin
       Peripheral_aresetn => open
     );
 
-  tetris_vga_0 : system_tetris_vga_0_wrapper
+  xps_intc_0 : system_xps_intc_0_wrapper
     port map (
-      VGA_Hs => tetris_vga_0_VGA_Hs,
-      VGA_Vs => tetris_vga_0_VGA_Vs,
-      VGA_R => tetris_vga_0_VGA_R,
-      VGA_G => tetris_vga_0_VGA_G,
-      VGA_B => tetris_vga_0_VGA_B,
       SPLB_Clk => clk_50_0000MHz,
       SPLB_Rst => mb_plb_SPLB_Rst(4),
       PLB_ABus => mb_plb_PLB_ABus,
-      PLB_UABus => mb_plb_PLB_UABus,
       PLB_PAValid => mb_plb_PLB_PAValid,
+      PLB_masterID => mb_plb_PLB_masterID(0 to 0),
+      PLB_RNW => mb_plb_PLB_RNW,
+      PLB_BE => mb_plb_PLB_BE,
+      PLB_size => mb_plb_PLB_size,
+      PLB_type => mb_plb_PLB_type,
+      PLB_wrDBus => mb_plb_PLB_wrDBus,
+      PLB_UABus => mb_plb_PLB_UABus,
       PLB_SAValid => mb_plb_PLB_SAValid,
       PLB_rdPrim => mb_plb_PLB_rdPrim(4),
       PLB_wrPrim => mb_plb_PLB_wrPrim(4),
-      PLB_masterID => mb_plb_PLB_masterID(0 to 0),
       PLB_abort => mb_plb_PLB_abort,
       PLB_busLock => mb_plb_PLB_busLock,
-      PLB_RNW => mb_plb_PLB_RNW,
-      PLB_BE => mb_plb_PLB_BE,
       PLB_MSize => mb_plb_PLB_MSize,
-      PLB_size => mb_plb_PLB_size,
-      PLB_type => mb_plb_PLB_type,
       PLB_lockErr => mb_plb_PLB_lockErr,
-      PLB_wrDBus => mb_plb_PLB_wrDBus,
       PLB_wrBurst => mb_plb_PLB_wrBurst,
       PLB_rdBurst => mb_plb_PLB_rdBurst,
       PLB_wrPendReq => mb_plb_PLB_wrPendReq,
@@ -3552,39 +3547,45 @@ begin
       Sl_rearbitrate => mb_plb_Sl_rearbitrate(4),
       Sl_wrDAck => mb_plb_Sl_wrDAck(4),
       Sl_wrComp => mb_plb_Sl_wrComp(4),
-      Sl_wrBTerm => mb_plb_Sl_wrBTerm(4),
       Sl_rdDBus => mb_plb_Sl_rdDBus(128 to 159),
-      Sl_rdWdAddr => mb_plb_Sl_rdWdAddr(16 to 19),
       Sl_rdDAck => mb_plb_Sl_rdDAck(4),
       Sl_rdComp => mb_plb_Sl_rdComp(4),
-      Sl_rdBTerm => mb_plb_Sl_rdBTerm(4),
       Sl_MBusy => mb_plb_Sl_MBusy(8 to 9),
       Sl_MWrErr => mb_plb_Sl_MWrErr(8 to 9),
       Sl_MRdErr => mb_plb_Sl_MRdErr(8 to 9),
+      Sl_wrBTerm => mb_plb_Sl_wrBTerm(4),
+      Sl_rdWdAddr => mb_plb_Sl_rdWdAddr(16 to 19),
+      Sl_rdBTerm => mb_plb_Sl_rdBTerm(4),
       Sl_MIRQ => mb_plb_Sl_MIRQ(8 to 9),
-      IP2INTC_Irpt => tetris_vga_0_IP2INTC_Irpt
+      Intr => pgassign1,
+      Irq => xps_intc_0_Irq
     );
 
-  xps_intc_0 : system_xps_intc_0_wrapper
+  tetris_vga_0 : system_tetris_vga_0_wrapper
     port map (
+      VGA_Hs => tetris_vga_0_VGA_Hs,
+      VGA_Vs => tetris_vga_0_VGA_Vs,
+      VGA_R => tetris_vga_0_VGA_R,
+      VGA_G => tetris_vga_0_VGA_G,
+      VGA_B => tetris_vga_0_VGA_B,
       SPLB_Clk => clk_50_0000MHz,
       SPLB_Rst => mb_plb_SPLB_Rst(5),
       PLB_ABus => mb_plb_PLB_ABus,
-      PLB_PAValid => mb_plb_PLB_PAValid,
-      PLB_masterID => mb_plb_PLB_masterID(0 to 0),
-      PLB_RNW => mb_plb_PLB_RNW,
-      PLB_BE => mb_plb_PLB_BE,
-      PLB_size => mb_plb_PLB_size,
-      PLB_type => mb_plb_PLB_type,
-      PLB_wrDBus => mb_plb_PLB_wrDBus,
       PLB_UABus => mb_plb_PLB_UABus,
+      PLB_PAValid => mb_plb_PLB_PAValid,
       PLB_SAValid => mb_plb_PLB_SAValid,
       PLB_rdPrim => mb_plb_PLB_rdPrim(5),
       PLB_wrPrim => mb_plb_PLB_wrPrim(5),
+      PLB_masterID => mb_plb_PLB_masterID(0 to 0),
       PLB_abort => mb_plb_PLB_abort,
       PLB_busLock => mb_plb_PLB_busLock,
+      PLB_RNW => mb_plb_PLB_RNW,
+      PLB_BE => mb_plb_PLB_BE,
       PLB_MSize => mb_plb_PLB_MSize,
+      PLB_size => mb_plb_PLB_size,
+      PLB_type => mb_plb_PLB_type,
       PLB_lockErr => mb_plb_PLB_lockErr,
+      PLB_wrDBus => mb_plb_PLB_wrDBus,
       PLB_wrBurst => mb_plb_PLB_wrBurst,
       PLB_rdBurst => mb_plb_PLB_rdBurst,
       PLB_wrPendReq => mb_plb_PLB_wrPendReq,
@@ -3599,18 +3600,17 @@ begin
       Sl_rearbitrate => mb_plb_Sl_rearbitrate(5),
       Sl_wrDAck => mb_plb_Sl_wrDAck(5),
       Sl_wrComp => mb_plb_Sl_wrComp(5),
+      Sl_wrBTerm => mb_plb_Sl_wrBTerm(5),
       Sl_rdDBus => mb_plb_Sl_rdDBus(160 to 191),
+      Sl_rdWdAddr => mb_plb_Sl_rdWdAddr(20 to 23),
       Sl_rdDAck => mb_plb_Sl_rdDAck(5),
       Sl_rdComp => mb_plb_Sl_rdComp(5),
+      Sl_rdBTerm => mb_plb_Sl_rdBTerm(5),
       Sl_MBusy => mb_plb_Sl_MBusy(10 to 11),
       Sl_MWrErr => mb_plb_Sl_MWrErr(10 to 11),
       Sl_MRdErr => mb_plb_Sl_MRdErr(10 to 11),
-      Sl_wrBTerm => mb_plb_Sl_wrBTerm(5),
-      Sl_rdWdAddr => mb_plb_Sl_rdWdAddr(20 to 23),
-      Sl_rdBTerm => mb_plb_Sl_rdBTerm(5),
       Sl_MIRQ => mb_plb_Sl_MIRQ(10 to 11),
-      Intr => pgassign1,
-      Irq => xps_intc_0_Irq
+      IP2INTC_Irpt => tetris_vga_0_IP2INTC_Irpt
     );
 
 end architecture STRUCTURE;

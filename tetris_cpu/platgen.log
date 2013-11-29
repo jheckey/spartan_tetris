@@ -85,22 +85,22 @@ INFO:EDK:4130 - IPNAME: mdm, INSTANCE:mdm_0 - tool is overriding PARAMETER
    C_SPLB_NUM_MASTERS value to 2 -
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/mdm_v2_10_a/data/m
    dm_v2_1_0.mpd line 118 
-INFO:EDK:4130 - IPNAME: tetris_vga, INSTANCE:tetris_vga_0 - tool is overriding
-   PARAMETER C_SPLB_DWIDTH value to 32 -
-   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tet
-   ris_vga_v1_00_a/data/tetris_vga_v2_1_0.mpd line 25 
-INFO:EDK:4130 - IPNAME: tetris_vga, INSTANCE:tetris_vga_0 - tool is overriding
-   PARAMETER C_SPLB_NUM_MASTERS value to 2 -
-   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tet
-   ris_vga_v1_00_a/data/tetris_vga_v2_1_0.mpd line 26 
-INFO:EDK:4130 - IPNAME: tetris_vga, INSTANCE:tetris_vga_0 - tool is overriding
-   PARAMETER C_SPLB_MID_WIDTH value to 1 -
-   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tet
-   ris_vga_v1_00_a/data/tetris_vga_v2_1_0.mpd line 27 
 INFO:EDK:4130 - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tool is overriding
    PARAMETER C_SPLB_NUM_MASTERS value to 2 -
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_intc_v2_01_a/d
    ata/xps_intc_v2_1_0.mpd line 82 
+INFO:EDK:4130 - IPNAME: tetris_vga, INSTANCE:tetris_vga_0 - tool is overriding
+   PARAMETER C_SPLB_DWIDTH value to 32 -
+   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tet
+   ris_vga_v1_02_a/data/tetris_vga_v2_1_0.mpd line 25 
+INFO:EDK:4130 - IPNAME: tetris_vga, INSTANCE:tetris_vga_0 - tool is overriding
+   PARAMETER C_SPLB_NUM_MASTERS value to 2 -
+   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tet
+   ris_vga_v1_02_a/data/tetris_vga_v2_1_0.mpd line 26 
+INFO:EDK:4130 - IPNAME: tetris_vga, INSTANCE:tetris_vga_0 - tool is overriding
+   PARAMETER C_SPLB_MID_WIDTH value to 1 -
+   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tet
+   ris_vga_v1_02_a/data/tetris_vga_v2_1_0.mpd line 27 
 
 Checking platform address map ...
 
@@ -205,48 +205,6 @@ Creating hardware output directories ...
 Managing hardware (BBD-specified) netlist files ...
 
 Managing cache ...
-IPNAME:microblaze INSTANCE:microblaze_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 29 - Copying cache implementation netlist
-IPNAME:plb_v46 INSTANCE:mb_plb -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 43 - Copying cache implementation netlist
-IPNAME:lmb_v10 INSTANCE:ilmb -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 50 - Copying cache implementation netlist
-IPNAME:lmb_v10 INSTANCE:dlmb -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 57 - Copying cache implementation netlist
-IPNAME:lmb_bram_if_cntlr INSTANCE:dlmb_cntlr -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 64 - Copying cache implementation netlist
-IPNAME:lmb_bram_if_cntlr INSTANCE:ilmb_cntlr -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 73 - Copying cache implementation netlist
-IPNAME:bram_block INSTANCE:lmb_bram -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 82 - Copying cache implementation netlist
-IPNAME:xps_gpio INSTANCE:leds_8bit -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 89 - Copying cache implementation netlist
-IPNAME:xps_gpio INSTANCE:dip_switches_4bit -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 102 - Copying cache implementation netlist
-IPNAME:xps_timer INSTANCE:xps_timer_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 115 - Copying cache implementation netlist
-IPNAME:mdm INSTANCE:mdm_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 141 - Copying cache implementation netlist
-IPNAME:proc_sys_reset INSTANCE:proc_sys_reset_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 153 - Copying cache implementation netlist
-IPNAME:tetris_vga INSTANCE:tetris_vga_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 166 - Copying cache implementation netlist
-IPNAME:xps_intc INSTANCE:xps_intc_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 180 - Copying cache implementation netlist
 
 Elaborating instances ...
 IPNAME:bram_block INSTANCE:lmb_bram -
@@ -262,7 +220,7 @@ ClkGen elaborate status: PASSED
 Writing HDL for elaborated instances ...
 
 Inserting wrapper level ...
-Completion time: 0.00 seconds
+Completion time: 1.00 seconds
 
 Constructing platform-level connectivity ...
 Completion time: 0.00 seconds
@@ -278,18 +236,72 @@ Running XST synthesis ...
 INFO:EDK:4211 - The following instances are synthesized with XST. The MPD option
    IMP_NETLIST=TRUE indicates that a NGC file is to be produced using XST
    synthesis. IMP_NETLIST=FALSE (default) instances are not synthesized. 
+INSTANCE:microblaze_0 -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 29 - Running XST synthesis
+INSTANCE:mb_plb -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 43 - Running XST synthesis
+INSTANCE:ilmb -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 50 - Running XST synthesis
+INSTANCE:dlmb -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 57 - Running XST synthesis
+INSTANCE:dlmb_cntlr -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 64 - Running XST synthesis
+INSTANCE:ilmb_cntlr -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 73 - Running XST synthesis
+INSTANCE:lmb_bram -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 82 - Running XST synthesis
+INSTANCE:leds_8bit -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 89 - Running XST synthesis
+INSTANCE:dip_switches_4bit -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 102 - Running XST synthesis
+INSTANCE:xps_timer_0 -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 115 - Running XST synthesis
 INSTANCE:clock_generator_0 -
 /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
 line 126 - Running XST synthesis
+INSTANCE:mdm_0 -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 141 - Running XST synthesis
+INSTANCE:proc_sys_reset_0 -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 153 - Running XST synthesis
+INSTANCE:xps_intc_0 -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 166 - Running XST synthesis
+INSTANCE:tetris_vga_0 -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 176 - Running XST synthesis
 
 Running NGCBUILD ...
+IPNAME:system_microblaze_0_wrapper INSTANCE:microblaze_0 -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 29 - Running NGCBUILD
+IPNAME:system_ilmb_wrapper INSTANCE:ilmb -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 50 - Running NGCBUILD
+IPNAME:system_dlmb_wrapper INSTANCE:dlmb -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 57 - Running NGCBUILD
 IPNAME:system_clock_generator_0_wrapper INSTANCE:clock_generator_0 -
 /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
 line 126 - Running NGCBUILD
+IPNAME:system_xps_intc_0_wrapper INSTANCE:xps_intc_0 -
+/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+line 166 - Running NGCBUILD
 INFO:EDK:3509 - NCF files should not be modified as they will be regenerated.
    If any constraint needs to be overridden, this should be done by modifying
    the data/system.ucf file.
 
 Rebuilding cache ...
 
-Total run time: 45.00 seconds
+Total run time: 459.00 seconds

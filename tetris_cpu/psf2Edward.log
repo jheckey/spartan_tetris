@@ -7,7 +7,7 @@ IPNAME: lmb_v10, INSTANCE: dlmb - 1 master(s) : 1 slave(s)
 Checking port drivers...
 WARNING:EDK:4181 - PORT: Peripheral_Reset, CONNECTOR: sys_periph_reset -
    floating connection -
-   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+   /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
    line 163 
 
 Performing Clock DRCs...

@@ -1,0 +1,9 @@
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_02_a/devl/projnav/tetris_vga.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_02_a/devl/projnav/tetris_vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 tetris_vga.ngc tetris_vga.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tetris_vga_map.ncd tetris_vga.ngd tetris_vga.pcf 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_02_a/devl/projnav/tetris_vga.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_02_a/devl/projnav/tetris_vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 tetris_vga.ngc tetris_vga.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tetris_vga_map.ncd tetris_vga.ngd tetris_vga.pcf 
+xst -intstyle ise -ifn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_02_a/devl/projnav/tetris_vga.xst" -ofn "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_02_a/devl/projnav/tetris_vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 tetris_vga.ngc tetris_vga.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o tetris_vga_map.ncd tetris_vga.ngd tetris_vga.pcf 

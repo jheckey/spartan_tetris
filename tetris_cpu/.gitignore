@@ -1,0 +1,9 @@
+*.rpt
+*.xrpt
+*.dbg
+*.elf
+*.so
+*.jou
+
+synthesis/
+implementation/

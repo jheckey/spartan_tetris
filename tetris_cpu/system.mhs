@@ -19,11 +19,11 @@
  PORT fpga_0_DIP_Switches_4Bit_GPIO_IO_I_pin = fpga_0_DIP_Switches_4Bit_GPIO_IO_I_pin, DIR = I, VEC = [0:3]
  PORT fpga_0_clk_1_sys_clk_pin = CLK_S, DIR = I, SIGIS = CLK, CLK_FREQ = 50000000
  PORT fpga_0_rst_1_sys_rst_pin = sys_rst_s, DIR = I, SIGIS = RST, RST_POLARITY = 1
- PORT tetris_vga_0_VGA_Hs_pin = tetris_vga_0_VGA_Hs, DIR = O
+ PORT tetris_vga_0_VGA_R_pin = tetris_vga_0_VGA_R, DIR = O
  PORT tetris_vga_0_VGA_Vs_pin = tetris_vga_0_VGA_Vs, DIR = O
  PORT tetris_vga_0_VGA_G_pin = tetris_vga_0_VGA_G, DIR = O
  PORT tetris_vga_0_VGA_B_pin = tetris_vga_0_VGA_B, DIR = O
- PORT tetris_vga_0_VGA_R_pin = tetris_vga_0_VGA_R, DIR = O
+ PORT tetris_vga_0_VGA_Hs_pin = tetris_vga_0_VGA_Hs, DIR = O
 
 
 BEGIN microblaze
@@ -163,20 +163,6 @@ BEGIN proc_sys_reset
  PORT Peripheral_Reset = sys_periph_reset
 END
 
-BEGIN tetris_vga
- PARAMETER INSTANCE = tetris_vga_0
- PARAMETER HW_VER = 1.00.a
- PARAMETER C_BASEADDR = 0xc9a00000
- PARAMETER C_HIGHADDR = 0xc9a0ffff
- BUS_INTERFACE SPLB = mb_plb
- PORT VGA_Hs = tetris_vga_0_VGA_Hs
- PORT VGA_Vs = tetris_vga_0_VGA_Vs
- PORT VGA_G = tetris_vga_0_VGA_G
- PORT VGA_B = tetris_vga_0_VGA_B
- PORT VGA_R = tetris_vga_0_VGA_R
- PORT IP2INTC_Irpt = tetris_vga_0_IP2INTC_Irpt
-END
-
 BEGIN xps_intc
  PARAMETER INSTANCE = xps_intc_0
  PARAMETER HW_VER = 2.01.a
@@ -185,5 +171,19 @@ BEGIN xps_intc
  BUS_INTERFACE SPLB = mb_plb
  PORT Irq = xps_intc_0_Irq
  PORT Intr = xps_intc_0_Irq & xps_timer_0_Interrupt & tetris_vga_0_IP2INTC_Irpt
+END
+
+BEGIN tetris_vga
+ PARAMETER INSTANCE = tetris_vga_0
+ PARAMETER HW_VER = 1.02.a
+ PARAMETER C_BASEADDR = 0xc9a00000
+ PARAMETER C_HIGHADDR = 0xc9a0ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT IP2INTC_Irpt = tetris_vga_0_IP2INTC_Irpt
+ PORT VGA_R = tetris_vga_0_VGA_R
+ PORT VGA_Vs = tetris_vga_0_VGA_Vs
+ PORT VGA_G = tetris_vga_0_VGA_G
+ PORT VGA_B = tetris_vga_0_VGA_B
+ PORT VGA_Hs = tetris_vga_0_VGA_Hs
 END
 

@@ -1,0 +1,36 @@
+Release 14.3 ngdbuild P.40xd (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: /opt/Xilinx/14.3/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
+ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 tetris_vga.ngc tetris_vga.ngd
+
+Reading NGO file
+"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_v
+ga_v1_02_a/devl/projnav/tetris_vga.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Resolving constraint associations...
+Checking Constraint Associations...
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Total memory usage is 391688 kilobytes
+
+Writing NGD file "tetris_vga.ngd" ...
+Total REAL time to NGDBUILD completion:  2 sec
+Total CPU time to NGDBUILD completion:   2 sec
+
+Writing NGDBUILD log file "tetris_vga.bld"...

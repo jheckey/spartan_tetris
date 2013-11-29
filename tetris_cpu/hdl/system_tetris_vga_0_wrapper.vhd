@@ -7,8 +7,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 
-library tetris_vga_v1_00_a;
-use tetris_vga_v1_00_a.all;
+library tetris_vga_v1_02_a;
+use tetris_vga_v1_02_a.all;
 
 entity system_tetris_vga_0_wrapper is
   port (

@@ -1,0 +1,18 @@
+V3 10
+FL /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_02_a/hdl/vhdl/tetris_vga.vhd 2013/11/28.13:38:14 P.40xd
+EN work/tetris_vga 1385678187 \
+      FL /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_02_a/hdl/vhdl/tetris_vga.vhd \
+      PB ieee/std_logic_1164 1350103243 PB ieee/std_logic_arith 1350103244 \
+      PB ieee/STD_LOGIC_UNSIGNED 1350103247 LB proc_common_v3_00_a \
+      PB proc_common_v3_00_a/proc_common_pkg 1385678164 \
+      PB proc_common_v3_00_a/ipif_pkg 1385678178 \
+      EN proc_common_v3_00_a/soft_reset 1385678171 LB interrupt_control_v2_01_a \
+      EN interrupt_control_v2_01_a/interrupt_control 1385678183 \
+      LB plbv46_slave_single_v1_01_a \
+      EN plbv46_slave_single_v1_01_a/plbv46_slave_single 1385678185
+AR work/tetris_vga/IMP 1385678188 \
+      FL /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris_vga_v1_02_a/hdl/vhdl/tetris_vga.vhd \
+      EN work/tetris_vga 1385678187 \
+      CP plbv46_slave_single_v1_01_a/plbv46_slave_single \
+      CP proc_common_v3_00_a/soft_reset \
+      CP interrupt_control_v2_01_a/interrupt_control CP user_logic

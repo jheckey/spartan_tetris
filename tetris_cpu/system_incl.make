@@ -73,8 +73,8 @@ implementation/system_xps_timer_0_wrapper.ngc \
 implementation/system_clock_generator_0_wrapper.ngc \
 implementation/system_mdm_0_wrapper.ngc \
 implementation/system_proc_sys_reset_0_wrapper.ngc \
-implementation/system_tetris_vga_0_wrapper.ngc \
-implementation/system_xps_intc_0_wrapper.ngc
+implementation/system_xps_intc_0_wrapper.ngc \
+implementation/system_tetris_vga_0_wrapper.ngc
 
 POSTSYN_NETLIST = implementation/$(SYSTEM).ngc
 
