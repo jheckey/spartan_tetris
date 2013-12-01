@@ -1,0 +1,240 @@
+
+#include "xparameters.h"                        // Contains hardware addresses and bit masks
+#include "xgpio.h"                              // LED and Button driver
+#include "xtmrctr.h"
+#include "xintc.h"
+#include "xtmrctr_l.h"                          // Low-level timer drivers
+#include "xintc_l.h"                            // Low-level interrupt controller drivers
+#include "mb_interface.h"                       // Very low level bus interface drivers
+#include "tetris_vga.h"
+#include <xbasic_types.h>                       // XGpio, Xuint32, etc. typedefs
+#include <xio.h>                                // Very low-level i/o stuff
+#include <stdlib.h>
+
+#define TETRIS_VGA_START 				0xC9A00000
+#define RESET_VALUE                 	100000000	// 100M at 50Mhz (20ns/cycle) ~= 2s
+
+XStatus intr_init();
+void timer_handler();
+
+XIntc sys_intc;
+XTmrCtr sys_tmrctr;
+XGpio leds;
+
+volatile static char led_cnt = 0xff;
+
+int main(void) {
+	XStatus status;
+
+    status = intr_init();
+
+    if (status != XST_SUCCESS) {
+    	xil_printf("Failed to initialize interrupts!\n");
+    	return -1;
+    }
+
+	xil_printf("Timer addr: %x \n", sys_tmrctr.BaseAddress);
+	xil_printf("Timer config: %x \n", XTimerCtr_ReadReg(sys_tmrctr.BaseAddress, 0, XTC_TCSR_OFFSET));
+	xil_printf("Timer handler: %x \n", (Xuint32)timer_handler);
+	xil_printf("Intc addr: %x \n", sys_intc.BaseAddress);
+	xil_printf("Intc is ready: %x \n", sys_intc.IsReady);
+	xil_printf("Intc is started: %x \n", sys_intc.IsStarted);
+	xil_printf("Intc unhandled: %x \n", sys_intc.UnhandledInterrupts);
+	xil_printf("Intc device: %x \n", sys_intc.CfgPtr->DeviceId);
+	xil_printf("Intc options: %x \n", sys_intc.CfgPtr->Options);
+	xil_printf("Intc ISR vector: %x \n", sys_intc.CfgPtr->IntVectorAddr);
+	xil_printf("Intc handler[0]: %x \n", sys_intc.CfgPtr->HandlerTable[0].Handler);
+	xil_printf("Intc handler[1]: %x \n", sys_intc.CfgPtr->HandlerTable[1].Handler);
+	xil_printf("Bye!\n");
+	xil_printf("Bye!\n");
+	xil_printf("Bye!\n");
+
+	/*
+	while (1) {
+		XGpio_DiscreteWrite(&leds,1,led_cnt);
+		xil_printf("Timer: %d \n", XTimerCtr_ReadReg(sys_tmrctr.BaseAddress, 0, XTC_TCR_OFFSET));
+		status=0;
+		while (status++ < 100000) {}
+	} // End forever
+	*/
+
+	return 0;
+} // end main
+
+
+// Read the timer, increment the count, clear the interrupt
+void timer_handler()
+{
+	Xuint32 ControlStatusReg;
+	xil_printf("Timer interrupt\n");
+	ControlStatusReg = XTimerCtr_ReadReg(sys_tmrctr.BaseAddress, 0, XTC_TCSR_OFFSET);
+	led_cnt++;
+	XTmrCtr_WriteReg(sys_tmrctr.BaseAddress, 0, XTC_TCSR_OFFSET, ControlStatusReg);
+}
+
+int intr_init()
+{
+    XGpio_Initialize(&leds, XPAR_LEDS_8BIT_DEVICE_ID);
+	XIntc_Initialize(&sys_intc, XPAR_XPS_INTC_0_DEVICE_ID);
+	XTmrCtr_Initialize(&sys_tmrctr, XPAR_XPS_TIMER_0_DEVICE_ID);
+
+    XGpio_SetDataDirection(&leds, 1, 0x00000000);
+
+	XTmrCtr_SetOptions(&sys_tmrctr, 0, XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
+	XTmrCtr_SetResetValue(&sys_tmrctr, 0, 0xfffff000);
+
+	/* Setup interrupts and reference to interrupt handler function(s)  */
+
+    /* timer interrupt cfg */
+	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR,
+			(XInterruptHandler)timer_handler, &sys_tmrctr);
+    XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR);
+	XTmrCtr_Start(&sys_tmrctr, 0);
+
+    /* Start interrupts */
+	XIntc_Start(&sys_intc, XIN_REAL_MODE);
+	microblaze_register_handler((XInterruptHandler)XIntc_DeviceInterruptHandler,
+			(void*)XPAR_XPS_INTC_0_DEVICE_ID);
+	microblaze_enable_interrupts();
+
+    return XST_SUCCESS;
+
+	/*
+	XStatus Status;
+	Status = XST_SUCCESS;
+	Status = XIntc_Initialize(&sys_intc, XPAR_XPS_INTC_0_DEVICE_ID);
+	xil_printf("Interrupt controller driver initialized!\r\n");
+
+	Status = XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR,
+			(XInterruptHandler)timer_handler, &sys_tmrctr);
+	xil_printf("Timer Connected to Interrupt Controller!\r\n");
+
+	Status = XIntc_Start(&sys_intc, XIN_REAL_MODE);
+	xil_printf("Started Interrupt Controller!\r\n");
+
+	Status = XTmrCtr_Initialize(&sys_tmrctr, XPAR_XPS_TIMER_0_DEVICE_ID);
+	xil_printf("Initialized Timer!\r\n");
+
+	XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR);
+	XTmrCtr_SetOptions(&sys_tmrctr, 0, XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
+
+	XTmrCtr_SetResetValue(&sys_tmrctr, 0, 0);
+	XTmrCtr_Start(&sys_tmrctr, 0);
+
+	microblaze_register_handler((XInterruptHandler)XIntc_DeviceInterruptHandler,
+			(void*)XPAR_XPS_INTC_0_DEVICE_ID);
+
+	microblaze_enable_interrupts();
+	xil_printf("Interrupts enabled!\r\n");
+
+	return XST_SUCCESS;
+	*/
+}
+
+
+
+//XIntc   sys_intc;
+//XTmrCtr	sys_tmrctr;
+//
+//void vga_handler();
+//void timer_handler();
+//
+//int main () {
+//	int i, ret, top;
+//
+//	// Enable timer
+//	XTmrCtr_Initialize(&sys_tmrctr, XPAR_XPS_TIMER_0_DEVICE_ID);
+//	XTmrCtr_SetOptions(&sys_tmrctr, 0, XTC_INT_MODE_OPTION);
+//	XTmrCtr_SetResetValue(&sys_tmrctr, 0, 0xFFFF0000);
+//
+//	// Enable VGA output
+//	xil_printf("Loaded...");
+//	TETRIS_VGA_mWriteReg(TETRIS_VGA_START, 0, 1);
+//	ret = TETRIS_VGA_mReadReg(TETRIS_VGA_START, 0);
+//	if (ret)
+//		xil_printf("VGA Enabled (%d)\n", ret);
+//
+//	// Enable interrupts
+//	XIntc_Initialize(&sys_intc, XPAR_XPS_INTC_0_DEVICE_ID);
+//	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR,
+//			(XInterruptHandler)timer_handler, &sys_tmrctr);
+//    XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR);
+//
+//    /*
+//	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_TETRIS_VGA_0_IP2INTC_IRPT_INTR,
+//			(XInterruptHandler)TETRIS_VGA_Intr_DefaultHandler, TETRIS_VGA_START);
+//	TETRIS_VGA_EnableInterrupt(TETRIS_VGA_START);
+//    XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_TETRIS_VGA_0_IP2INTC_IRPT_INTR);
+//    */
+//
+//    XIntc_Start(&sys_intc, XIN_REAL_MODE);
+//	microblaze_register_handler((XInterruptHandler)XIntc_DeviceInterruptHandler,
+//			(void*)XPAR_XPS_INTC_0_DEVICE_ID);
+//	microblaze_enable_interrupts();
+//
+//    // Start timer
+//    XTmrCtr_Start(&sys_tmrctr, 0);
+//
+//	ret = 0x01234567;
+//	for (;;) {
+//		for (i=0;i<58; i++) {
+//			if (i > 1) {
+//				TETRIS_VGA_mWriteReg(TETRIS_VGA_START, i<<2, ret);
+//				// Poor-man's 4-bit barrel shift
+//				top = ret >> 28;
+//				ret = ret << 4 | top;
+//			}
+//		}
+//		top = ret >> 28;
+//		ret = ret << 4 | top;
+//		//xil_printf("reg %d: %08x\n", 4, TETRIS_VGA_mReadReg(TETRIS_VGA_START, i<<2));
+//	}
+//
+////	for (;;) {
+////		i = 0;
+////		while (100000000<i++) {}
+////		TETRIS_VGA_mWriteReg(TETRIS_VGA_USER_SLV_SPACE_OFFSET, 1, 512);
+////		i = TETRIS_VGA_mReadReg(TETRIS_VGA_USER_SLV_SPACE_OFFSET, 1);
+////		xil_printf("vcnt = 0x%04x, hcnt = 0x%04x\n", i & 0xFFFF, i >> 16);
+////	}
+//	xil_printf("Bye!");
+//	return 0;
+//}
+//
+//void vga_handler()
+//{
+//  Xuint32 baseaddr;
+//  Xuint32 IntrStatus;
+//  Xuint32 IpStatus;
+//  baseaddr = TETRIS_VGA_START;
+//
+//  /*
+//   * Get status from Device Interrupt Status Register.
+//   */
+//  IntrStatus = TETRIS_VGA_mReadReg(baseaddr, TETRIS_VGA_INTR_DISR_OFFSET);
+//
+//  xil_printf("Device Interrupt! DISR value : 0x%08x \n\r", IntrStatus);
+//
+//  /*
+//   * Verify the source of the interrupt is the user logic and clear the interrupt
+//   * source by toggle write back to the IP ISR register.
+//   */
+//  if ( (IntrStatus & INTR_IPIR_MASK) == INTR_IPIR_MASK )
+//  {
+//    xil_printf("User logic interrupt! \n\r");
+//    IpStatus = TETRIS_VGA_mReadReg(baseaddr, TETRIS_VGA_INTR_IPISR_OFFSET);
+//    TETRIS_VGA_mWriteReg(baseaddr, TETRIS_VGA_INTR_IPISR_OFFSET, IpStatus);
+//  }
+//
+//}
+//
+//void timer_handler() {
+//	Xuint32 status;
+//
+//	/* Clear interrupt */
+//	xil_printf("Timer interrupt\n\r");
+//	XTmrCtr_Reset(&sys_tmrctr, 0);
+//	XTmrCtr_Start(&sys_tmrctr,0);
+//	status = XTimerCtr_ReadReg(sys_tmrctr.BaseAddress, 0, XTC_TCSR_OFFSET);
+//	XTmrCtr_WriteReg(sys_tmrctr.BaseAddress, 0, XTC_TCSR_OFFSET, status|XTC_CSR_INT_OCCURED_MASK);
+//}

@@ -5,8 +5,7 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Command Line: platgen -p xc3s500efg320-4 -lang vhdl -intstyle default -msg
 __xps/ise/xmsgprops.lst system.mhs 
 
-Parse
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+Parse /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
 ...
 
 Read MPD definitions ...
@@ -27,8 +26,10 @@ Running DRC Tcl procedures for OPTION IPLEVEL_DRC_PROC...
 Address Map for Processor microblaze_0
   (0000000000-0x00007fff) dlmb_cntlr	dlmb
   (0000000000-0x00007fff) ilmb_cntlr	ilmb
-  (0x81400000-0x8140ffff) LEDs_8Bit	mb_plb
-  (0x81420000-0x8142ffff) DIP_Switches_4Bit	mb_plb
+  (0x81400000-0x8140ffff) encoder	mb_plb
+  (0x81420000-0x8142ffff) click	mb_plb
+  (0x81440000-0x8144ffff) LEDs_8Bit	mb_plb
+  (0x81460000-0x8146ffff) DIP_Switches_4Bit	mb_plb
   (0x81800000-0x8180ffff) xps_intc_0	mb_plb
   (0x83c00000-0x83c0ffff) xps_timer_0	mb_plb
   (0x84400000-0x8440ffff) mdm_0	mb_plb
@@ -37,10 +38,6 @@ INFO:EDK:4130 - IPNAME: plb_v46, INSTANCE:mb_plb - tool is overriding PARAMETER
    C_PLBV46_NUM_MASTERS value to 2 -
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plb_v46_v1_05_a/da
    ta/plb_v46_v2_1_0.mpd line 78 
-INFO:EDK:4130 - IPNAME: plb_v46, INSTANCE:mb_plb - tool is overriding PARAMETER
-   C_PLBV46_NUM_SLAVES value to 6 -
-   /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plb_v46_v1_05_a/da
-   ta/plb_v46_v2_1_0.mpd line 79 
 INFO:EDK:4130 - IPNAME: plb_v46, INSTANCE:mb_plb - tool is overriding PARAMETER
    C_PLBV46_MID_WIDTH value to 1 -
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plb_v46_v1_05_a/da
@@ -69,14 +66,6 @@ INFO:EDK:4130 - IPNAME: xps_gpio, INSTANCE:DIP_Switches_4Bit - tool is
    overriding PARAMETER C_SPLB_NUM_MASTERS value to 2 -
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_gpio_v2_00_a/d
    ata/xps_gpio_v2_1_0.mpd line 81 
-INFO:EDK:4130 - IPNAME: xps_timer, INSTANCE:xps_timer_0 - tool is overriding
-   PARAMETER C_SPLB_MID_WIDTH value to 1 -
-   /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_timer_v1_02_a/
-   data/xps_timer_v2_1_0.mpd line 86 
-INFO:EDK:4130 - IPNAME: xps_timer, INSTANCE:xps_timer_0 - tool is overriding
-   PARAMETER C_SPLB_NUM_MASTERS value to 2 -
-   /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_timer_v1_02_a/
-   data/xps_timer_v2_1_0.mpd line 87 
 INFO:EDK:4130 - IPNAME: mdm, INSTANCE:mdm_0 - tool is overriding PARAMETER
    C_SPLB_MID_WIDTH value to 1 -
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/mdm_v2_10_a/data/m
@@ -91,29 +80,45 @@ INFO:EDK:4130 - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tool is overriding
    ata/xps_intc_v2_1_0.mpd line 82 
 INFO:EDK:4130 - IPNAME: tetris_vga, INSTANCE:tetris_vga_0 - tool is overriding
    PARAMETER C_SPLB_DWIDTH value to 32 -
-   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tet
-   ris_vga_v1_02_a/data/tetris_vga_v2_1_0.mpd line 25 
+   /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris
+   _vga_v1_02_a/data/tetris_vga_v2_1_0.mpd line 25 
 INFO:EDK:4130 - IPNAME: tetris_vga, INSTANCE:tetris_vga_0 - tool is overriding
    PARAMETER C_SPLB_NUM_MASTERS value to 2 -
-   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tet
-   ris_vga_v1_02_a/data/tetris_vga_v2_1_0.mpd line 26 
+   /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris
+   _vga_v1_02_a/data/tetris_vga_v2_1_0.mpd line 26 
 INFO:EDK:4130 - IPNAME: tetris_vga, INSTANCE:tetris_vga_0 - tool is overriding
    PARAMETER C_SPLB_MID_WIDTH value to 1 -
-   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tet
-   ris_vga_v1_02_a/data/tetris_vga_v2_1_0.mpd line 27 
+   /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/tetris
+   _vga_v1_02_a/data/tetris_vga_v2_1_0.mpd line 27 
+INFO:EDK:4130 - IPNAME: xps_timer, INSTANCE:xps_timer_0 - tool is overriding
+   PARAMETER C_SPLB_MID_WIDTH value to 1 -
+   /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_timer_v1_02_a/
+   data/xps_timer_v2_1_0.mpd line 86 
+INFO:EDK:4130 - IPNAME: xps_timer, INSTANCE:xps_timer_0 - tool is overriding
+   PARAMETER C_SPLB_NUM_MASTERS value to 2 -
+   /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_timer_v1_02_a/
+   data/xps_timer_v2_1_0.mpd line 87 
+INFO:EDK:4130 - IPNAME: xps_gpio, INSTANCE:click - tool is overriding PARAMETER
+   C_SPLB_NUM_MASTERS value to 2 -
+   /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_gpio_v2_00_a/d
+   ata/xps_gpio_v2_1_0.mpd line 81 
+INFO:EDK:4130 - IPNAME: xps_gpio, INSTANCE:encoder - tool is overriding
+   PARAMETER C_SPLB_NUM_MASTERS value to 2 -
+   /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_gpio_v2_00_a/d
+   ata/xps_gpio_v2_1_0.mpd line 81 
 
 Checking platform address map ...
 
 Checking platform configuration ...
-IPNAME: plb_v46, INSTANCE: mb_plb - 2 master(s) : 6 slave(s) 
+IPNAME: plb_v46, INSTANCE: mb_plb - 2 master(s) : 8 slave(s) 
 IPNAME: lmb_v10, INSTANCE: ilmb - 1 master(s) : 1 slave(s) 
 IPNAME: lmb_v10, INSTANCE: dlmb - 1 master(s) : 1 slave(s) 
 
 Checking port drivers...
 WARNING:EDK:4181 - PORT: Peripheral_Reset, CONNECTOR: sys_periph_reset -
    floating connection -
-   /home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-   line 163 
+   /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
+   line 155 
 
 Performing Clock DRCs...
 
@@ -137,6 +142,10 @@ INFO:EDK:4130 - IPNAME: microblaze, INSTANCE:microblaze_0 - tcl is overriding
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v8_40_b
    /data/microblaze_v2_1_0.mpd line 365 
 INFO:EDK:4130 - IPNAME: microblaze, INSTANCE:microblaze_0 - tcl is overriding
+   PARAMETER C_USE_INTERRUPT value to 1 -
+   /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v8_40_b
+   /data/microblaze_v2_1_0.mpd line 399 
+INFO:EDK:4130 - IPNAME: microblaze, INSTANCE:microblaze_0 - tcl is overriding
    PARAMETER C_USE_EXT_BRK value to 1 -
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v8_40_b
    /data/microblaze_v2_1_0.mpd line 400 
@@ -153,11 +162,11 @@ INFO:EDK:4130 - IPNAME: lmb_bram_if_cntlr, INSTANCE:ilmb_cntlr - tcl is
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/lmb_bram_if_cntlr_
    v3_10_b/data/lmb_bram_if_cntlr_v2_1_0.mpd line 91 
 INFO:EDK:4130 - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tcl is overriding
-   PARAMETER C_NUM_INTR_INPUTS value to 3 -
+   PARAMETER C_NUM_INTR_INPUTS value to 4 -
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_intc_v2_01_a/d
    ata/xps_intc_v2_1_0.mpd line 86 
 INFO:EDK:4130 - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tcl is overriding
-   PARAMETER C_KIND_OF_INTR value to 0b11111111111111111111111111111110 -
+   PARAMETER C_KIND_OF_INTR value to 0b11111111111111111111111111111000 -
    /opt/Xilinx/14.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/xps_intc_v2_01_a/d
    ata/xps_intc_v2_1_0.mpd line 87 
 INFO:EDK:4130 - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tcl is overriding
@@ -208,11 +217,11 @@ Managing cache ...
 
 Elaborating instances ...
 IPNAME:bram_block INSTANCE:lmb_bram -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 82 - elaborating IP
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+85 - elaborating IP
 IPNAME:clock_generator INSTANCE:clock_generator_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 126 - elaborating IP
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+118 - elaborating IP
 ClkGen elaborate status: PASSED
 ----------------------------------------
 ----------------------------------------
@@ -237,71 +246,77 @@ INFO:EDK:4211 - The following instances are synthesized with XST. The MPD option
    IMP_NETLIST=TRUE indicates that a NGC file is to be produced using XST
    synthesis. IMP_NETLIST=FALSE (default) instances are not synthesized. 
 INSTANCE:microblaze_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 29 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+31 - Running XST synthesis
 INSTANCE:mb_plb -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 43 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+46 - Running XST synthesis
 INSTANCE:ilmb -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 50 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+53 - Running XST synthesis
 INSTANCE:dlmb -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 57 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+60 - Running XST synthesis
 INSTANCE:dlmb_cntlr -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 64 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+67 - Running XST synthesis
 INSTANCE:ilmb_cntlr -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 73 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+76 - Running XST synthesis
 INSTANCE:lmb_bram -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 82 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+85 - Running XST synthesis
 INSTANCE:leds_8bit -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 89 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+92 - Running XST synthesis
 INSTANCE:dip_switches_4bit -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 102 - Running XST synthesis
-INSTANCE:xps_timer_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 115 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+105 - Running XST synthesis
 INSTANCE:clock_generator_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 126 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+118 - Running XST synthesis
 INSTANCE:mdm_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 141 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+133 - Running XST synthesis
 INSTANCE:proc_sys_reset_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 153 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+145 - Running XST synthesis
 INSTANCE:xps_intc_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 166 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+158 - Running XST synthesis
 INSTANCE:tetris_vga_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 176 - Running XST synthesis
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+168 - Running XST synthesis
+INSTANCE:xps_timer_0 -
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+182 - Running XST synthesis
+INSTANCE:click -
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+191 - Running XST synthesis
+INSTANCE:encoder -
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+203 - Running XST synthesis
 
 Running NGCBUILD ...
 IPNAME:system_microblaze_0_wrapper INSTANCE:microblaze_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 29 - Running NGCBUILD
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+31 - Running NGCBUILD
 IPNAME:system_ilmb_wrapper INSTANCE:ilmb -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 50 - Running NGCBUILD
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+53 - Running NGCBUILD
 IPNAME:system_dlmb_wrapper INSTANCE:dlmb -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 57 - Running NGCBUILD
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+60 - Running NGCBUILD
 IPNAME:system_clock_generator_0_wrapper INSTANCE:clock_generator_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 126 - Running NGCBUILD
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+118 - Running NGCBUILD
 IPNAME:system_xps_intc_0_wrapper INSTANCE:xps_intc_0 -
-/home/bobthegoat/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs
-line 166 - Running NGCBUILD
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+158 - Running NGCBUILD
 INFO:EDK:3509 - NCF files should not be modified as they will be regenerated.
    If any constraint needs to be overridden, this should be done by modifying
    the data/system.ucf file.
 
 Rebuilding cache ...
 
-Total run time: 459.00 seconds
+Total run time: 444.00 seconds

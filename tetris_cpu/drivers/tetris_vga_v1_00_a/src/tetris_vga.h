@@ -191,6 +191,21 @@
 #define INTR_NOPEND (0x80)
 
 /**************************** Type Definitions *****************************/
+struct Tableau_t {
+    char    x;
+    char    y;
+    char    dx;
+    char    dy;
+    char*   tetramino;
+} typedef Tableau;
+
+struct Game_t {
+    int     play;
+    int     level;
+    int     score;
+    char*   next;
+    char    board[200];
+} typedef Game;
 
 
 /***************** Macros (Inline Functions) Definitions *******************/
@@ -529,7 +544,9 @@ void TETRIS_VGA_EnableInterrupt(void * baseaddr_p);
  * @note    None.
  *
  */
-void TETRIS_VGA_Intr_DefaultHandler(void * baseaddr_p);
+void TETRIS_VGA_Intr_DefaultHandler(void * baseaddr_p) {
+    return;
+}
 
 /**
  *

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="312" key="DIALOG_WIDTH"/>
+		<item value="231" key="DIALOG_Y_ORIGIN"/>
+		<item value="1295" key="DIALOG_X_ORIGIN"/>
+		<item value="437" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="true" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wholeword"/>
+		<item value="" key="selection"/>
+		<list key="findhistory">
+			<item value="led"/>
+			<item value="TETRIS_VGA_INTR_CNTRL_SPACE_OFFSET"/>
+			<item value="IsStarted"/>
+			<item value="TMR"/>
+			<item value="TIMER"/>
+			<item value="xps_timer"/>
+			<item value="INTC_DEVICE_ID"/>
+			<item value="XPAR_INTC_0_DEVICE_ID"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+</section>

@@ -1,0 +1,12 @@
+-batch 
+-create click_rot_enc 
+-ver 1.00.a 
+-dir "/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu" 
+-lang verilog 
+-bus plbv46 s 
+-isc 3 
+-intrn 1 5 
+-reg 1 
+-xps 
+-ise 
+-driver 

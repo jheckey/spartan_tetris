@@ -76,11 +76,11 @@ Xuint32 IpStatus;
 
   /*
    * Verify the source of the interrupt is the user logic and clear the interrupt
-   * source by toggle write baca to the IP ISR register.
+   * source by toggle write back to the IP ISR register.
    */
   if ( (IntrStatus & INTR_IPIR_MASK) == INTR_IPIR_MASK )
   {
-    xil_printf("User logic interrupt! \n\r");
+    xil_printf("Screen refresh interrupt! \n\r");
     IpStatus = TETRIS_VGA_mReadReg(baseaddr, TETRIS_VGA_INTR_IPISR_OFFSET);
     TETRIS_VGA_mWriteReg(baseaddr, TETRIS_VGA_INTR_IPISR_OFFSET, IpStatus);
   }

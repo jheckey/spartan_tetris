@@ -17,7 +17,9 @@ entity system_stub is
     tetris_vga_0_VGA_Vs_pin : out std_logic;
     tetris_vga_0_VGA_G_pin : out std_logic;
     tetris_vga_0_VGA_B_pin : out std_logic;
-    tetris_vga_0_VGA_Hs_pin : out std_logic
+    tetris_vga_0_VGA_Hs_pin : out std_logic;
+    click_GPIO_IO_I_pin : in std_logic_vector(0 to 3);
+    encoder_GPIO_IO_I_pin : in std_logic_vector(0 to 1)
   );
 end system_stub;
 
@@ -33,7 +35,9 @@ architecture STRUCTURE of system_stub is
       tetris_vga_0_VGA_Vs_pin : out std_logic;
       tetris_vga_0_VGA_G_pin : out std_logic;
       tetris_vga_0_VGA_B_pin : out std_logic;
-      tetris_vga_0_VGA_Hs_pin : out std_logic
+      tetris_vga_0_VGA_Hs_pin : out std_logic;
+      click_GPIO_IO_I_pin : in std_logic_vector(0 to 3);
+      encoder_GPIO_IO_I_pin : in std_logic_vector(0 to 1)
     );
   end component;
 
@@ -52,7 +56,9 @@ begin
       tetris_vga_0_VGA_Vs_pin => tetris_vga_0_VGA_Vs_pin,
       tetris_vga_0_VGA_G_pin => tetris_vga_0_VGA_G_pin,
       tetris_vga_0_VGA_B_pin => tetris_vga_0_VGA_B_pin,
-      tetris_vga_0_VGA_Hs_pin => tetris_vga_0_VGA_Hs_pin
+      tetris_vga_0_VGA_Hs_pin => tetris_vga_0_VGA_Hs_pin,
+      click_GPIO_IO_I_pin => click_GPIO_IO_I_pin,
+      encoder_GPIO_IO_I_pin => encoder_GPIO_IO_I_pin
     );
 
 end architecture STRUCTURE;

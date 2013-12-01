@@ -1,0 +1,11 @@
+##############################################################################
+## Filename:          /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/pcores/click_rot_enc_v1_00_a/data/click_rot_enc_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Sat Nov 30 11:22:28 2013 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a  all 
+lib plbv46_slave_single_v1_01_a  all 
+lib interrupt_control_v2_01_a  all 
+lib click_rot_enc_v1_00_a user_logic verilog
+lib click_rot_enc_v1_00_a click_rot_enc vhdl

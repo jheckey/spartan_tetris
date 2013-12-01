@@ -1,0 +1,25 @@
+/*****************************************************************************
+* bsp.h for Lab2A of ECE 153a at UCSB
+* Date of the Last Update:  Aug 26, 2010
+*****************************************************************************/
+#ifndef bsp_h
+#define bsp_h
+
+void write_leds(int val);
+                                              
+void button_handler();
+void encoder_handler();
+void timer_handler();
+
+
+/* bsp functions ..........................................................*/
+
+void BSP_init(void);
+void ISR_gpio(void);
+void ISR_timer(void);
+
+#define BSP_showState(prio_, state_) ((void)0)
+
+
+#endif                                                             /* bsp_h */
+

@@ -2,4 +2,13 @@
 **** Build of configuration Debug for project tetris ****
 
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/tetris.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -Wl,--no-relax -I../../tetris_bsp/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.40.b -mno-xl-soft-mul -MMD -MP -MF"src/tetris.d" -MT"src/tetris.d" -o"src/tetris.o" "../src/tetris.c"
+../src/tetris.c: In function ‘sys_init’:
+../src/tetris.c:230:26: error: ‘XPAR_XPS_INTC_0_XPS_GPIO_0_IP2INTC_IRPT_INTR’ undeclared (first use in this function)
+../src/tetris.c:230:26: note: each undeclared identifier is reported only once for each function it appears in
+../src/tetris.c:237:26: error: ‘XPAR_XPS_INTC_0_XPS_GPIO_1_IP2INTC_IRPT_INTR’ undeclared (first use in this function)
+../src/tetris.c: In function ‘timer_handler’:
+../src/tetris.c:379:34: error: ‘AO_Lab2B’ undeclared (first use in this function)
+make: *** [src/tetris.o] Error 1

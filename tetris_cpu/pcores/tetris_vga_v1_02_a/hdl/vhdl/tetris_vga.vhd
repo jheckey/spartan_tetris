@@ -305,7 +305,7 @@ architecture IMP of tetris_vga is
   -- 6 = negative edge detect
   ------------------------------------------
   constant USER_NUM_INTR                  : integer              := 1;
-  constant USER_INTR_CAPTURE_MODE         : integer              := 6;
+  constant USER_INTR_CAPTURE_MODE         : integer              := 5;
 
   constant INTR_IP_INTR_MODE_ARRAY        : INTEGER_ARRAY_TYPE   := 
     (

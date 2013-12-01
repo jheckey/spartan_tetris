@@ -35,18 +35,7 @@ always @( posedge clk ) begin
 end
 
 always @* begin
-    /*
-    if ( tile_x >= 7 && tile_x <= 16 && tile_y >= 6 && tile_y <= 25) begin
-        pixels_n = {16{glyph[0:2]}};
-    end
-    else begin
-    */
-        pixels_n = {8{{tile_x[3:5],tile_y[3:5]}}};
-        //pixels_n = {16{{tile_x[5],tile_x[4],tile_x[3]}}};
-		  //pixels_n = {16{tile_x[3:5]}};
-    /*
-    end
-    */
+    pixels_n = {8{{tile_x[3:5],tile_y[3:5]}}};
 end
 
 endmodule

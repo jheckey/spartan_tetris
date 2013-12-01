@@ -31,32 +31,39 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-<part id="2"/>
 <part id="3"/>
+<part id="0"/>
+<part id="2"/>
+<part id="1"/>
 <part id="4"/>
+<part id="5"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="com.xilinx.sdk.hw.ui.HwSpecXMLEditor" name="system.xml" partName="system.xml" path="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/spartan_tetris_hw_platform/system.xml" title="system.xml" tooltip="spartan_tetris_hw_platform/system.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/spartan_tetris_hw_platform/system.xml"/>
-</editor>
-<editor id="com.xilinx.sdk.sw.MSSEditor" name="system.mss" partName="system.mss" path="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_bsp/system.mss" title="system.mss" tooltip="tetris_bsp/system.mss" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/tetris_bsp/system.mss"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="tetris.c" partName="tetris.c" path="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris/src/tetris.c" title="tetris.c" tooltip="tetris/src/tetris.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/tetris/src/tetris.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="899" selectionTopPixel="0"/>
-</editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="tetris_vga.h" partName="tetris_vga.h" path="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris/src/tetris_vga.h" title="tetris_vga.h" tooltip="tetris/src/tetris_vga.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/tetris/src/tetris_vga.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="19" selectionOffset="11789" selectionTopPixel="3485"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="29698" selectionTopPixel="7812"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="xparameters.h" partName="xparameters.h" path="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_bsp/microblaze_0/include/xparameters.h" title="xparameters.h" tooltip="tetris_bsp/microblaze_0/include/xparameters.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/tetris_bsp/microblaze_0/include/xparameters.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="46" selectionOffset="5631" selectionTopPixel="2386"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="tetris_vga.c" partName="tetris_vga.c" path="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris/src/tetris_vga.c" title="tetris_vga.c" tooltip="tetris/src/tetris_vga.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/tetris/src/tetris_vga.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="726" selectionOffset="1713" selectionTopPixel="886"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="tetris.c" partName="tetris.c" path="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris/src/tetris.c" title="tetris.c" tooltip="tetris/src/tetris.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/tetris/src/tetris.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5816" selectionTopPixel="223"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="xintc.c" partName="xintc.c" path="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc.c" title="xintc.c" tooltip="tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="10168" selectionTopPixel="4043"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="xtmrctr.c" partName="xtmrctr.c" path="/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr.c" title="xtmrctr.c" tooltip="tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="16" selectionOffset="10987" selectionTopPixel="5066"/>
 </editor>
 </editors>
 <views>
@@ -69,7 +76,16 @@
 <view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
 <viewState/>
 </view>
-<view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
+<view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target">
+<viewState/>
+</view>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="org.eclipse.cdt.ui.pdomSearchViewPage" definitionColumnWidth="150" locationColumnWidth="300" matchColumnWidth="300" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" showEnclosingDefinitions="true"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="2" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+</viewState>
+</view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
 <viewState/>
 </view>
@@ -78,8 +94,6 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>&#x0A;<category IMemento.internal.id="Warnings (1 item)"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -96,7 +110,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.views.ProgressView" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.cdt.internal.ui.CPerspectiveFactory" id="org.eclipse.cdt.ui.CPerspective" label="C/C++"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -143,7 +157,6 @@
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.ui.views.TaskList"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
@@ -151,6 +164,8 @@
 <view id="org.eclipse.tm.terminal.view.TerminalView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.ui.views.ProgressView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.cdt.make.ui.views.MakeView"/>
 <fastViewBars/>
@@ -175,9 +190,9 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.15239295" ratioLeft="242" ratioRight="1346" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.17082429" ratioLeft="315" ratioRight="1529" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottom" ratio="0.69631904" ratioLeft="681" ratioRight="297" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ProgressView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
@@ -185,6 +200,7 @@
 <page content="org.eclipse.tm.terminal.view.TerminalView" label="Terminal 1"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.ui.views.ProgressView" label="Progress"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
@@ -193,10 +209,11 @@
 <part id="4"/>
 <part id="5"/>
 <part id="6"/>
+<part id="7"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="topRight" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="topRight" ratio="0.7444299" ratioLeft="1136" ratioRight="390" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.cdt.make.ui.views.MakeView" label="Make Target"/>
@@ -213,130 +230,163 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.hw.ui.HwSpecXMLEditor" path="/spartan_tetris_hw_platform/system.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.sw.MSSEditor" path="/tetris_bsp/system.mss"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/tetris/src/tetris.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/tetris/src/tetris_vga.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/tetris_bsp/microblaze_0/include/xparameters.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/tetris/src/tetris_vga.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/tetris/src/tetris_vga.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/tetris/src/tetris_vga.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/tetris/src/tetris.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr.c"/>
 </editors>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="system.mss" index="1"/>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="system.mss" index="1"/>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="system.mss" index="1"/>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="795" y="0"/>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="9032" y="34"/>
 </item>
-<item historyLabel="tetris.c" index="2">
+<item historyLabel="tetris.c" index="0">
+<position info="not_deleted" x="1376" y="0"/>
+</item>
+<item historyLabel="tetris.c" index="0">
+<position info="not_deleted" x="1368" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="9032" y="34"/>
+</item>
+<item historyLabel="tetris.c" index="0">
+<position info="not_deleted" x="1368" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="9032" y="34"/>
+</item>
+<item historyLabel="tetris.c" index="0">
+<position info="not_deleted" x="1366" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="29093" y="26"/>
+</item>
+<item historyLabel="tetris.c" index="0">
+<position info="not_deleted" x="1366" y="0"/>
+</item>
+<item historyLabel="tetris.c" index="0">
+<position info="not_deleted" x="3721" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="29093" y="26"/>
+</item>
+<item historyLabel="tetris_vga.c" index="3">
+<position info="not_deleted" x="983" y="399"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="29093" y="26"/>
+</item>
+<item historyLabel="tetris.c" index="0">
+<position info="not_deleted" x="3705" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="9032" y="34"/>
+</item>
+<item historyLabel="tetris.c" index="0">
+<position info="not_deleted" x="3650" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="9032" y="34"/>
+</item>
+<item historyLabel="tetris_vga.c" index="3">
+<position info="not_deleted" x="1026" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="9606" y="28"/>
+</item>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="4368" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="9606" y="28"/>
+</item>
+<item historyLabel="xparameters.h" index="2">
+<position info="not_deleted" x="5631" y="46"/>
+</item>
+<item historyLabel="tetris_vga.c" index="3">
+<position info="not_deleted" x="1029" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="9282" y="0"/>
+</item>
+<item historyLabel="tetris_vga.c" index="3">
+<position info="not_deleted" x="1371" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="10364" y="13"/>
+</item>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="4368" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="10364" y="13"/>
+</item>
+<item historyLabel="tetris_vga.c" index="3">
+<position info="not_deleted" x="983" y="76"/>
+</item>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="5022" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="10364" y="13"/>
+</item>
+<item historyLabel="tetris_vga.c" index="3">
+<position info="not_deleted" x="1127" y="255"/>
+</item>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="5022" y="0"/>
+</item>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="4634" y="0"/>
+</item>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="5155" y="0"/>
+</item>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="9076" y="0"/>
+</item>
+<item historyLabel="tetris.c" index="4">
 <position/>
 </item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="709" y="0"/>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="30038" y="0"/>
 </item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="753" y="0"/>
+<item historyLabel="tetris.c" index="4">
+<position/>
 </item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="698" y="0"/>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="30038" y="0"/>
 </item>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="142" y="0"/>
+<item historyLabel="tetris_vga.c" index="3">
+<position info="not_deleted" x="1713" y="726"/>
 </item>
-<item historyLabel="system.mss" index="1"/>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="482" y="0"/>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="2323" y="0"/>
 </item>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="system.mss" index="1"/>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="482" y="0"/>
+<item historyLabel="tetris_vga.h" index="1">
+<position info="not_deleted" x="29698" y="0"/>
 </item>
-<item historyLabel="tetris_vga.h" index="3">
-<position info="not_deleted" x="11115" y="20"/>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="2348" y="0"/>
 </item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="808" y="0"/>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="2869" y="0"/>
 </item>
-<item historyLabel="tetris_vga.h" index="3">
-<position info="not_deleted" x="3767" y="32"/>
+<item historyLabel="xintc.c" index="5">
+<position info="not_deleted" x="10168" y="11"/>
 </item>
-<item historyLabel="tetris_vga.c" index="4">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="2973" y="0"/>
 </item>
-<item historyLabel="tetris_vga.h" index="3">
-<position info="not_deleted" x="3767" y="32"/>
+<item historyLabel="xtmrctr.c" index="6">
+<position info="not_deleted" x="10987" y="16"/>
 </item>
-<item historyLabel="tetris_vga.c" index="4">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="2973" y="0"/>
 </item>
-<item historyLabel="tetris_vga.h" index="3">
-<position info="not_deleted" x="3767" y="32"/>
-</item>
-<item historyLabel="tetris_vga.c" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="tetris_vga.h" index="3">
-<position info="not_deleted" x="3767" y="32"/>
-</item>
-<item historyLabel="tetris_vga.c" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="tetris_vga.h" index="3">
-<position info="not_deleted" x="3767" y="32"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="808" y="0"/>
-</item>
-<item historyLabel="tetris_vga.h" index="3">
-<position info="not_deleted" x="12451" y="0"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="808" y="0"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="912" y="0"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="880" y="0"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="952" y="0"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="1000" y="0"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="1001" y="0"/>
-</item>
-<item historyLabel="tetris_vga.h" index="5">
-<position info="not_deleted" x="12451" y="0"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="1267" y="0"/>
-</item>
-<item historyLabel="tetris_vga.h" index="5">
-<position info="not_deleted" x="12451" y="0"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="1267" y="0"/>
-</item>
-<item historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="1281" y="1"/>
-</item>
-<item historyLabel="tetris_vga.h" index="6">
-<position info="not_deleted" x="12451" y="0"/>
-</item>
-<item historyLabel="tetris_vga.h" index="6">
-<position info="not_deleted" x="11789" y="19"/>
-</item>
-<item active="true" historyLabel="tetris.c" index="2">
-<position info="not_deleted" x="1027" y="0"/>
+<item active="true" historyLabel="tetris.c" index="4">
+<position info="not_deleted" x="3029" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -355,20 +405,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tetris_vga.c" tooltip="tetris/src/tetris_vga.c">
-<persistable path="/tetris/src/tetris_vga.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xtmrctr.c" tooltip="tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr.c">
+<persistable path="/tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tetris_vga.h" tooltip="tetris/src/tetris_vga.h">
-<persistable path="/tetris/src/tetris_vga.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xintc.c" tooltip="tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc.c">
+<persistable path="/tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tetris.c" tooltip="tetris/src/tetris.c">
 <persistable path="/tetris/src/tetris.c"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tetris_vga.c" tooltip="tetris/src/tetris_vga.c">
+<persistable path="/tetris/src/tetris_vga.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xparameters.h" tooltip="tetris_bsp/microblaze_0/include/xparameters.h">
+<persistable path="/tetris_bsp/microblaze_0/include/xparameters.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tetris_vga.h" tooltip="tetris/src/tetris_vga.h">
+<persistable path="/tetris/src/tetris_vga.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xintc.h" tooltip="tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc.h">
+<persistable path="/tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xintc_l.c" tooltip="tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc_l.c">
+<persistable path="/tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc_l.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xil_types.h" tooltip="tetris_bsp/microblaze_0/libsrc/standalone_v3_07_a/src/xil_types.h">
+<persistable path="/tetris_bsp/microblaze_0/libsrc/standalone_v3_07_a/src/xil_types.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xintc.h" tooltip="tetris_bsp/microblaze_0/include/xintc.h">
+<persistable path="/tetris_bsp/microblaze_0/include/xintc.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xintc_l.h" tooltip="tetris_bsp/microblaze_0/include/xintc_l.h">
+<persistable path="/tetris_bsp/microblaze_0/include/xintc_l.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.sw.MSSEditor" name="system.mss" tooltip="tetris_bsp/system.mss">
 <persistable path="/tetris_bsp/system.mss"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.hw.ui.HwSpecXMLEditor" name="system.xml" tooltip="spartan_tetris_hw_platform/system.xml">
-<persistable path="/spartan_tetris_hw_platform/system.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xintc_l.h" tooltip="tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc_l.h">
+<persistable path="/tetris_bsp/microblaze_0/libsrc/intc_v2_05_a/src/xintc_l.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xtmrctr.h" tooltip="tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr.h">
+<persistable path="/tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xtmrctr_options.c" tooltip="tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr_options.c">
+<persistable path="/tetris_bsp/microblaze_0/libsrc/tmrctr_v2_04_a/src/xtmrctr_options.c"/>
 </file>
 </mruList>
 </workbench>

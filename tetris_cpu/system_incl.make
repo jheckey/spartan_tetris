@@ -69,12 +69,14 @@ implementation/system_ilmb_cntlr_wrapper.ngc \
 implementation/system_lmb_bram_wrapper.ngc \
 implementation/system_leds_8bit_wrapper.ngc \
 implementation/system_dip_switches_4bit_wrapper.ngc \
-implementation/system_xps_timer_0_wrapper.ngc \
 implementation/system_clock_generator_0_wrapper.ngc \
 implementation/system_mdm_0_wrapper.ngc \
 implementation/system_proc_sys_reset_0_wrapper.ngc \
 implementation/system_xps_intc_0_wrapper.ngc \
-implementation/system_tetris_vga_0_wrapper.ngc
+implementation/system_tetris_vga_0_wrapper.ngc \
+implementation/system_xps_timer_0_wrapper.ngc \
+implementation/system_click_wrapper.ngc \
+implementation/system_encoder_wrapper.ngc
 
 POSTSYN_NETLIST = implementation/$(SYSTEM).ngc
 

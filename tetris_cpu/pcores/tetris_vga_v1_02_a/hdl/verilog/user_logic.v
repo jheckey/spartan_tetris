@@ -184,7 +184,7 @@ output     [0 : C_NUM_INTR-1]             IP2Bus_IntrEvent;
 
   // --USER logic implementation added here
   // -- Implement decode logic here
-  wire                                      IP2Bus_IntrEvent = 1'b0;
+  wire                                      IP2Bus_IntrEvent = ~vga_VS;
   wire      [0:47]                          pixels, r_pixels, t_pixels;
   wire      [0:10]                          hcnt;
   wire      [0:9]                           vcnt;
@@ -193,9 +193,8 @@ output     [0 : C_NUM_INTR-1]             IP2Bus_IntrEvent;
   wire                                      enable = slv_reg0[31];
   wire                                      test_patt = slv_reg0[30];
   wire                                      clear = slv_reg0[0];
-  /*
   wire      [0:(4*32)-1]                    next_tiles = { slv_reg52, slv_reg53, slv_reg54, slv_reg55 };
-  wire      [0:(32 * 50)-1]                 tiles = { slv_reg2, slv_reg3, slv_reg4, slv_reg5, slv_reg6,
+  wire      [0:(32*50)-1]                   tiles = { slv_reg2, slv_reg3, slv_reg4, slv_reg5, slv_reg6,
                                                       slv_reg7, slv_reg8, slv_reg9, slv_reg10, slv_reg11,
                                                       slv_reg12, slv_reg13, slv_reg14, slv_reg15, slv_reg16,
                                                       slv_reg17, slv_reg18, slv_reg19, slv_reg20, slv_reg21,
@@ -205,7 +204,6 @@ output     [0 : C_NUM_INTR-1]             IP2Bus_IntrEvent;
                                                       slv_reg37, slv_reg38, slv_reg39, slv_reg40, slv_reg41,
                                                       slv_reg42, slv_reg43, slv_reg44, slv_reg45, slv_reg46,
                                                       slv_reg47, slv_reg48, slv_reg49, slv_reg50, slv_reg51 };
-  */
 
   assign pixels = (test_patt) ? t_pixels : r_pixels;
 
@@ -233,14 +231,13 @@ output     [0 : C_NUM_INTR-1]             IP2Bus_IntrEvent;
   );
 
   raster render(
-      .clk      (Bus2IP_Clk),
-      .rst      (Bus2IP_Reset),
-      .hcnt     (hcnt),
-      .vcnt     (vcnt),
-      .tile_x   (),
-      .tile_y   (),
-      .glyph    (slv_reg2),
-      .pixels   (r_pixels)
+      .clk          (Bus2IP_Clk),
+      .rst          (Bus2IP_Reset),
+      .hcnt         (hcnt),
+      .vcnt         (vcnt),
+      .tiles        (tiles),
+      .next_tiles   (next_tiles),
+      .pixels       (r_pixels)
   );
 
   // ------------------------------------------------------

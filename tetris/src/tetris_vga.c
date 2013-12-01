@@ -64,7 +64,7 @@ void TETRIS_VGA_Intr_DefaultHandler(void * baseaddr_p)
 {
   Xuint32 baseaddr;
   Xuint32 IntrStatus;
-Xuint32 IpStatus;
+  Xuint32 IpStatus;
   baseaddr = (Xuint32) baseaddr_p;
 
   /*
