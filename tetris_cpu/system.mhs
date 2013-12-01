@@ -161,7 +161,7 @@ BEGIN xps_intc
  PARAMETER C_BASEADDR = 0x81800000
  PARAMETER C_HIGHADDR = 0x8180ffff
  BUS_INTERFACE SPLB = mb_plb
- PORT Intr = xps_timer_0_Interrupt & tetris_vga_0_IP2INTC_Irpt & click_IP2INTC_Irpt & encoder_IP2INTC_Irpt
+ PORT Intr = xps_timer_0_Interrupt & xps_timer_1_Interrupt & tetris_vga_0_IP2INTC_Irpt & click_IP2INTC_Irpt & encoder_IP2INTC_Irpt
  PORT Irq = microblaze_0_INTERRUPT
 END
 
@@ -210,5 +210,14 @@ BEGIN xps_gpio
  BUS_INTERFACE SPLB = mb_plb
  PORT IP2INTC_Irpt = encoder_IP2INTC_Irpt
  PORT GPIO_IO_I = encoder_GPIO_IO_I
+END
+
+BEGIN xps_timer
+ PARAMETER INSTANCE = fall_timer
+ PARAMETER HW_VER = 1.02.a
+ PARAMETER C_BASEADDR = 0x83c20000
+ PARAMETER C_HIGHADDR = 0x83c2ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT Interrupt = xps_timer_1_Interrupt
 END
 

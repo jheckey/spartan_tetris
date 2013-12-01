@@ -76,7 +76,8 @@ implementation/system_xps_intc_0_wrapper.ngc \
 implementation/system_tetris_vga_0_wrapper.ngc \
 implementation/system_xps_timer_0_wrapper.ngc \
 implementation/system_click_wrapper.ngc \
-implementation/system_encoder_wrapper.ngc
+implementation/system_encoder_wrapper.ngc \
+implementation/system_fall_timer_wrapper.ngc
 
 POSTSYN_NETLIST = implementation/$(SYSTEM).ngc
 

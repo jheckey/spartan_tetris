@@ -2,13 +2,15 @@
 **** Build of configuration Debug for project tetris ****
 
 make all 
-Building file: ../src/tetris.c
+Building file: ../src/tetris_states.c
 Invoking: MicroBlaze gcc compiler
-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -Wl,--no-relax -I../../tetris_bsp/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.40.b -mno-xl-soft-mul -MMD -MP -MF"src/tetris.d" -MT"src/tetris.d" -o"src/tetris.o" "../src/tetris.c"
-../src/tetris.c: In function ‘sys_init’:
-../src/tetris.c:230:26: error: ‘XPAR_XPS_INTC_0_XPS_GPIO_0_IP2INTC_IRPT_INTR’ undeclared (first use in this function)
-../src/tetris.c:230:26: note: each undeclared identifier is reported only once for each function it appears in
-../src/tetris.c:237:26: error: ‘XPAR_XPS_INTC_0_XPS_GPIO_1_IP2INTC_IRPT_INTR’ undeclared (first use in this function)
-../src/tetris.c: In function ‘timer_handler’:
-../src/tetris.c:379:34: error: ‘AO_Lab2B’ undeclared (first use in this function)
-make: *** [src/tetris.o] Error 1
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -Wl,--no-relax -I../../tetris_bsp/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.40.b -mno-xl-soft-mul -MMD -MP -MF"src/tetris_states.d" -MT"src/tetris_states.d" -o"src/tetris_states.o" "../src/tetris_states.c"
+Finished building: ../src/tetris_states.c
+ 
+Building target: tetris.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,--no-relax -Wl,-T -Wl,../src/lscript.ld -L../../tetris_bsp/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.40.b -mno-xl-soft-mul -o"tetris.elf"  ./src/qepn.o ./src/qfn.o ./src/qfn_init.o ./src/tetris.o ./src/tetris_states.o ./src/tetris_vga.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+/opt/Xilinx/14.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/../lib/gcc/microblaze-xilinx-elf/4.6.2/../../../../microblaze-xilinx-elf/bin/ld: tetris.elf section `.stack' will not fit in region `ilmb_cntlr_dlmb_cntlr'
+/opt/Xilinx/14.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/../lib/gcc/microblaze-xilinx-elf/4.6.2/../../../../microblaze-xilinx-elf/bin/ld: region `ilmb_cntlr_dlmb_cntlr' overflowed by 992 bytes
+collect2: ld returned 1 exit status
+make: *** [tetris.elf] Error 1

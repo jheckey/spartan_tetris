@@ -9,149 +9,11 @@
 #include "tetris_vga.h"
 #include <xbasic_types.h>                       // XGpio, Xuint32, etc. typedefs
 #include <xio.h>                                // Very low-level i/o stuff
-#include <stdlib.h>
-#include "qpn_port.h"
+#include "tetris.h"
 
 #define TETRIS_VGA_START 				0xC9A00000
 #define RESET_VALUE                 	100000000	// 100M at 50Mhz (20ns/cycle) ~= 2s
 #define DEBOUNCE_TIME 	                125000	    // * 20ns = 2.5ms
-
-
-enum Lab2ASignals {
-	ENCODER_RIGHT = Q_USER_SIG,
-	ENCODER_LEFT,
-	ENCODER_CLICK,
-    TIMER_FALL
-};
-
-// Tetraminos
-char    I0[4][4] = { {0, 0, 3, 0},
-                     {0, 0, 3, 0},
-                     {0, 0, 3, 0},
-                     {0, 0, 3, 0} };
-char    I1[4][4] = { {0, 0, 0, 0},
-                     {0, 0, 0, 0},
-                     {3, 3, 3, 3},
-                     {0, 0, 0, 0} };
-char    I2[4][4] = { {0, 3, 0, 0},
-                     {0, 3, 0, 0},
-                     {0, 3, 0, 0},
-                     {0, 3, 0, 0} };
-char    I3[4][4] = { {0, 0, 0, 0},
-                     {3, 3, 3, 3},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    J0[4][4] = { {1, 1, 1, 0},
-                     {0, 0, 1, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    J1[4][4] = { {0, 1, 1, 0},
-                     {0, 0, 1, 0},
-                     {0, 0, 1, 0},
-                     {0, 0, 0, 0} };
-char    J2[4][4] = { {0, 0, 1, 0},
-                     {1, 1, 1, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    J3[4][4] = { {1, 0, 0, 0},
-                     {1, 0, 0, 0},
-                     {1, 1, 0, 0},
-                     {0, 0, 0, 0} };
-char    L0[4][4] = { {5, 5, 5, 0},
-                     {5, 0, 0, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    L5[4][4] = { {5, 5, 0, 0},
-                     {0, 5, 0, 0},
-                     {0, 5, 0, 0},
-                     {0, 0, 0, 0} };
-char    L2[4][4] = { {0, 0, 5, 0},
-                     {5, 5, 5, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    L3[4][4] = { {5, 0, 0, 0},
-                     {5, 0, 0, 0},
-                     {5, 5, 0, 0},
-                     {0, 0, 0, 0} };
-char    O0[4][4] = { {0, 6, 6, 0},
-                     {0, 6, 6, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    O1[4][4] = { {0, 6, 6, 0},
-                     {0, 6, 6, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    O2[4][4] = { {0, 6, 6, 0},
-                     {0, 6, 6, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    O3[4][4] = { {0, 6, 6, 0},
-                     {0, 6, 6, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    T0[4][4] = { {0, 0, 0, 0},
-                     {7, 7, 7, 0},
-                     {0, 7, 0, 0},
-                     {0, 0, 0, 0} };
-char    T1[4][4] = { {0, 7, 0, 0},
-                     {7, 7, 0, 0},
-                     {0, 7, 0, 0},
-                     {0, 0, 0, 0} };
-char    T2[4][4] = { {0, 7, 0, 0},
-                     {7, 7, 7, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    T3[4][4] = { {0, 7, 0, 0},
-                     {0, 7, 7, 0},
-                     {0, 7, 0, 0},
-                     {0, 0, 0, 0} };
-char    S0[4][4] = { {0, 2, 2, 0},
-                     {2, 2, 0, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    S1[4][4] = { {2, 0, 0, 0},
-                     {2, 2, 0, 0},
-                     {0, 2, 0, 0},
-                     {0, 0, 0, 0} };
-char    S2[4][4] = { {0, 2, 2, 0},
-                     {2, 2, 0, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    S3[4][4] = { {2, 0, 0, 0},
-                     {2, 2, 0, 0},
-                     {0, 2, 0, 0},
-                     {0, 0, 0, 0} };
-char    N0[4][4] = { {4, 4, 0, 0},
-                     {0, 4, 4, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    N1[4][4] = { {0, 4, 0, 0},
-                     {4, 4, 0, 0},
-                     {4, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    N2[4][4] = { {4, 4, 0, 0},
-                     {0, 4, 4, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-char    N3[4][4] = { {0, 4, 0, 0},
-                     {4, 4, 0, 0},
-                     {4, 0, 0, 0},
-                     {0, 0, 0, 0} };
-
-// typedefs
-typedef struct Tableau_t {
-    char*    tetramino;
-} Tableau;
-
-typedef struct Tetris_t {
-    QActive super;
-
-    int     score;
-    int     level;
-
-    Tableau next;
-    char    gameboard[20][10];
-} Tetris;
 
 
 // Globals
@@ -161,30 +23,21 @@ static  Xuint32			enc = 0;
 static  Xuint32         top;
 static  Xuint32         ret = 0x01234567;
 static  Xuint32         cnt = 0;
+static	Xuint32			fall_time = 100000000;
 
 // -- system objs
 static  XIntc           sys_intc;
 static  XTmrCtr         sys_tmrctr;
+static  XTmrCtr         sys_tmrfall;
 static  XGpio           sys_buttons;
 static  XGpio           sys_encoder;
 static  XGpio           leds;
 static  QEvent          l_tetrisQueue[30];
-struct  Tetris 			Game;
 
 QActiveCB const Q_ROM Q_ROM_VAR QF_active[] = {
 	{ (QActive *)0,            (QEvent *)0,          0                    },
 	{ (QActive *)&Game,        l_tetrisQueue,        Q_DIM(l_tetrisQueue) }
 };
-
-// Prototypes
-void    Tetris_ctor(void);
-int     sys_init();
-void    vga_handler();
-void    button_handler();
-void    encoder_handler();
-void    timer_handler();
-void    QF_onStartup(void);
-void    QF_onIdle(void);
 
 // Declarations
 int main(void)
@@ -210,6 +63,7 @@ int sys_init()
 	XGpio_Initialize(&sys_encoder, XPAR_ENCODER_DEVICE_ID);
 	XIntc_Initialize(&sys_intc, XPAR_XPS_INTC_0_DEVICE_ID);
 	XTmrCtr_Initialize(&sys_tmrctr, XPAR_XPS_TIMER_0_DEVICE_ID);
+	XTmrCtr_Initialize(&sys_tmrfall, XPAR_FALL_TIMER_DEVICE_ID);
 
 	// Configure GPIO
     XGpio_SetDataDirection(&leds, 1, 0x00000000);
@@ -226,19 +80,24 @@ int sys_init()
 			(XInterruptHandler)timer_handler, &sys_tmrctr);
     XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR);
 
+    /* fall timer interrupt cfg */
+	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_FALL_TIMER_INTERRUPT_INTR,
+			(XInterruptHandler)fall_handler, &sys_tmrfall);
+    XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_FALL_TIMER_INTERRUPT_INTR);
+
     /* button interrupt cfg */
-	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_XPS_GPIO_0_IP2INTC_IRPT_INTR,
+	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_CLICK_IP2INTC_IRPT_INTR,
 			(XInterruptHandler)button_handler, &sys_buttons);
 	XGpio_InterruptGlobalEnable(&sys_buttons);
-	XGpio_InterruptEnable(&sys_buttons,XPAR_XPS_INTC_0_XPS_GPIO_0_IP2INTC_IRPT_INTR);
-	XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_XPS_GPIO_0_IP2INTC_IRPT_INTR);
+	XGpio_InterruptEnable(&sys_buttons,XPAR_XPS_INTC_0_CLICK_IP2INTC_IRPT_INTR);
+	XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_CLICK_IP2INTC_IRPT_INTR);
 
     /* encoder interrupt cfg */
-	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_XPS_GPIO_1_IP2INTC_IRPT_INTR,
+	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_ENCODER_IP2INTC_IRPT_INTR,
 			(XInterruptHandler)encoder_handler, &sys_encoder);
 	XGpio_InterruptGlobalEnable(&sys_encoder);
 	XGpio_InterruptEnable(&sys_encoder,XGPIO_IR_CH1_MASK);
-	XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_XPS_GPIO_1_IP2INTC_IRPT_INTR);
+	XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_ENCODER_IP2INTC_IRPT_INTR);
 
     // Enable VGA
     TETRIS_VGA_EnableInterrupt((void*)TETRIS_VGA_START);
@@ -247,12 +106,13 @@ int sys_init()
     //TETRIS_VGA_mWriteReg(TETRIS_VGA_START, TETRIS_VGA_INTR_DGIER_OFFSET, INTR_GIE_MASK);
     TETRIS_VGA_mWriteReg(TETRIS_VGA_START, 0, 1);
 
-    // Configure and start Timer
-    XTmrCtr_SetOptions(&sys_tmrctr, 0, XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
+    // Configure Timers
+    XTmrCtr_SetOptions(&sys_tmrctr, 0, XTC_INT_MODE_OPTION);
 	XTmrCtr_SetResetValue(&sys_tmrctr, 0, 0xFFFFFFFF-DEBOUNCE_TIME);
-	//XTmrCtr_Start(&sys_tmrctr, 0);
+    XTmrCtr_SetOptions(&sys_tmrfall, 0, XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
+	XTmrCtr_SetResetValue(&sys_tmrfall, 0, 0xFFFFFFFF-fall_time);
 
-    /* Start interrupts */
+	/* Start interrupts */
 	XIntc_Start(&sys_intc, XIN_REAL_MODE);
 	microblaze_register_handler((XInterruptHandler)XIntc_DeviceInterruptHandler,
 			(void*)XPAR_XPS_INTC_0_DEVICE_ID);
@@ -328,6 +188,7 @@ void vga_handler()
 
 void button_handler()
 {
+	XIntc_Stop(&sys_intc);
 	/* Display status */
     click = XGpio_DiscreteRead(&sys_buttons,1);
 	//XGpio_DiscreteWrite(&leds,1,click);
@@ -341,12 +202,14 @@ void button_handler()
 	/* Clear int */
 	XGpio_InterruptClear(&sys_buttons,XGPIO_IR_CH1_MASK);
     //QActive_postISR((QActive *)&AO_Lab2A, ENCODER_CLICK);
+	XIntc_Start(&sys_intc, XIN_REAL_MODE);
 }
 
 void encoder_handler()
 {
 	char tmp;
 
+	XIntc_Stop(&sys_intc);
 	/* Display status */
     //xil_printf("\n\rTwist");
     tmp = XGpio_DiscreteRead(&sys_encoder,1);
@@ -368,15 +231,18 @@ void encoder_handler()
         QActive_postISR((QActive *)&AO_Lab2A, ENCODER_DOWN);
     }
     */
+	XIntc_Start(&sys_intc, XIN_REAL_MODE);
 }
 
 void timer_handler()
 {
 	Xuint32 status;
 
+	XIntc_Stop(&sys_intc);
+
 	/* Check what kicked off the timer */
 	if (click) {
-	    QActive_postISR((QActive *)&AO_Lab2B, ENCODER_CLICK);
+	    QActive_postISR((QActive *)&Game, ROTATE);
 	    click = 0; // play nice, keep your variables clean
 	} else if (enc != 0 && enc > 256) {	// really need at least 4 to get a good sequence
 		//xil_printf("\n\rD%08x", enc);
@@ -388,7 +254,7 @@ void timer_handler()
 			case 0x1E:	// 2-3-1	0% false
 			case 0x3A:	// 2-2-3	0% false
 			case 0x2A:	// 2-2-2	4% false
-				QActive_postISR((QActive *)&AO_Lab2B, ENCODER_LEFT);
+				QActive_postISR((QActive *)&Game, LEFT);
 				enc = 0;
 				break;
 			// Check Up sequences
@@ -396,7 +262,7 @@ void timer_handler()
 			case 0x2E:	// 1-3-2	0% false
 			case 0x15:	// 1-1-1	5% false
 			case 0x0B:	// 3-2-0	0% false
-				QActive_postISR((QActive *)&AO_Lab2B, ENCODER_RIGHT);
+				QActive_postISR((QActive *)&Game, RIGHT);
 				enc = 0;
 				break;
 			}
@@ -412,5 +278,13 @@ void timer_handler()
 	XTmrCtr_Stop(&sys_tmrctr,0);
 	status = XTimerCtr_ReadReg(sys_tmrctr.BaseAddress, 0, XTC_TCSR_OFFSET);
 	XTmrCtr_WriteReg(sys_tmrctr.BaseAddress, 0, XTC_TCSR_OFFSET, status|XTC_CSR_INT_OCCURED_MASK);
+
+	XIntc_Start(&sys_intc, XIN_REAL_MODE);
+}
+
+void fall_handler() {
+	XIntc_Stop(&sys_intc);
+	QActive_postISR((QActive *)&Game, FALL);
+	XIntc_Start(&sys_intc, XIN_REAL_MODE);
 }
 
