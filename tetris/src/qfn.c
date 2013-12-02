@@ -1,3 +1,4 @@
+#ifdef COMMENT
 /*****************************************************************************
 * Product: QF-nano implemenation
 * Last Updated for Version: 4.1.00
@@ -235,3 +236,4 @@ void QF_run(void) {
 * interrupt. The QF_onIdle() MUST enable interrups internally, ideally
 * atomically with putting the CPU into a low-power mode.
 */
+#endif //COMMENT

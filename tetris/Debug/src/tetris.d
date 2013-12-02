@@ -20,8 +20,7 @@ src/tetris.d: ../src/tetris.c \
  ../../tetris_bsp/microblaze_0/include/xbasic_types.h \
  ../../tetris_bsp/microblaze_0/include/xstatus.h \
  ../../tetris_bsp/microblaze_0/include/xil_io.h \
- ../../tetris_bsp/microblaze_0/include/xio.h ../src/tetris.h \
- ../src/qpn_port.h ../src/qepn.h ../src/qassert.h ../src/qfn.h
+ ../../tetris_bsp/microblaze_0/include/xio.h
 
 ../../tetris_bsp/microblaze_0/include/xparameters.h:
 
@@ -68,13 +67,3 @@ src/tetris.d: ../src/tetris.c \
 ../../tetris_bsp/microblaze_0/include/xil_io.h:
 
 ../../tetris_bsp/microblaze_0/include/xio.h:
-
-../src/tetris.h:
-
-../src/qpn_port.h:
-
-../src/qepn.h:
-
-../src/qassert.h:
-
-../src/qfn.h:

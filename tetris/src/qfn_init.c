@@ -1,3 +1,4 @@
+#ifdef COMMENT
 /*****************************************************************************
 * Product: QF-nano implemenation
 * Last Updated for Version: 4.0.05
@@ -67,3 +68,4 @@ void QF_init(void) {
 #endif
     }
 }
+#endif // COMMENT

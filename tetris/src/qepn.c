@@ -1,3 +1,4 @@
+#ifdef COMMENT
 /*****************************************************************************
 * Product: QEP-nano implemenation
 * Last Updated for Version: 4.1.03
@@ -321,3 +322,4 @@ void QHsm_dispatch(QHsm *me) Q_REENTRANT {
 }
 
 #endif                                                            /* Q_NHSM */
+#endif // COMMENT

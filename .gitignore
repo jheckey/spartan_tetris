@@ -16,6 +16,7 @@ XpsGuiSessionLock
 *.so
 *.vho
 
+.metadata/
 synthesis/
 implementation/
 project_1/

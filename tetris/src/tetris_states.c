@@ -1,3 +1,5 @@
+
+#ifdef COMMENT
 #include "tetris.h"
 #include <stdlib.h>
 #include <string.h>
@@ -298,3 +300,4 @@ char check_move(Tetris* me, int dx, int dy) {
 	}
 	return 1;
 }
+#endif // COMMENT

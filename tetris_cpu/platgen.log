@@ -230,6 +230,9 @@ Managing cache ...
 IPNAME:microblaze INSTANCE:microblaze_0 -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
 31 - Copying cache implementation netlist
+IPNAME:plb_v46 INSTANCE:mb_plb -
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+46 - Copying cache implementation netlist
 IPNAME:lmb_v10 INSTANCE:ilmb -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
 53 - Copying cache implementation netlist
@@ -239,12 +242,6 @@ IPNAME:lmb_v10 INSTANCE:dlmb -
 IPNAME:lmb_bram_if_cntlr INSTANCE:dlmb_cntlr -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
 67 - Copying cache implementation netlist
-IPNAME:lmb_bram_if_cntlr INSTANCE:ilmb_cntlr -
-/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
-76 - Copying cache implementation netlist
-IPNAME:bram_block INSTANCE:lmb_bram -
-/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
-85 - Copying cache implementation netlist
 IPNAME:xps_gpio INSTANCE:leds_8bit -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
 92 - Copying cache implementation netlist
@@ -257,6 +254,9 @@ IPNAME:mdm INSTANCE:mdm_0 -
 IPNAME:proc_sys_reset INSTANCE:proc_sys_reset_0 -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
 145 - Copying cache implementation netlist
+IPNAME:xps_intc INSTANCE:xps_intc_0 -
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+158 - Copying cache implementation netlist
 IPNAME:tetris_vga INSTANCE:tetris_vga_0 -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
 168 - Copying cache implementation netlist
@@ -269,6 +269,9 @@ IPNAME:xps_gpio INSTANCE:click -
 IPNAME:xps_gpio INSTANCE:encoder -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
 203 - Copying cache implementation netlist
+IPNAME:xps_timer INSTANCE:fall_timer -
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+215 - Copying cache implementation netlist
 
 Elaborating instances ...
 IPNAME:bram_block INSTANCE:lmb_bram -
@@ -284,7 +287,7 @@ ClkGen elaborate status: PASSED
 Writing HDL for elaborated instances ...
 
 Inserting wrapper level ...
-Completion time: 0.00 seconds
+Completion time: 1.00 seconds
 
 Constructing platform-level connectivity ...
 Completion time: 0.00 seconds
@@ -300,30 +303,24 @@ Running XST synthesis ...
 INFO:EDK:4211 - The following instances are synthesized with XST. The MPD option
    IMP_NETLIST=TRUE indicates that a NGC file is to be produced using XST
    synthesis. IMP_NETLIST=FALSE (default) instances are not synthesized. 
-INSTANCE:mb_plb -
+INSTANCE:ilmb_cntlr -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
-46 - Running XST synthesis
+76 - Running XST synthesis
+INSTANCE:lmb_bram -
+/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
+85 - Running XST synthesis
 INSTANCE:clock_generator_0 -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
 118 - Running XST synthesis
-INSTANCE:xps_intc_0 -
-/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
-158 - Running XST synthesis
-INSTANCE:fall_timer -
-/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
-215 - Running XST synthesis
 
 Running NGCBUILD ...
 IPNAME:system_clock_generator_0_wrapper INSTANCE:clock_generator_0 -
 /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
 118 - Running NGCBUILD
-IPNAME:system_xps_intc_0_wrapper INSTANCE:xps_intc_0 -
-/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/system.mhs line
-158 - Running NGCBUILD
 INFO:EDK:3509 - NCF files should not be modified as they will be regenerated.
    If any constraint needs to be overridden, this should be done by modifying
    the data/system.ucf file.
 
 Rebuilding cache ...
 
-Total run time: 54.00 seconds
+Total run time: 22.00 seconds

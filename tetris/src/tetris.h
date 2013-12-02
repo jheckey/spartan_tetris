@@ -1,5 +1,5 @@
 
-#include "qpn_port.h"
+//#include "qpn_port.h"
 
 
 enum TetrisSignals {
@@ -17,7 +17,7 @@ void    button_handler();
 void    encoder_handler();
 void    timer_handler();
 void	fall_handler();
-void    QF_onStartup(void);
-void    QF_onIdle(void);
+//void    QF_onStartup(void);
+//void    QF_onIdle(void);
 
 extern struct Tetris_t Game;
