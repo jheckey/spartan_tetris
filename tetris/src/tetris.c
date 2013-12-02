@@ -22,6 +22,8 @@
 #define ACTION_LEFT						0x00000008
 #define ACTION_RIGHT					0x00000010
 #define ACTION_ROTATE					0x00000020
+#define ACTION_GAME_OVER				0x00000040
+#define ACTION_DEBUG					0x80000000
 
 // Make it prettier
 #define TETRAMINO(G,Y,X)\
@@ -29,8 +31,8 @@
 
 // Globals
 // -- system vars
-static  Xuint8          actions;
-static  Xuint32			fall_time = 25000000;
+static  Xuint32         actions;
+static  Xuint32			fall_time = 10000000;
 
 // -- system objs
 static  XIntc           sys_intc;
@@ -39,117 +41,117 @@ static  XGpio           leds;
 
 // Tetraminos
 static const char    I0[4][4] = { {0, 0, 3, 0},
-                     {0, 0, 3, 0},
-                     {0, 0, 3, 0},
-                     {0, 0, 3, 0} };
+                                  {0, 0, 3, 0},
+                                  {0, 0, 3, 0},
+                                  {0, 0, 3, 0} };
 static const char    I1[4][4] = { {0, 0, 0, 0},
-                     {0, 0, 0, 0},
-                     {3, 3, 3, 3},
-                     {0, 0, 0, 0} };
+                                  {0, 0, 0, 0},
+                                  {3, 3, 3, 3},
+                                  {0, 0, 0, 0} };
 static const char    I2[4][4] = { {0, 3, 0, 0},
-                     {0, 3, 0, 0},
-                     {0, 3, 0, 0},
-                     {0, 3, 0, 0} };
+                                  {0, 3, 0, 0},
+                                  {0, 3, 0, 0},
+                                  {0, 3, 0, 0} };
 static const char    I3[4][4] = { {0, 0, 0, 0},
-                     {3, 3, 3, 3},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {3, 3, 3, 3},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    J0[4][4] = { {1, 1, 1, 0},
-                     {0, 0, 1, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {0, 0, 1, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    J1[4][4] = { {0, 1, 1, 0},
-                     {0, 0, 1, 0},
-                     {0, 0, 1, 0},
-                     {0, 0, 0, 0} };
+                                  {0, 0, 1, 0},
+                                  {0, 0, 1, 0},
+                                  {0, 0, 0, 0} };
 static const char    J2[4][4] = { {0, 0, 1, 0},
-                     {1, 1, 1, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {1, 1, 1, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    J3[4][4] = { {1, 0, 0, 0},
-                     {1, 0, 0, 0},
-                     {1, 1, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {1, 0, 0, 0},
+                                  {1, 1, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    L0[4][4] = { {5, 5, 5, 0},
-                     {5, 0, 0, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-static const char    L5[4][4] = { {5, 5, 0, 0},
-                     {0, 5, 0, 0},
-                     {0, 5, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {5, 0, 0, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
+static const char    L1[4][4] = { {5, 5, 0, 0},
+                                  {0, 5, 0, 0},
+                                  {0, 5, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    L2[4][4] = { {0, 0, 5, 0},
-                     {5, 5, 5, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {5, 5, 5, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    L3[4][4] = { {5, 0, 0, 0},
-                     {5, 0, 0, 0},
-                     {5, 5, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {5, 0, 0, 0},
+                                  {5, 5, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    O0[4][4] = { {0, 6, 6, 0},
-                     {0, 6, 6, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {0, 6, 6, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    O1[4][4] = { {0, 6, 6, 0},
-                     {0, 6, 6, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {0, 6, 6, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    O2[4][4] = { {0, 6, 6, 0},
-                     {0, 6, 6, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {0, 6, 6, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    O3[4][4] = { {0, 6, 6, 0},
-                     {0, 6, 6, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {0, 6, 6, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    T0[4][4] = { {0, 0, 0, 0},
-                     {7, 7, 7, 0},
-                     {0, 7, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {7, 7, 7, 0},
+                                  {0, 7, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    T1[4][4] = { {0, 7, 0, 0},
-                     {7, 7, 0, 0},
-                     {0, 7, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {7, 7, 0, 0},
+                                  {0, 7, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    T2[4][4] = { {0, 7, 0, 0},
-                     {7, 7, 7, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {7, 7, 7, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    T3[4][4] = { {0, 7, 0, 0},
-                     {0, 7, 7, 0},
-                     {0, 7, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {0, 7, 7, 0},
+                                  {0, 7, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    S0[4][4] = { {0, 2, 2, 0},
-                     {2, 2, 0, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {2, 2, 0, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    S1[4][4] = { {2, 0, 0, 0},
-                     {2, 2, 0, 0},
-                     {0, 2, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {2, 2, 0, 0},
+                                  {0, 2, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    S2[4][4] = { {0, 2, 2, 0},
-                     {2, 2, 0, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {2, 2, 0, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    S3[4][4] = { {2, 0, 0, 0},
-                     {2, 2, 0, 0},
-                     {0, 2, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {2, 2, 0, 0},
+                                  {0, 2, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    N0[4][4] = { {4, 4, 0, 0},
-                     {0, 4, 4, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-static const char    N1[4][4] = { {0, 4, 0, 0},
-                     {4, 4, 0, 0},
-                     {4, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {0, 4, 4, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
+static const char    N1[4][4] = { {0, 0, 4, 0},
+                                  {0, 4, 4, 0},
+                                  {0, 4, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    N2[4][4] = { {4, 4, 0, 0},
-                     {0, 4, 4, 0},
-                     {0, 0, 0, 0},
-                     {0, 0, 0, 0} };
-static const char    N3[4][4] = { {0, 4, 0, 0},
-                     {4, 4, 0, 0},
-                     {4, 0, 0, 0},
-                     {0, 0, 0, 0} };
+                                  {0, 4, 4, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
+static const char    N3[4][4] = { {0, 0, 4, 0},
+                                  {0, 4, 4, 0},
+                                  {0, 4, 0, 0},
+                                  {0, 0, 0, 0} };
 
 
 typedef struct Tetris_t {
@@ -193,19 +195,46 @@ int main(void)
     }
     XTmrCtr_Start(&sys_tmrfall, 0);
 
+    xil_printf("I0 %x\n", I0);
+    xil_printf("I1 %x\n", I1);
+    xil_printf("I2 %x\n", I2);
+    xil_printf("I3 %x\n", I3);
+    xil_printf("J0 %x\n", J0);
+    xil_printf("J1 %x\n", J1);
+    xil_printf("J2 %x\n", J2);
+    xil_printf("J3 %x\n", J3);
+    xil_printf("L0 %x\n", L0);
+    xil_printf("L1 %x\n", L1);
+    xil_printf("L2 %x\n", L2);
+    xil_printf("L3 %x\n", L3);
+    xil_printf("O0 %x\n", O0);
+    xil_printf("O1 %x\n", O1);
+    xil_printf("O2 %x\n", O2);
+    xil_printf("O3 %x\n", O3);
+    xil_printf("T0 %x\n", T0);
+    xil_printf("T1 %x\n", T1);
+    xil_printf("T2 %x\n", T2);
+    xil_printf("T3 %x\n", T3);
+    xil_printf("S0 %x\n", S0);
+    xil_printf("S1 %x\n", S1);
+    xil_printf("S2 %x\n", S2);
+    xil_printf("S3 %x\n", S3);
+    xil_printf("N0 %x\n", N0);
+    xil_printf("N1 %x\n", N1);
+    xil_printf("N2 %x\n", N2);
+    xil_printf("N3 %x\n", N3);
+
 //#define ACTION_DISPLAY					0x00000001
 //#define ACTION_NEXT						0x00000002
 //#define ACTION_FALL						0x00000004
 //#define ACTION_LEFT						0x00000008
 //#define ACTION_RIGHT						0x00000010
 //#define ACTION_ROTATE						0x00000020
+//#define ACTION_GAME_OVER					0x00000040
+//#define ACTION_DEBUG						0x80000000
 
 	for(;;) {
 		while (!actions) {}
-//		xil_printf("Bye");
-//		xil_printf("Bye");
-//		xil_printf("Bye");
-//		return 0;
 
 		XIntc_Stop(&sys_intc);
 		if (actions & ACTION_DISPLAY) {
@@ -218,12 +247,15 @@ int main(void)
 			// Update next
 			Game.tetramino = Game.next;
 			Game.next = get_next();
+			xil_printf("N:%x\n", Game.next);
 			Game.x = 3;
 			Game.y = 0;
 			actions &= ~ACTION_NEXT;
 		} else if (actions & ACTION_FALL) {
 			if (check_move(&Game, 0, 1)) {
 				Game.y++;
+			} else if (Game.y == 0) {
+				actions |= ACTION_GAME_OVER;
 			} else {
 				actions |= ACTION_NEXT;
 			}
@@ -238,6 +270,13 @@ int main(void)
 				Game.x++;
 			}
 			actions &= ~ACTION_RIGHT;
+		} else if (actions & ACTION_ROTATE) {
+			// if (Check rotation)
+			//		update tetramino
+			actions &= ~ACTION_ROTATE;
+		} else if (actions & ACTION_GAME_OVER) {
+			return 0;
+			actions &= ~ACTION_GAME_OVER;
 		}
 		XIntc_Start(&sys_intc, XIN_REAL_MODE);
 	}
@@ -254,8 +293,8 @@ void Tetris_ctor(void)  {
 	me->y = 0;
 	me->dx = 0;
 	me->dy = 0;
-	me->next = NULL;
-	me->tetramino = (char**)&I0;
+	me->next = get_next();
+	me->tetramino = (char**)&T3;
 	memset(me->gameboard, 0, 200);
 }
 
@@ -313,7 +352,8 @@ void vga_handler()
 
 	if ( (IntrStatus & INTR_IPIR_MASK) == INTR_IPIR_MASK )
 	{
-		update_display(&Game);
+		//update_display(&Game);
+		actions |= ACTION_DISPLAY;
 		IpStatus = TETRIS_VGA_mReadReg(baseaddr, TETRIS_VGA_INTR_IPISR_OFFSET);
 		TETRIS_VGA_mWriteReg(baseaddr, TETRIS_VGA_INTR_IPISR_OFFSET, IpStatus);
 	}
@@ -334,13 +374,13 @@ char** get_next() {
 	int 	sel = rand() & 3;
 	// Each tetramino is 16 bytes (4x4 char)
 	switch (id) {
-	case 0:		return (char**)((int)I0 + (sel<<16));
-	case 1:		return (char**)((int)J0 + (sel<<16));
-	case 2:		return (char**)((int)L0 + (sel<<16));
-	case 3:		return (char**)((int)O0);
-	case 4:		return (char**)((int)T0 + (sel<<16));
-	case 5:		return (char**)((int)S0 + (sel<<16));
-	case 6:		return (char**)((int)N0 + (sel<<16));
+	case 0:		return (char**)((int)I0 + (sel<<4));
+	case 1:		return (char**)((int)J0 + (sel<<4));
+	case 2:		return (char**)((int)L0 + (sel<<4));
+	case 3:		return (char**)((int)O0 + (sel<<4));
+	case 4:		return (char**)((int)T0 + (sel<<4));
+	case 5:		return (char**)((int)S0 + (sel<<4));
+	case 6:		return (char**)((int)N0 + (sel<<4));
 	}
 	return (char**)O0;
 }
