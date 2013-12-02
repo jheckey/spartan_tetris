@@ -25,12 +25,12 @@
 
 // Make it prettier
 #define TETRAMINO(G,Y,X)\
-	*((char*)((int)((G)->tetramino)+(Y)*4+(X)))
+	*((char*)((int)(G)+(Y)*4+(X)))
 
 // Globals
 // -- system vars
 static  Xuint8          actions;
-static  Xuint32			fall_time = 100000000;
+static  Xuint32			fall_time = 25000000;
 
 // -- system objs
 static  XIntc           sys_intc;
@@ -175,6 +175,7 @@ void    vga_handler();
 void	fall_handler();
 char**	get_next();
 char	check_move(Tetris *me, int dx, int dy);
+void	draw_piece(Tetris *me, char erase);
 void	update_display(Tetris *me);
 
 
@@ -192,35 +193,53 @@ int main(void)
     }
     XTmrCtr_Start(&sys_tmrfall, 0);
 
-//    // Debug display
-//    xil_printf("%x, %x", (Xuint32)I0, (Xuint32)Game.tetramino);
-//    xil_printf("\n");
-//    for (i=0; i<4; i++) {
-//    	for (j=0; j<4; j++) {
-//    		xil_printf("%x ", Game.tetramino[i][j]);
-//    	}
-//    	xil_printf("\n");
-//    }
-//    xil_printf("\n");
-//    update_display(&Game);
-//    for (i=0; i<20; i++) {
-//    	for (j=0; j<10; j++) {
-//    		xil_printf("%x ", Game.gameboard[i][j] & 7);
-//    	}
-//    	xil_printf("\n");
-//    }
-//    xil_printf("Bye ");
-//    xil_printf("Bye ");
-//    xil_printf("Bye ");
-//    return 0;
+//#define ACTION_DISPLAY					0x00000001
+//#define ACTION_NEXT						0x00000002
+//#define ACTION_FALL						0x00000004
+//#define ACTION_LEFT						0x00000008
+//#define ACTION_RIGHT						0x00000010
+//#define ACTION_ROTATE						0x00000020
+
 	for(;;) {
 		while (!actions) {}
-		xil_printf("Bye");
-		xil_printf("Bye");
-		xil_printf("Bye");
-		return 0;
-//		//if (actions & ACTION_DISPLAY)		update_display(&Game);
-//		//else if (actions & ACTION_FALL)
+//		xil_printf("Bye");
+//		xil_printf("Bye");
+//		xil_printf("Bye");
+//		return 0;
+
+		XIntc_Stop(&sys_intc);
+		if (actions & ACTION_DISPLAY) {
+			update_display(&Game);
+			actions &= ~ACTION_DISPLAY;
+		} else if (actions & ACTION_NEXT) {
+			// Draw old piece onto board
+			draw_piece(&Game,0);
+			// Check for lines
+			// Update next
+			Game.tetramino = Game.next;
+			Game.next = get_next();
+			Game.x = 3;
+			Game.y = 0;
+			actions &= ~ACTION_NEXT;
+		} else if (actions & ACTION_FALL) {
+			if (check_move(&Game, 0, 1)) {
+				Game.y++;
+			} else {
+				actions |= ACTION_NEXT;
+			}
+			actions &= ~ACTION_FALL;
+		} else if (actions & ACTION_LEFT) {
+			if (check_move(&Game, -1, 0)) {
+				Game.x--;
+			}
+			actions &= ~ACTION_LEFT;
+		} else if (actions & ACTION_RIGHT) {
+			if (check_move(&Game, 1, 0)) {
+				Game.x++;
+			}
+			actions &= ~ACTION_RIGHT;
+		}
+		XIntc_Start(&sys_intc, XIN_REAL_MODE);
 	}
 
 	return 0;
@@ -287,7 +306,7 @@ void vga_handler()
 
 	XIntc_Stop(&sys_intc);
 
-	xil_printf("D\n");
+	//xil_printf("D\n");
 	baseaddr = (Xuint32) TETRIS_VGA_START;
 	IntrStatus = TETRIS_VGA_mReadReg(baseaddr, TETRIS_VGA_INTR_DISR_OFFSET);
 	//xil_printf("Device Interrupt! DISR value : 0x%08x \n\r", IntrStatus);
@@ -304,12 +323,7 @@ void vga_handler()
 void fall_handler() {
 	Xuint32 ControlStatusReg;
 	XIntc_Stop(&sys_intc);
-	if (check_move(&Game, 0, 1)) {
-		Game.y++;
-	} else {
-		actions |= ACTION_NEXT;
-	}
-	xil_printf("T: %d\n", Game.y);
+	actions |= ACTION_FALL;
 	ControlStatusReg = XTimerCtr_ReadReg(sys_tmrfall.BaseAddress, 0, XTC_TCSR_OFFSET);
 	XTmrCtr_WriteReg(sys_tmrfall.BaseAddress, 0, XTC_TCSR_OFFSET, ControlStatusReg|XTC_CSR_INT_OCCURED_MASK);
 	XIntc_Start(&sys_intc, XIN_REAL_MODE);
@@ -320,13 +334,13 @@ char** get_next() {
 	int 	sel = rand() & 3;
 	// Each tetramino is 16 bytes (4x4 char)
 	switch (id) {
-	case 0:		return (char**)((int)I0 + ((sel&1)<<16));
+	case 0:		return (char**)((int)I0 + (sel<<16));
 	case 1:		return (char**)((int)J0 + (sel<<16));
 	case 2:		return (char**)((int)L0 + (sel<<16));
 	case 3:		return (char**)((int)O0);
 	case 4:		return (char**)((int)T0 + (sel<<16));
-	case 5:		return (char**)((int)S0 + ((sel&1)<<16));
-	case 6:		return (char**)((int)N0 + ((sel&1)<<16));
+	case 5:		return (char**)((int)S0 + (sel<<16));
+	case 6:		return (char**)((int)N0 + (sel<<16));
 	}
 	return (char**)O0;
 }
@@ -338,17 +352,17 @@ char check_move(Tetris *me, int dx, int dy) {
 	gy = me->y + dy;
 	for (i=0; i<4; i++, gy++) {
 		for (j=0; j<4; j++, gx++) {
-			if (TETRAMINO(me,i,j)) {
+			if ( TETRAMINO(me->tetramino,i,j) ) {
 				if (gy >= 20) {
-					xil_printf("gy %d, %d, %d", i, j, gy);
+					//xil_printf("gy %d, %d, %d", i, j, gy);
 					return 0;	// Off board
 				}
 				if (gx < 0 || gx > 9) {
-					xil_printf("gx %d, %d, %d, %d", i, j, gx, TETRAMINO(me,i,j));
+					//xil_printf("gx %d, %d, %d, %d", i, j, gx, TETRAMINO(me,i,j));
 					return 0;	// Off board
 				}
 				if (me->gameboard[gy][gx]) {
-					xil_printf("clip %d, %d, %d, %d", i, j, me->gameboard[gy][gx], TETRAMINO(me,i,j));
+					//xil_printf("clip %d, %d, %d, %d", i, j, me->gameboard[gy][gx], TETRAMINO(me,i,j));
 					return 0;	// move will cause overlap
 				}
 			}
@@ -358,54 +372,34 @@ char check_move(Tetris *me, int dx, int dy) {
 	return 1;
 }
 
-void update_display(Tetris *me) {
+void draw_piece(Tetris *me, char erase) {
 	int i, j, gx, gy;
-	// Write next to regs
-	for (i=0; i<4; i+=4) {
-		//xil_printf("Value: %x\n", *((Xuint32*)((int)(me->gameboard) + i)) );
-		TETRIS_VGA_mWriteReg(TETRIS_VGA_START+208, i, *((Xuint32*)((int)(me->next) + i)) );
-	}
-	// Draw piece on board
 	gx = me->x; gy = me->y;
 	for (i=0; i<4; i++, gy++) {
 		for (j=0; j<4; j++, gx++) {
 			// check_move should prevent any out-of-bounds
-			if ( TETRAMINO(me,i,j) ) {
-				me->gameboard[gy][gx] = TETRAMINO(me,i,j);
+			if ( TETRAMINO(me->tetramino,i,j) ) {
+				me->gameboard[gy][gx] = (erase) ? 0 : TETRAMINO(me->tetramino,i,j);
 			}
 		}
 		gx -= 4;
 	}
-//	// Update position
-//	me->x += me->dx;
-//	me->y += me->dy;
-//	me->dx = 0;
-//	me->dy = 0;
+}
+
+void update_display(Tetris *me) {
+	int i, j;
+	// Write next to regs
+	for (i=0; i<4; i+=4) {
+		TETRIS_VGA_mWriteReg(TETRIS_VGA_START+208, i, *((Xuint32*)((int)(me->next) + i)) );
+	}
+	// Draw piece on board
+	draw_piece(me,0);
 	// Write gameboard to regs (32-bit access)
 	for (i=0; i<200; i+=4) {
-		//xil_printf("Value: %x\n", *((Xuint32*)((int)(me->gameboard) + i)) );
 		TETRIS_VGA_mWriteReg(TETRIS_VGA_START+8, i, *((Xuint32*)((int)(me->gameboard) + i)) );
 	}
-	// Erase piece from board - will not be able to check
-	gx = me->x; gy = me->y;
-	for (i=0; i<4; i++, gy++) {
-		for (j=0; j<4; j++, gx++) {
-			if ( TETRAMINO(me,i,j) )	me->gameboard[gy][gx] = 0;
-		}
-		gx -= 4;
-	}
-//	for (j=0, gx=8; j<20; j+=2, gx+=20) {
-//		i = (me->gameboard[j][0] << 24) | (me->gameboard[j][1] << 16) | (me->gameboard[j][2] << 8) | me->gameboard[j][3];
-//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx, i);
-//		i = (me->gameboard[j][4] << 24) | (me->gameboard[j][5] << 16) | (me->gameboard[j][6] << 8) | me->gameboard[j][7];
-//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx+4, i);
-//		i = (me->gameboard[j][8] << 24) | (me->gameboard[j][9] << 16) | (me->gameboard[j+1][0] << 8) | me->gameboard[j+1][1];
-//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx+8, i);
-//		i = (me->gameboard[j+1][2] << 24) | (me->gameboard[j+1][3] << 16) | (me->gameboard[j+1][4] << 8) | me->gameboard[j+1][5];
-//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx+12, i);
-//		i = (me->gameboard[j+1][6] << 24) | (me->gameboard[j+1][7] << 16) | (me->gameboard[j+1][8] << 8) | me->gameboard[j+1][9];
-//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx+16, i);
-//	}
+	// Erase piece from board - will not interfere with check_move
+	draw_piece(me,1);
 	return;
 }
 
@@ -431,6 +425,21 @@ xil_printf("Bye ");
 xil_printf("Bye ");
 xil_printf("Bye ");
 return 0;
+
+// Manual mapping
+//	for (j=0, gx=8; j<20; j+=2, gx+=20) {
+//		i = (me->gameboard[j][0] << 24) | (me->gameboard[j][1] << 16) | (me->gameboard[j][2] << 8) | me->gameboard[j][3];
+//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx, i);
+//		i = (me->gameboard[j][4] << 24) | (me->gameboard[j][5] << 16) | (me->gameboard[j][6] << 8) | me->gameboard[j][7];
+//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx+4, i);
+//		i = (me->gameboard[j][8] << 24) | (me->gameboard[j][9] << 16) | (me->gameboard[j+1][0] << 8) | me->gameboard[j+1][1];
+//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx+8, i);
+//		i = (me->gameboard[j+1][2] << 24) | (me->gameboard[j+1][3] << 16) | (me->gameboard[j+1][4] << 8) | me->gameboard[j+1][5];
+//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx+12, i);
+//		i = (me->gameboard[j+1][6] << 24) | (me->gameboard[j+1][7] << 16) | (me->gameboard[j+1][8] << 8) | me->gameboard[j+1][9];
+//		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx+16, i);
+//	}
+
 #endif // SCRATCH
 
 #ifdef COMMENT
