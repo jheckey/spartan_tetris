@@ -185,6 +185,7 @@ void	encoder_handler();
 void	timer_handler();
 char**	get_next();
 char	check_move(Tetris *me, int dx, int dy);
+void	do_rotate(Tetris *me);
 void	draw_piece(Tetris *me, char erase);
 void	update_display(Tetris *me);
 
@@ -250,8 +251,7 @@ int main(void)
 			}
 			actions &= ~ACTION_RIGHT;
 		} else if (actions & ACTION_ROTATE) {
-			// if (Check rotation)
-			//		update tetramino
+			do_rotate(&Game);
 			actions &= ~ACTION_ROTATE;
 		} else if (actions & ACTION_GAME_OVER) {
 			return 0;
@@ -509,6 +509,46 @@ char check_move(Tetris *me, int dx, int dy) {
 		gx -= 4;
 	}
 	return 1;
+}
+
+void do_rotate(Tetris *me) {
+	int i, j, gy, gx;
+	char** rot;
+	// Get next tetramino board
+	// -- All tetraminos are 16 bytes, so check for the
+	// -- last of the set and goto first, or just add 16
+	if 		((int)me->tetramino == (int)I3) rot = (char**)I0;
+	else if ((int)me->tetramino == (int)J3) rot = (char**)J0;
+	else if ((int)me->tetramino == (int)L3) rot = (char**)L0;
+	else if ((int)me->tetramino == (int)O3) rot = (char**)O0;
+	else if ((int)me->tetramino == (int)T3) rot = (char**)T0;
+	else if ((int)me->tetramino == (int)S3) rot = (char**)S0;
+	else if ((int)me->tetramino == (int)N3) rot = (char**)N0;
+	else 									rot = (char**)((int)me->tetramino + 16);
+	// Get gameboard coordinates
+	gx = me->x;
+	gy = me->y;
+	for (i=0; i<4; i++, gy++) {
+		for (j=0; j<4; j++, gx++) {
+			if ( TETRAMINO(rot,i,j) ) {
+				if (gy >= 20) {
+					//xil_printf("gy %d, %d, %d", i, j, gy);
+					return 0;	// Off board
+				}
+				if (gx < 0 || gx > 9) {
+					//xil_printf("gx %d, %d, %d, %d", i, j, gx, TETRAMINO(me,i,j));
+					return 0;	// Off board
+				}
+				if (me->gameboard[gy][gx]) {
+					//xil_printf("clip %d, %d, %d, %d", i, j, me->gameboard[gy][gx], TETRAMINO(me,i,j));
+					return 0;	// move will cause overlap
+				}
+			}
+		}
+		gx -= 4;
+	}
+	me->tetramino = rot;
+	return;
 }
 
 void draw_piece(Tetris *me, char erase) {
