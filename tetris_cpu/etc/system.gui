@@ -15,14 +15,16 @@
     </HEADERS>
     <SPLITTERS COLLAPSIBLE="1" HANDLEWIDTH="4" MARKER="255" ORIENTATION="1" RESIZE="1" SIZES="103,1113,200" VERSION="0"/>
     <SET ID="microblaze_0" IS_EXPANDED="TRUE"/>
+    <SET ID="ilmb_cntlr" IS_EXPANDED="TRUE"/>
     <SET ID="xps_intc_0" IS_EXPANDED="TRUE"/>
     <SET ID="tetris_vga_0" IS_EXPANDED="TRUE"/>
     <SET ID="xps_timer_0" IS_EXPANDED="TRUE"/>
     <SET ID="click" IS_EXPANDED="TRUE"/>
     <SET ID="encoder" IS_EXPANDED="TRUE"/>
+    <SET ID="fall_timer" IS_EXPANDED="TRUE"/>
     <STATUS>
       <SELECTIONS>
-        <VARIABLE ID="click"/>
+        <VARIABLE ID="tetris_vga_0"/>
       </SELECTIONS>
     </STATUS>
     <SEQUENCES IS_DEF_SEQUENCES="TRUE">
@@ -31,18 +33,19 @@
       <VARIABLE ID="ilmb" ROW_INDEX="1"/>
       <VARIABLE ID="dlmb" ROW_INDEX="0"/>
       <VARIABLE ID="dlmb_cntlr" ROW_INDEX="5"/>
-      <VARIABLE ID="ilmb_cntlr" ROW_INDEX="6"/>
+      <VARIABLE ID="ilmb_cntlr" IS_EXPANDED="TRUE" ROW_INDEX="6"/>
       <VARIABLE ID="lmb_bram" ROW_INDEX="4"/>
       <VARIABLE ID="LEDs_8Bit" ROW_INDEX="11"/>
       <VARIABLE ID="DIP_Switches_4Bit" ROW_INDEX="10"/>
-      <VARIABLE ID="clock_generator_0" ROW_INDEX="15"/>
+      <VARIABLE ID="clock_generator_0" ROW_INDEX="16"/>
       <VARIABLE ID="mdm_0" ROW_INDEX="7"/>
-      <VARIABLE ID="proc_sys_reset_0" ROW_INDEX="16"/>
+      <VARIABLE ID="proc_sys_reset_0" ROW_INDEX="17"/>
       <VARIABLE ID="xps_intc_0" IS_EXPANDED="TRUE" ROW_INDEX="8"/>
       <VARIABLE ID="tetris_vga_0" IS_EXPANDED="TRUE" ROW_INDEX="9"/>
-      <VARIABLE ID="xps_timer_0" IS_EXPANDED="TRUE" ROW_INDEX="14"/>
+      <VARIABLE ID="xps_timer_0" IS_EXPANDED="TRUE" ROW_INDEX="15"/>
       <VARIABLE ID="click" IS_EXPANDED="TRUE" ROW_INDEX="12"/>
       <VARIABLE ID="encoder" IS_EXPANDED="TRUE" ROW_INDEX="13"/>
+      <VARIABLE ID="fall_timer" IS_EXPANDED="TRUE" ROW_INDEX="14"/>
     </SEQUENCES>
   </SET>
 
@@ -88,7 +91,7 @@
   </SET>
 
   <SET CLASS="PROJECT" DISPLAYMODE="TREE" VIEW_ID="PORT">
-    <HEADERS HSCROLL="0" VSCROLL="819">
+    <HEADERS HSCROLL="0" VSCROLL="0">
       <VARIABLE COL_INDEX="0" COL_WIDTH="225" IS_VISIBLE="TRUE" VIEWDISP="Name" VIEWTYPE="HEADER"/>
       <VARIABLE COL_INDEX="1" COL_WIDTH="331" IS_VISIBLE="TRUE" VIEWDISP="Connected Port" VIEWTYPE="HEADER"/>
       <VARIABLE COL_INDEX="2" IS_VISIBLE="FALSE" VIEWDISP="Net" VIEWTYPE="HEADER"/>
@@ -104,27 +107,15 @@
       <VARIABLE COL_INDEX="11" COL_WIDTH="134" IS_VISIBLE="TRUE" VIEWDISP="Differential Polarity" VIEWTYPE="HEADER"/>
     </HEADERS>
     <SPLITTERS COLLAPSIBLE="1" HANDLEWIDTH="4" MARKER="255" ORIENTATION="1" RESIZE="1" SIZES="75,630,200" VERSION="0"/>
-    <SET ID="microblaze_0" IS_EXPANDED="TRUE">
-      <SET ID="INTERRUPT" IS_EXPANDED="TRUE"/>
-    </SET>
-    <SET ID="mdm_0" IS_EXPANDED="TRUE"/>
-    <SET ID="xps_intc_0" IS_EXPANDED="TRUE"/>
-    <SET ID="tetris_vga_0" IS_EXPANDED="TRUE"/>
-    <SET ID="xps_timer_0" IS_EXPANDED="TRUE"/>
-    <SET ID="click" IS_EXPANDED="TRUE">
-      <SET ID="gpio_0" IS_EXPANDED="TRUE"/>
-    </SET>
-    <SET ID="encoder" IS_EXPANDED="TRUE">
-      <SET ID="gpio_0" IS_EXPANDED="TRUE"/>
-    </SET>
+    <SET ID="fall_timer" IS_EXPANDED="TRUE"/>
     <STATUS>
       <SELECTIONS>
-        <VARIABLE ID="GPIO_IO_I" INSTANCE="encoder" PARENT="gpio_0"/>
+        <VARIABLE ID="Interrupt" PARENT="fall_timer"/>
       </SELECTIONS>
     </STATUS>
     <SEQUENCES IS_DEF_SEQUENCES="FALSE">
       <VARIABLE ID="ExternalPorts" ROW_INDEX="0"/>
-      <VARIABLE ID="microblaze_0" IS_EXPANDED="TRUE" ROW_INDEX="4"/>
+      <VARIABLE ID="microblaze_0" ROW_INDEX="4"/>
       <VARIABLE ID="mb_plb" ROW_INDEX="3"/>
       <VARIABLE ID="ilmb" ROW_INDEX="2"/>
       <VARIABLE ID="dlmb" ROW_INDEX="1"/>
@@ -134,13 +125,14 @@
       <VARIABLE ID="LEDs_8Bit" ROW_INDEX="12"/>
       <VARIABLE ID="DIP_Switches_4Bit" ROW_INDEX="11"/>
       <VARIABLE ID="clock_generator_0" ROW_INDEX="14"/>
-      <VARIABLE ID="mdm_0" IS_EXPANDED="TRUE" ROW_INDEX="8"/>
+      <VARIABLE ID="mdm_0" ROW_INDEX="8"/>
       <VARIABLE ID="proc_sys_reset_0" ROW_INDEX="15"/>
-      <VARIABLE ID="xps_intc_0" IS_EXPANDED="TRUE" ROW_INDEX="9"/>
-      <VARIABLE ID="tetris_vga_0" IS_EXPANDED="TRUE" ROW_INDEX="10"/>
-      <VARIABLE ID="xps_timer_0" IS_EXPANDED="TRUE" ROW_INDEX="13"/>
-      <VARIABLE ID="click" IS_EXPANDED="TRUE" ROW_INDEX="16"/>
-      <VARIABLE ID="encoder" IS_EXPANDED="TRUE" ROW_INDEX="17"/>
+      <VARIABLE ID="xps_intc_0" ROW_INDEX="9"/>
+      <VARIABLE ID="tetris_vga_0" ROW_INDEX="10"/>
+      <VARIABLE ID="xps_timer_0" ROW_INDEX="13"/>
+      <VARIABLE ID="click" ROW_INDEX="16"/>
+      <VARIABLE ID="encoder" ROW_INDEX="17"/>
+      <VARIABLE ID="fall_timer" IS_EXPANDED="TRUE" ROW_INDEX="18"/>
     </SEQUENCES>
   </SET>
 
@@ -224,7 +216,9 @@
     <SPLITTERS COLLAPSIBLE="1" HANDLEWIDTH="4" MARKER="255" ORIENTATION="1" RESIZE="1" SIZES="75,630,200" VERSION="0"/>
     <SET ID="microblaze_0" IS_EXPANDED="TRUE"/>
     <STATUS>
-      <SELECTIONS/>
+      <SELECTIONS>
+        <VARIABLE ID="microblaze_0.dlmb_cntlr:C_BASEADDR:C_HIGHADDR" PARENT="microblaze_0"/>
+      </SELECTIONS>
     </STATUS>
   </SET>
 

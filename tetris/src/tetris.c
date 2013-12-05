@@ -33,9 +33,14 @@
 // -- system vars
 static  Xuint32         actions;
 static  Xuint32			fall_time = 10000000;
+static  Xuint8			click = 0;
+static  Xuint32			enc = 0;
 
 // -- system objs
 static  XIntc           sys_intc;
+static  XGpio           sys_buttons;
+static  XGpio           sys_encoder;
+static  XTmrCtr         sys_tmrctr;
 static  XTmrCtr         sys_tmrfall;
 static  XGpio           leds;
 
@@ -175,6 +180,9 @@ void    Tetris_ctor(void);
 int     sys_init();
 void    vga_handler();
 void	fall_handler();
+void	button_handler();
+void	encoder_handler();
+void	timer_handler();
 char**	get_next();
 char	check_move(Tetris *me, int dx, int dy);
 void	draw_piece(Tetris *me, char erase);
@@ -184,7 +192,7 @@ void	update_display(Tetris *me);
 // Declarations
 int main(void)
 {
-	int i, j;
+	//int i, j;
 	XStatus status;
 
 	Tetris_ctor();
@@ -194,35 +202,6 @@ int main(void)
     	return -1;
     }
     XTmrCtr_Start(&sys_tmrfall, 0);
-
-    xil_printf("I0 %x\n", I0);
-    xil_printf("I1 %x\n", I1);
-    xil_printf("I2 %x\n", I2);
-    xil_printf("I3 %x\n", I3);
-    xil_printf("J0 %x\n", J0);
-    xil_printf("J1 %x\n", J1);
-    xil_printf("J2 %x\n", J2);
-    xil_printf("J3 %x\n", J3);
-    xil_printf("L0 %x\n", L0);
-    xil_printf("L1 %x\n", L1);
-    xil_printf("L2 %x\n", L2);
-    xil_printf("L3 %x\n", L3);
-    xil_printf("O0 %x\n", O0);
-    xil_printf("O1 %x\n", O1);
-    xil_printf("O2 %x\n", O2);
-    xil_printf("O3 %x\n", O3);
-    xil_printf("T0 %x\n", T0);
-    xil_printf("T1 %x\n", T1);
-    xil_printf("T2 %x\n", T2);
-    xil_printf("T3 %x\n", T3);
-    xil_printf("S0 %x\n", S0);
-    xil_printf("S1 %x\n", S1);
-    xil_printf("S2 %x\n", S2);
-    xil_printf("S3 %x\n", S3);
-    xil_printf("N0 %x\n", N0);
-    xil_printf("N1 %x\n", N1);
-    xil_printf("N2 %x\n", N2);
-    xil_printf("N3 %x\n", N3);
 
 //#define ACTION_DISPLAY					0x00000001
 //#define ACTION_NEXT						0x00000002
@@ -294,14 +273,17 @@ void Tetris_ctor(void)  {
 	me->dx = 0;
 	me->dy = 0;
 	me->next = get_next();
-	me->tetramino = (char**)&T3;
+	me->tetramino = get_next();
 	memset(me->gameboard, 0, 200);
 }
 
 int sys_init()
 {
-    XGpio_Initialize(&leds, XPAR_LEDS_8BIT_DEVICE_ID);
 	XIntc_Initialize(&sys_intc, XPAR_XPS_INTC_0_DEVICE_ID);
+    XGpio_Initialize(&leds, XPAR_LEDS_8BIT_DEVICE_ID);
+	XGpio_Initialize(&sys_buttons, XPAR_CLICK_DEVICE_ID);
+	XGpio_Initialize(&sys_encoder, XPAR_ENCODER_DEVICE_ID);
+	XTmrCtr_Initialize(&sys_tmrctr, XPAR_XPS_TIMER_0_DEVICE_ID);
 	XTmrCtr_Initialize(&sys_tmrfall, XPAR_FALL_TIMER_DEVICE_ID);
 
 	// Configure GPIO
@@ -317,6 +299,25 @@ int sys_init()
 			(XInterruptHandler)fall_handler, &sys_tmrfall);
     XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_FALL_TIMER_INTERRUPT_INTR);
 
+    /* timer interrupt cfg */
+	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR,
+			(XInterruptHandler)timer_handler, &sys_tmrctr);
+    XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR);
+
+    /* button interrupt cfg */
+	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_CLICK_IP2INTC_IRPT_INTR,
+			(XInterruptHandler)button_handler, &sys_buttons);
+	XGpio_InterruptGlobalEnable(&sys_buttons);
+	XGpio_InterruptEnable(&sys_buttons,XPAR_XPS_INTC_0_CLICK_IP2INTC_IRPT_INTR);
+	XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_CLICK_IP2INTC_IRPT_INTR);
+
+    /* encoder interrupt cfg */
+	XIntc_Connect(&sys_intc,XPAR_XPS_INTC_0_ENCODER_IP2INTC_IRPT_INTR,
+			(XInterruptHandler)encoder_handler, &sys_encoder);
+	XGpio_InterruptGlobalEnable(&sys_encoder);
+	XGpio_InterruptEnable(&sys_encoder,XGPIO_IR_CH1_MASK);
+	XIntc_Enable(&sys_intc, XPAR_XPS_INTC_0_ENCODER_IP2INTC_IRPT_INTR);
+
     // Enable VGA
     TETRIS_VGA_EnableInterrupt((void*)TETRIS_VGA_START);
     //TETRIS_VGA_mWriteReg(TETRIS_VGA_START, TETRIS_VGA_INTR_IPIER_OFFSET, 0x00000001);
@@ -325,6 +326,8 @@ int sys_init()
     TETRIS_VGA_mWriteReg(TETRIS_VGA_START, 0, 1);
 
     // Configure Timers
+    XTmrCtr_SetOptions(&sys_tmrctr, 0, XTC_INT_MODE_OPTION);
+	XTmrCtr_SetResetValue(&sys_tmrctr, 0, 0xFFFFFFFF-DEBOUNCE_TIME);
     XTmrCtr_SetOptions(&sys_tmrfall, 0, XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
 	XTmrCtr_SetResetValue(&sys_tmrfall, 0, 0xFFFFFFFF-fall_time);
 
@@ -366,6 +369,102 @@ void fall_handler() {
 	actions |= ACTION_FALL;
 	ControlStatusReg = XTimerCtr_ReadReg(sys_tmrfall.BaseAddress, 0, XTC_TCSR_OFFSET);
 	XTmrCtr_WriteReg(sys_tmrfall.BaseAddress, 0, XTC_TCSR_OFFSET, ControlStatusReg|XTC_CSR_INT_OCCURED_MASK);
+	XIntc_Start(&sys_intc, XIN_REAL_MODE);
+}
+
+void button_handler()
+{
+	XIntc_Stop(&sys_intc);
+	/* Display status */
+    click = XGpio_DiscreteRead(&sys_buttons,1);
+	//XGpio_DiscreteWrite(&leds,1,click);
+
+	/* Reset timer */
+    if (click) {
+		XTmrCtr_Reset(&sys_tmrctr, 0);
+		XTmrCtr_Start(&sys_tmrctr, 0);
+    }
+
+	/* Clear int */
+	XGpio_InterruptClear(&sys_buttons,XGPIO_IR_CH1_MASK);
+    //QActive_postISR((QActive *)&AO_Lab2A, ENCODER_CLICK);
+	XIntc_Start(&sys_intc, XIN_REAL_MODE);
+}
+
+void encoder_handler()
+{
+	char tmp;
+
+	XIntc_Stop(&sys_intc);
+	/* Display status */
+    //xil_printf("\n\rTwist");
+    tmp = XGpio_DiscreteRead(&sys_encoder,1);
+	enc = enc << 2;		// shift the data up for next entry
+	enc |= tmp & 3;		// should never be >3, but why chance it
+	//xil_printf("\n\rR%-02x", enc);
+	//XGpio_DiscreteWrite(&leds,1,enc);	// only get last 8 bits
+
+	/* Update state and Reset timer */
+	XTmrCtr_Reset(&sys_tmrctr, 0);
+	XTmrCtr_Start(&sys_tmrctr, 0);
+
+	/* Clear int */
+	XGpio_InterruptClear(&sys_encoder,XGPIO_IR_CH1_MASK);
+	/*
+    if (rd1 == rd2 && rd1 == 2) {
+        QActive_postISR((QActive *)&AO_Lab2A, ENCODER_UP);
+    } else if (rd1 == rd2 && rd1 == 1) {
+        QActive_postISR((QActive *)&AO_Lab2A, ENCODER_DOWN);
+    }
+    */
+	XIntc_Start(&sys_intc, XIN_REAL_MODE);
+}
+
+void timer_handler()
+{
+	Xuint32 status;
+
+	XIntc_Stop(&sys_intc);
+
+	/* Check what kicked off the timer */
+	if (click) {
+		actions |= ACTION_ROTATE;
+		click = 0; // play nice, keep your variables clean
+	} else if (enc != 0 && enc > 256) {	// really need at least 4 to get a good sequence
+		//xil_printf("\n\rD%08x", enc);
+		while (enc) {
+			switch (enc&0x3f) {
+			// cases are deliberately encoded in order of frequency
+			// Left sequences have more false positives than Right, so check those first
+			case 0x38:	// 0-2-3	0% false
+			case 0x1E:	// 2-3-1	0% false
+			case 0x3A:	// 2-2-3	0% false
+			case 0x2A:	// 2-2-2	4% false
+				actions |= ACTION_LEFT;
+				enc = 0;
+				break;
+			// Check Right sequences
+			case 0x35:	// 1-1-3	2% false
+			case 0x2E:	// 1-3-2	0% false
+			case 0x15:	// 1-1-1	5% false
+			case 0x0B:	// 3-2-0	0% false
+				actions |= ACTION_RIGHT;
+				enc = 0;
+				break;
+			}
+			// remove latest sample and try again; short below smallest value
+			enc = enc >> 2;
+			if (enc < 0x0B)
+				enc = 0;
+		}
+	}
+
+	/* Clear interrupt */
+	XTmrCtr_Reset(&sys_tmrctr, 0);
+	XTmrCtr_Stop(&sys_tmrctr,0);
+	status = XTimerCtr_ReadReg(sys_tmrctr.BaseAddress, 0, XTC_TCSR_OFFSET);
+	XTmrCtr_WriteReg(sys_tmrctr.BaseAddress, 0, XTC_TCSR_OFFSET, status|XTC_CSR_INT_OCCURED_MASK);
+
 	XIntc_Start(&sys_intc, XIN_REAL_MODE);
 }
 
@@ -427,7 +526,7 @@ void draw_piece(Tetris *me, char erase) {
 }
 
 void update_display(Tetris *me) {
-	int i, j;
+	int i;
 	// Write next to regs
 	for (i=0; i<4; i+=4) {
 		TETRIS_VGA_mWriteReg(TETRIS_VGA_START+208, i, *((Xuint32*)((int)(me->next) + i)) );
@@ -479,6 +578,35 @@ return 0;
 //		i = (me->gameboard[j+1][6] << 24) | (me->gameboard[j+1][7] << 16) | (me->gameboard[j+1][8] << 8) | me->gameboard[j+1][9];
 //		TETRIS_VGA_mWriteReg(TETRIS_VGA_START, gx+16, i);
 //	}
+
+xil_printf("I0 %x\n", I0);
+xil_printf("I1 %x\n", I1);
+xil_printf("I2 %x\n", I2);
+xil_printf("I3 %x\n", I3);
+xil_printf("J0 %x\n", J0);
+xil_printf("J1 %x\n", J1);
+xil_printf("J2 %x\n", J2);
+xil_printf("J3 %x\n", J3);
+xil_printf("L0 %x\n", L0);
+xil_printf("L1 %x\n", L1);
+xil_printf("L2 %x\n", L2);
+xil_printf("L3 %x\n", L3);
+xil_printf("O0 %x\n", O0);
+xil_printf("O1 %x\n", O1);
+xil_printf("O2 %x\n", O2);
+xil_printf("O3 %x\n", O3);
+xil_printf("T0 %x\n", T0);
+xil_printf("T1 %x\n", T1);
+xil_printf("T2 %x\n", T2);
+xil_printf("T3 %x\n", T3);
+xil_printf("S0 %x\n", S0);
+xil_printf("S1 %x\n", S1);
+xil_printf("S2 %x\n", S2);
+xil_printf("S3 %x\n", S3);
+xil_printf("N0 %x\n", N0);
+xil_printf("N1 %x\n", N1);
+xil_printf("N2 %x\n", N2);
+xil_printf("N3 %x\n", N3);
 
 #endif // SCRATCH
 

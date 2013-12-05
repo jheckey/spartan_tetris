@@ -6962,3 +6962,8 @@ Saving bit stream in "system.bit".
 Bitstream generation is complete.
 Done!
 Overriding Xilinx file <TextEditor.cfg> with local file </opt/Xilinx/14.3/ISE_DS/EDK/data/TextEditor.cfg>
+Writing filter settings....
+Done writing filter settings to:
+	/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/etc/system.filters
+Done writing Tab View settings to:
+	/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/etc/system.gui
