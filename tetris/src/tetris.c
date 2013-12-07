@@ -23,6 +23,8 @@
 #define ACTION_RIGHT					0x00000010
 #define ACTION_ROTATE					0x00000020
 #define ACTION_GAME_OVER				0x00000040
+#define ACTION_CHECK_LINES				0x00000080
+#define ACTION_CLEAR_LINES				0x00000100
 #define ACTION_DEBUG					0x80000000
 
 // Make it prettier
@@ -185,6 +187,8 @@ void	encoder_handler();
 void	timer_handler();
 char**	get_next();
 char	check_move(Tetris *me, int dx, int dy);
+char	check_lines(Tetris *me);
+char	clear_lines(Tetris *me);
 void	do_rotate(Tetris *me);
 void	draw_piece(Tetris *me, char erase);
 void	update_display(Tetris *me);
@@ -231,13 +235,21 @@ int main(void)
                 Game.x = 3;
                 Game.y = 0;
                 actions &= ~ACTION_NEXT;
+            } else if (actions & ACTION_CHECK_LINES) {
+                check_lines(&Game);
+                actions &= ~ACTION_CHECK_LINES;
+            } else if (actions & ACTION_CLEAR_LINES) {
+                clear_lines(&Game);
+                actions &= ~ACTION_CLEAR_LINES;
             } else if (actions & ACTION_FALL) {
                 if (check_move(&Game, 0, 1)) {
                     Game.y++;
                 } else if (Game.y == 0) {
                     actions |= ACTION_GAME_OVER;
+                } else if (Game.lines) {
+                    actions |= ACTION_CLEAR_LINES;
                 } else {
-                    actions |= ACTION_NEXT;
+                    actions |= ACTION_CHECK_LINES;
                 }
                 actions &= ~ACTION_FALL;
             } else if (actions & ACTION_LEFT) {
@@ -265,6 +277,7 @@ int main(void)
                 update_display(&Game);
                 actions &= ~ACTION_DISPLAY;
             } else if (actions & ACTION_ROTATE) {
+                Tetris_ctor();
                 XTmrCtr_Start(&sys_tmrfall, 0);
                 actions &= ~ACTION_ROTATE;
             } else {
@@ -529,6 +542,59 @@ char check_move(Tetris *me, int dx, int dy) {
 		gx -= 4;
 	}
 	return 1;
+}
+
+// Mark all filled lines
+void check_lines(Tetris *me) {
+    int i, j;
+    for (i=0; i<20; i++) {
+        for (j=0; j<10; j++) {
+            if ( !me->gameboard[i][j] ) 
+                break;
+        }
+        // If all the columns in the row have tiles,
+        // clear the board and mark the line
+        if (j == 10) {
+            me->score += 10;
+            me->lines |= ( 1 << i );
+            for (j=0; j<10; j++) {
+                me->gameboard[i][j] = 0;
+            }
+        }
+    }
+    return;
+}
+
+// Compact all clear lines
+void clear_lines(Tetris *me) {
+    int i, j, tmp, y;
+    i = 19;
+    y = 19;
+    tmp = me->lines;
+    while (me->lines) {
+        // If cleared line
+        if ( me->lines & 1 ) {
+            // Find line to copy from
+            while ((y >= 0) && (tmp & 1)) {
+                tmp = tmp >> 1;
+                y--;
+            }
+            // if no more lines to copy, return
+            if ( tmp == -1 ) {
+                me->lines = 0;
+                return;
+            }
+            // Otherwise, move higher line down
+            for (j=0; j<10; j++) {
+                me->gameboard[i][j] = me->gameboard[y][j];
+                me->gameboard[y][j] = 0;
+            }
+        }
+        // Update start variable and lines
+        i--;
+        me->lines = me->lines >> 1;
+    }
+    return;
 }
 
 void do_rotate(Tetris *me) {
