@@ -202,7 +202,6 @@ int main(void)
     	xil_printf("Failed to initialize interrupts!\n");
     	return -1;
     }
-    XTmrCtr_Start(&sys_tmrfall, 0);
 
 //#define ACTION_DISPLAY					0x00000001
 //#define ACTION_NEXT						0x00000002
@@ -217,46 +216,61 @@ int main(void)
 		while (!actions) {}
 
 		XIntc_Stop(&sys_intc);
-		if (actions & ACTION_DISPLAY) {
-			update_display(&Game);
-			actions &= ~ACTION_DISPLAY;
-		} else if (actions & ACTION_NEXT) {
-			// Draw old piece onto board
-			draw_piece(&Game,0);
-			// Check for lines
-			// Update next
-			Game.tetramino = Game.next;
-			Game.next = get_next();
-			//xil_printf("N:%x\n", Game.next);
-			Game.x = 3;
-			Game.y = 0;
-			actions &= ~ACTION_NEXT;
-		} else if (actions & ACTION_FALL) {
-			if (check_move(&Game, 0, 1)) {
-				Game.y++;
-			} else if (Game.y == 0) {
-				actions |= ACTION_GAME_OVER;
-			} else {
-				actions |= ACTION_NEXT;
-			}
-			actions &= ~ACTION_FALL;
-		} else if (actions & ACTION_LEFT) {
-			if (check_move(&Game, -1, 0)) {
-				Game.x--;
-			}
-			actions &= ~ACTION_LEFT;
-		} else if (actions & ACTION_RIGHT) {
-			if (check_move(&Game, 1, 0)) {
-				Game.x++;
-			}
-			actions &= ~ACTION_RIGHT;
-		} else if (actions & ACTION_ROTATE) {
-			do_rotate(&Game);
-			actions &= ~ACTION_ROTATE;
-		} else if (actions & ACTION_GAME_OVER) {
-			return 0;
-			actions &= ~ACTION_GAME_OVER;
-		}
+        if (Game.play) {
+            if (actions & ACTION_DISPLAY) {
+                update_display(&Game);
+                actions &= ~ACTION_DISPLAY;
+            } else if (actions & ACTION_NEXT) {
+                // Draw old piece onto board
+                draw_piece(&Game,0);
+                // Check for lines
+                // Update next
+                Game.tetramino = Game.next;
+                Game.next = get_next();
+                //xil_printf("N:%x\n", Game.next);
+                Game.x = 3;
+                Game.y = 0;
+                actions &= ~ACTION_NEXT;
+            } else if (actions & ACTION_FALL) {
+                if (check_move(&Game, 0, 1)) {
+                    Game.y++;
+                } else if (Game.y == 0) {
+                    actions |= ACTION_GAME_OVER;
+                } else {
+                    actions |= ACTION_NEXT;
+                }
+                actions &= ~ACTION_FALL;
+            } else if (actions & ACTION_LEFT) {
+                if (check_move(&Game, -1, 0)) {
+                    Game.x--;
+                }
+                actions &= ~ACTION_LEFT;
+            } else if (actions & ACTION_RIGHT) {
+                if (check_move(&Game, 1, 0)) {
+                    Game.x++;
+                }
+                actions &= ~ACTION_RIGHT;
+            } else if (actions & ACTION_ROTATE) {
+                do_rotate(&Game);
+                actions &= ~ACTION_ROTATE;
+            } else if (actions & ACTION_GAME_OVER) {
+                //return 0;
+                draw_piece(&Game,0);
+                XTmrCtr_Stop(&sys_tmrfall, 0);
+                Game.play = 0;
+                actions &= ~ACTION_GAME_OVER;
+            }
+        } else {
+            if (actions & ACTION_DISPLAY) {
+                update_display(&Game);
+                actions &= ~ACTION_DISPLAY;
+            } else if (actions & ACTION_ROTATE) {
+                XTmrCtr_Start(&sys_tmrfall, 0);
+                actions &= ~ACTION_ROTATE;
+            } else {
+                actions = 0;
+            }
+        }
 		XIntc_Start(&sys_intc, XIN_REAL_MODE);
 	}
 
