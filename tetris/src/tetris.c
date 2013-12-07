@@ -440,6 +440,12 @@ void timer_handler()
 
 	XIntc_Stop(&sys_intc);
 
+    // Seed the random number generator based on the inputs
+    // -- Read the timers from the VGA interface and use those as the seed
+    status = TETRIS_VGA_mReadReg(TETRIS_VGA_START, 4);
+    status ^= (status << 6);    // ensure that all bits have the possibility of being filled
+    srand(status);
+
 	/* Check what kicked off the timer */
 	if (click) {
 		actions |= ACTION_ROTATE;
