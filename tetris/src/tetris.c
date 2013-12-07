@@ -61,37 +61,37 @@ static const char    I3[4][4] = { {0, 0, 0, 0},
                                   {3, 3, 3, 3},
                                   {0, 0, 0, 0},
                                   {0, 0, 0, 0} };
-static const char    J0[4][4] = { {1, 1, 1, 0},
+static const char    J0[4][4] = { {0, 0, 0, 0},
+                                  {1, 1, 1, 0},
                                   {0, 0, 1, 0},
-                                  {0, 0, 0, 0},
                                   {0, 0, 0, 0} };
 static const char    J1[4][4] = { {0, 1, 1, 0},
                                   {0, 0, 1, 0},
                                   {0, 0, 1, 0},
                                   {0, 0, 0, 0} };
-static const char    J2[4][4] = { {0, 0, 1, 0},
+static const char    J2[4][4] = { {0, 0, 0, 0},
+                                  {0, 0, 1, 0},
                                   {1, 1, 1, 0},
-                                  {0, 0, 0, 0},
                                   {0, 0, 0, 0} };
-static const char    J3[4][4] = { {1, 0, 0, 0},
-                                  {1, 0, 0, 0},
-                                  {1, 1, 0, 0},
+static const char    J3[4][4] = { {0, 1, 0, 0},
+                                  {0, 1, 0, 0},
+                                  {0, 1, 1, 0},
                                   {0, 0, 0, 0} };
-static const char    L0[4][4] = { {5, 5, 5, 0},
-                                  {5, 0, 0, 0},
-                                  {0, 0, 0, 0},
-                                  {0, 0, 0, 0} };
-static const char    L1[4][4] = { {5, 5, 0, 0},
-                                  {0, 5, 0, 0},
-                                  {0, 5, 0, 0},
-                                  {0, 0, 0, 0} };
-static const char    L2[4][4] = { {0, 0, 5, 0},
+static const char    L0[4][4] = { {0, 0, 0, 0},
                                   {5, 5, 5, 0},
-                                  {0, 0, 0, 0},
-                                  {0, 0, 0, 0} };
-static const char    L3[4][4] = { {5, 0, 0, 0},
                                   {5, 0, 0, 0},
-                                  {5, 5, 0, 0},
+                                  {0, 0, 0, 0} };
+static const char    L1[4][4] = { {0, 5, 5, 0},
+                                  {0, 0, 5, 0},
+                                  {0, 0, 5, 0},
+                                  {0, 0, 0, 0} };
+static const char    L2[4][4] = { {0, 0, 0, 0},
+                                  {0, 0, 5, 0},
+                                  {5, 5, 5, 0},
+                                  {0, 0, 0, 0} };
+static const char    L3[4][4] = { {0, 5, 0, 0},
+                                  {0, 5, 0, 0},
+                                  {0, 5, 5, 0},
                                   {0, 0, 0, 0} };
 static const char    O0[4][4] = { {0, 6, 6, 0},
                                   {0, 6, 6, 0},
@@ -113,13 +113,13 @@ static const char    T0[4][4] = { {0, 0, 0, 0},
                                   {7, 7, 7, 0},
                                   {0, 7, 0, 0},
                                   {0, 0, 0, 0} };
-static const char    T1[4][4] = { {0, 7, 0, 0},
-                                  {7, 7, 0, 0},
-                                  {0, 7, 0, 0},
+static const char    T1[4][4] = { {0, 0, 7, 0},
+                                  {0, 7, 7, 0},
+                                  {0, 0, 7, 0},
                                   {0, 0, 0, 0} };
-static const char    T2[4][4] = { {0, 7, 0, 0},
+static const char    T2[4][4] = { {0, 0, 0, 0},
+                                  {0, 7, 0, 0},
                                   {7, 7, 7, 0},
-                                  {0, 0, 0, 0},
                                   {0, 0, 0, 0} };
 static const char    T3[4][4] = { {0, 7, 0, 0},
                                   {0, 7, 7, 0},
@@ -129,17 +129,17 @@ static const char    S0[4][4] = { {0, 2, 2, 0},
                                   {2, 2, 0, 0},
                                   {0, 0, 0, 0},
                                   {0, 0, 0, 0} };
-static const char    S1[4][4] = { {2, 0, 0, 0},
-                                  {2, 2, 0, 0},
-                                  {0, 2, 0, 0},
+static const char    S1[4][4] = { {0, 2, 0, 0},
+                                  {0, 2, 2, 0},
+                                  {0, 0, 2, 0},
                                   {0, 0, 0, 0} };
 static const char    S2[4][4] = { {0, 2, 2, 0},
                                   {2, 2, 0, 0},
                                   {0, 0, 0, 0},
                                   {0, 0, 0, 0} };
-static const char    S3[4][4] = { {2, 0, 0, 0},
-                                  {2, 2, 0, 0},
-                                  {0, 2, 0, 0},
+static const char    S3[4][4] = { {0, 2, 0, 0},
+                                  {0, 2, 2, 0},
+                                  {0, 0, 2, 0},
                                   {0, 0, 0, 0} };
 static const char    N0[4][4] = { {4, 4, 0, 0},
                                   {0, 4, 4, 0},
@@ -227,7 +227,7 @@ int main(void)
 			// Update next
 			Game.tetramino = Game.next;
 			Game.next = get_next();
-			xil_printf("N:%x\n", Game.next);
+			//xil_printf("N:%x\n", Game.next);
 			Game.x = 3;
 			Game.y = 0;
 			actions &= ~ACTION_NEXT;
@@ -568,7 +568,7 @@ void draw_piece(Tetris *me, char erase) {
 void update_display(Tetris *me) {
 	int i;
 	// Write next to regs
-	for (i=0; i<4; i+=4) {
+	for (i=0; i<16; i+=4) {
 		TETRIS_VGA_mWriteReg(TETRIS_VGA_START+208, i, *((Xuint32*)((int)(me->next) + i)) );
 	}
 	// Draw piece on board
