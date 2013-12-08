@@ -47,6 +47,10 @@ static  XTmrCtr         sys_tmrfall;
 static  XGpio           leds;
 
 // Tetraminos
+static const char    NT[4][4] = { {0, 0, 0, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0},
+                                  {0, 0, 0, 0} };
 static const char    I0[4][4] = { {0, 0, 3, 0},
                                   {0, 0, 3, 0},
                                   {0, 0, 3, 0},
@@ -164,6 +168,8 @@ static const char    N3[4][4] = { {0, 0, 4, 0},
 typedef struct Tetris_t {
     //QActive super;
 
+	int		play;
+	int 	lines;
     int     score;
     int     level;
 
@@ -187,8 +193,8 @@ void	encoder_handler();
 void	timer_handler();
 char**	get_next();
 char	check_move(Tetris *me, int dx, int dy);
-char	check_lines(Tetris *me);
-char	clear_lines(Tetris *me);
+void	check_lines(Tetris *me);
+void	clear_lines(Tetris *me);
 void	do_rotate(Tetris *me);
 void	draw_piece(Tetris *me, char erase);
 void	update_display(Tetris *me);
@@ -201,6 +207,8 @@ int main(void)
 	XStatus status;
 
 	Tetris_ctor();
+	Game.next = NT;
+	Game.tetramino = NT;
     status = sys_init();
     if (status != XST_SUCCESS) {
     	xil_printf("Failed to initialize interrupts!\n");
@@ -225,9 +233,6 @@ int main(void)
                 update_display(&Game);
                 actions &= ~ACTION_DISPLAY;
             } else if (actions & ACTION_NEXT) {
-                // Draw old piece onto board
-                draw_piece(&Game,0);
-                // Check for lines
                 // Update next
                 Game.tetramino = Game.next;
                 Game.next = get_next();
@@ -237,18 +242,24 @@ int main(void)
                 actions &= ~ACTION_NEXT;
             } else if (actions & ACTION_CHECK_LINES) {
                 check_lines(&Game);
+                if ( !Game.lines ) {
+                	actions |= ACTION_NEXT;
+                }
                 actions &= ~ACTION_CHECK_LINES;
             } else if (actions & ACTION_CLEAR_LINES) {
                 clear_lines(&Game);
+                actions |= ACTION_NEXT;
                 actions &= ~ACTION_CLEAR_LINES;
             } else if (actions & ACTION_FALL) {
-                if (check_move(&Game, 0, 1)) {
+            	if (Game.lines) {
+            	    actions |= ACTION_CLEAR_LINES;
+            	} else if (check_move(&Game, 0, 1)) {
                     Game.y++;
                 } else if (Game.y == 0) {
                     actions |= ACTION_GAME_OVER;
-                } else if (Game.lines) {
-                    actions |= ACTION_CLEAR_LINES;
                 } else {
+                    draw_piece(&Game,0);
+                    Game.tetramino = NT;
                     actions |= ACTION_CHECK_LINES;
                 }
                 actions &= ~ACTION_FALL;
@@ -279,6 +290,7 @@ int main(void)
             } else if (actions & ACTION_ROTATE) {
                 Tetris_ctor();
                 XTmrCtr_Start(&sys_tmrfall, 0);
+                Game.play = 1;
                 actions &= ~ACTION_ROTATE;
             } else {
                 actions = 0;
@@ -293,6 +305,8 @@ int main(void)
 void Tetris_ctor(void)  {
 	Tetris *me = &Game;
 	//QActive_ctor(&me->super, (QStateHandler)&Tetris_initial);
+	me->play = 0;
+	me->lines = 0;
 	me->score = 0;
 	me->level = 1;
 	me->x = 3;		// Center Tetramino to start
@@ -556,7 +570,7 @@ void check_lines(Tetris *me) {
         // clear the board and mark the line
         if (j == 10) {
             me->score += 10;
-            me->lines |= ( 1 << i );
+            me->lines |= ( 1 << 19-i );
             for (j=0; j<10; j++) {
                 me->gameboard[i][j] = 0;
             }
@@ -567,35 +581,31 @@ void check_lines(Tetris *me) {
 
 // Compact all clear lines
 void clear_lines(Tetris *me) {
-    int i, j, tmp, y;
-    i = 19;
-    y = 19;
-    tmp = me->lines;
-    while (me->lines) {
-        // If cleared line
-        if ( me->lines & 1 ) {
-            // Find line to copy from
-            while ((y >= 0) && (tmp & 1)) {
-                tmp = tmp >> 1;
-                y--;
-            }
-            // if no more lines to copy, return
-            if ( tmp == -1 ) {
-                me->lines = 0;
-                return;
-            }
-            // Otherwise, move higher line down
+    int ct, cf, j;
+    cf = 19;
+    for (ct=19; ct>=0; ct--, cf--) {
+        // Find next line to copy from
+        while ( ( me->lines & ( 1 << 19-cf ) ) && cf >= 0 ) { cf--; }
+        // Reached top of board, blank row and exit
+        if ( cf == -1 ) {
             for (j=0; j<10; j++) {
-                me->gameboard[i][j] = me->gameboard[y][j];
-                me->gameboard[y][j] = 0;
+                me->gameboard[ct][j] = 0;
+            }
+            break;
+        }
+        // Don't copy if we don't need to
+        if ( cf != ct) {
+            for (j=0; j<10; j++) {
+                me->gameboard[ct][j] = me->gameboard[cf][j];
+                me->gameboard[cf][j] = 0;
             }
         }
-        // Update start variable and lines
-        i--;
-        me->lines = me->lines >> 1;
     }
+    // Clear vars, play nice
+    me->lines = 0;
     return;
 }
+
 
 void do_rotate(Tetris *me) {
 	int i, j, gy, gx;
