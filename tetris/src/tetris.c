@@ -13,7 +13,7 @@
 #include <string.h>
 
 #define TETRIS_VGA_START 				0xC9A00000
-#define RESET_VALUE                 	100000000	// * 20ns ~= 2s
+#define RESET_VALUE                 	10000010	// * 20ns ~= 2s
 #define DEBOUNCE_TIME 	                125000	    // * 20ns = 2.5ms
 
 #define ACTION_DISPLAY					0x00000001
@@ -34,7 +34,6 @@
 // Globals
 // -- system vars
 static  Xuint32         actions;
-static  Xuint32			fall_time = 10000000;
 static  Xuint8			click = 0;
 static  Xuint32			enc = 0;
 
@@ -71,17 +70,17 @@ static const char    J0[4][4] = { {0, 0, 0, 0},
                                   {1, 1, 1, 0},
                                   {0, 0, 1, 0},
                                   {0, 0, 0, 0} };
-static const char    J1[4][4] = { {0, 1, 1, 0},
+static const char    J1[4][4] = { {0, 0, 1, 0},
                                   {0, 0, 1, 0},
-                                  {0, 0, 1, 0},
+                                  {0, 1, 1, 0},
                                   {0, 0, 0, 0} };
 static const char    J2[4][4] = { {0, 0, 0, 0},
                                   {0, 0, 1, 0},
                                   {1, 1, 1, 0},
                                   {0, 0, 0, 0} };
-static const char    J3[4][4] = { {0, 1, 0, 0},
+static const char    J3[4][4] = { {0, 1, 1, 0},
                                   {0, 1, 0, 0},
-                                  {0, 1, 1, 0},
+                                  {0, 1, 0, 0},
                                   {0, 0, 0, 0} };
 static const char    L0[4][4] = { {0, 0, 0, 0},
                                   {5, 5, 5, 0},
@@ -175,6 +174,7 @@ typedef struct Tetris_t {
 
     int		x, dx;
     int		y, dy;
+    int     fall_time;
 
     char** 	next;
     char** 	tetramino;
@@ -292,6 +292,11 @@ int main(void)
                 XTmrCtr_Start(&sys_tmrfall, 0);
                 Game.play = 1;
                 actions &= ~ACTION_ROTATE;
+                // Seed the random number generator based on the inputs
+                // -- Read the timers from the VGA interface and use those as the seed
+                status = TETRIS_VGA_mReadReg(TETRIS_VGA_START, 4);
+                status ^= (status << 6);    // ensure that all bits have the possibility of being filled
+                srand(status);
             } else {
                 actions = 0;
             }
@@ -313,6 +318,7 @@ void Tetris_ctor(void)  {
 	me->y = 0;
 	me->dx = 0;
 	me->dy = 0;
+    me->fall_time = RESET_VALUE - (1000 << me->level);
 	me->next = get_next();
 	me->tetramino = get_next();
 	memset(me->gameboard, 0, 200);
@@ -370,7 +376,7 @@ int sys_init()
     XTmrCtr_SetOptions(&sys_tmrctr, 0, XTC_INT_MODE_OPTION);
 	XTmrCtr_SetResetValue(&sys_tmrctr, 0, 0xFFFFFFFF-DEBOUNCE_TIME);
     XTmrCtr_SetOptions(&sys_tmrfall, 0, XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
-	XTmrCtr_SetResetValue(&sys_tmrfall, 0, 0xFFFFFFFF-fall_time);
+	XTmrCtr_SetResetValue(&sys_tmrfall, 0, 0xFFFFFFFF-Game.fall_time);
 
 	/* Start interrupts */
 	XIntc_Start(&sys_intc, XIN_REAL_MODE);
@@ -408,6 +414,9 @@ void fall_handler() {
 	Xuint32 ControlStatusReg;
 	XIntc_Stop(&sys_intc);
 	actions |= ACTION_FALL;
+    // update fall time
+	XTmrCtr_SetResetValue(&sys_tmrfall, 0, 0xFFFFFFFF-Game.fall_time);
+    // clear interrupt
 	ControlStatusReg = XTimerCtr_ReadReg(sys_tmrfall.BaseAddress, 0, XTC_TCSR_OFFSET);
 	XTmrCtr_WriteReg(sys_tmrfall.BaseAddress, 0, XTC_TCSR_OFFSET, ControlStatusReg|XTC_CSR_INT_OCCURED_MASK);
 	XIntc_Start(&sys_intc, XIN_REAL_MODE);
@@ -466,12 +475,6 @@ void timer_handler()
 	Xuint32 status;
 
 	XIntc_Stop(&sys_intc);
-
-    // Seed the random number generator based on the inputs
-    // -- Read the timers from the VGA interface and use those as the seed
-    status = TETRIS_VGA_mReadReg(TETRIS_VGA_START, 4);
-    status ^= (status << 6);    // ensure that all bits have the possibility of being filled
-    srand(status);
 
 	/* Check what kicked off the timer */
 	if (click) {
@@ -558,9 +561,9 @@ char check_move(Tetris *me, int dx, int dy) {
 	return 1;
 }
 
-// Mark all filled lines
+// Mark all filled lines, remove them, update score and level
 void check_lines(Tetris *me) {
-    int i, j;
+    int i, j, l=0;
     for (i=0; i<20; i++) {
         for (j=0; j<10; j++) {
             if ( !me->gameboard[i][j] ) 
@@ -569,13 +572,20 @@ void check_lines(Tetris *me) {
         // If all the columns in the row have tiles,
         // clear the board and mark the line
         if (j == 10) {
-            me->score += 10;
+            l += 1;
             me->lines |= ( 1 << 19-i );
             for (j=0; j<10; j++) {
                 me->gameboard[i][j] = 0;
             }
         }
     }
+    me->score += (l == 1) ? 10 :
+    			 (l == 2) ? 30 :
+    			 (l == 3) ? 60 :
+    			 (l == 4) ? 100 : 0;
+    me->level = (me->score >> 5) + 1;
+    XGpio_DiscreteWrite(&leds,1,me->level);
+    me->fall_time = RESET_VALUE - (10000 << me->level);
     return;
 }
 
@@ -915,7 +925,7 @@ void vga_handler()
 			ret = ret << 4 | top;
 			XTmrCtr_Stop(&sys_tmrctr, 0);
 			i = XTmrCtr_GetValue(&sys_tmrctr, 0);
-			XGpio_DiscreteWrite(&leds,1,i>>8);
+			//XGpio_DiscreteWrite(&leds,1,i>>8);
 		}
 
 
