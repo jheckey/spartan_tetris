@@ -1,59 +1,177 @@
 iMPACT Version: 14.3
 
-iMPACT log file Started on Mon Nov 25 19:58:03 2013
+iMPACT log file Started on Sat Dec  7 17:42:31 2013
 
 Welcome to iMPACT
 iMPACT Version: 14.3
 // *** BATCH CMD : setMode -bs
-// *** BATCH CMD : setMode -ss
-// *** BATCH CMD : setMode -sm
-// *** BATCH CMD : setMode -hw140
-// *** BATCH CMD : setMode -spi
-// *** BATCH CMD : setMode -acecf
-// *** BATCH CMD : setMode -acempm
-// *** BATCH CMD : setMode -pff
-// *** BATCH CMD : loadProjectFile -file "/home/jheckey/ece253/vga/default.ipf"
-Enumerating cables. Please wait.
- Cable is LOCKED. Retrying...
+GUI --- Auto connect to cable...
+// *** BATCH CMD : setCable -port auto
+INFO:iMPACT - Digilent Plugin: Plugin Version: 2.4.3
+INFO:iMPACT - Digilent Plugin: no JTAG device was found.
+AutoDetecting cable. Please wait.
+*** WARNING ***: When port is set to auto detect mode, cable speed is set todefault 6 MHz regardless of explicit arguments supplied for setting the baudrates
+PROGRESS_START - Starting Operation.
 Connecting to cable (Usb Port - USB21).
 Checking cable driver.
+File version of /opt/Xilinx/14.3/ISE_DS/ISE/bin/lin64/xusbdfwu.hex = 1030.
+File version of /etc/hotplug/usb/xusbdfwu.fw/xusbdfwu.hex = 1030.
  Using libusb.
- Kernel release = 3.8.0-33-generic.
-=======================================================
-Found cable - >  ESN device is not available for this cable.
-No ESN.
-=======================================================
-Connecting to cable (Usb Port - USB22).
-Checking cable driver.
- Using libusb.
- Kernel release = 3.8.0-33-generic.
-ERROR:iMPACT - Cable not found, ESN: 00000000000000
-'1': Loading file'/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit' ...
-done.
-INFO:iMPACT:1777 - 
-   Reading /opt/Xilinx/14.3/ISE_DS/ISE/spartan3e/data/xc3s500e.bsd...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-UserID read from the bitstream file = 0xFFFFFFFF.
-INFO:iMPACT:501 - '1': Added Device xc3s500e successfully.
-----------------------------------------------------------------------
-INFO:iMPACT - Failed to open file: -- File ? --, replace with 'bypass'.
-INFO:iMPACT:1777 - 
-   Reading /opt/Xilinx/14.3/ISE_DS/ISE/xcf/data/xcf04s.bsd...
-INFO:iMPACT:501 - '2': Added Device xcf04s successfully.
-----------------------------------------------------------------------
-INFO:iMPACT - Failed to open file: -- File ? --, replace with 'bypass'.
+ Kernel release = 3.8.0-34-generic.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1028.
+File version of /opt/Xilinx/14.3/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+Downloading /opt/Xilinx/14.3/ISE_DS/ISE/data/xusb_xlp.hex.
+Downloaded firmware version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+PROGRESS_END - End Operation.
+Elapsed time =      0 sec.
+Type = 0x0004.
+ ESN device is not available for this cable.
+Attempting to identify devices in the boundary-scan chain configuration...
+INFO:iMPACT - Current time: 12/7/13 5:43 PM
+// *** BATCH CMD : Identify -inferir 
+PROGRESS_START - Starting Operation.
+Identifying chain contents...'0': : Manufacturer's ID = Xilinx xc2c64a, Version : 0
 INFO:iMPACT:1777 - 
    Reading /opt/Xilinx/14.3/ISE_DS/ISE/xbr/data/xc2c64a.bsd...
-INFO:iMPACT:501 - '3': Added Device xc2c64a successfully.
+INFO:iMPACT:501 - '1': Added Device xc2c64a successfully.
 ----------------------------------------------------------------------
-Active mode is BS
-// *** BATCH CMD : setMode -ss
-// *** BATCH CMD : setMode -sm
-// *** BATCH CMD : setMode -hw140
-// *** BATCH CMD : setMode -spi
-// *** BATCH CMD : setMode -acecf
-// *** BATCH CMD : setMode -acempm
+'1': : Manufacturer's ID = Xilinx xcf04s, Version : 13
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.3/ISE_DS/ISE/xcf/data/xcf04s.bsd...
+INFO:iMPACT:501 - '1': Added Device xcf04s successfully.
+----------------------------------------------------------------------
+'2': : Manufacturer's ID = Xilinx xc3s500e, Version : 4
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.3/ISE_DS/ISE/spartan3e/data/xc3s500e.bsd...
+INFO:iMPACT:501 - '1': Added Device xc3s500e successfully.
+----------------------------------------------------------------------
+done.
+PROGRESS_END - End Operation.
+Elapsed time =      1 sec.
+// *** BATCH CMD : identifyMPM 
+// *** BATCH CMD : assignFile -p 1 -file"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/system.bit"
+'1': Loading file'/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/system.bit' ...
+done.
+----------------------------------------------------------------------
+INFO:iMPACT:501 - '1': Added Device xc3s500e successfully.
+----------------------------------------------------------------------
+// *** BATCH CMD : assignFile -p 2 -file"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/tetris.mcs"
+'2': Loading file'/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/tetris.mcs' ...
+done.
+// *** BATCH CMD : setAttribute -position 2 -attr packageName -value ""
+INFO:iMPACT - Current time: 12/7/13 5:47 PM
+// *** BATCH CMD : ReadIdcode -p 2 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+'2': IDCODE is '11010101000001000110000010010011'
+'2': IDCODE is 'd5046093' (in hex).
+'2': : Manufacturer's ID = Xilinx xcf04s, Version : 13
+INFO:iMPACT - Current time: 12/7/13 6:03 PM
+// *** BATCH CMD : Program -p 2 -e -v -loadfpga 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+'2': Erasing device...
+PROGRESS_START - Starting Operation.
+'2': Erasure completed successfully.
+'2': Programming device...
+done.
+'2': Putting device in ISP mode...done.
+'2': Putting device in ISP mode...done.
+'2': Verifying device...done.
+'2': Verification completed successfully.
+'2': Calculated checksum matches expected checksum, 004506b10
+'2': Putting device in ISP mode...done.
+'2': Putting device in ISP mode...done.
+'2': Setting user-programmable bits...
+done.
+'2': Putting device in ISP mode...done.
+'2': Starting FPGA Load with Prom Data...INFO:iMPACT:563 - '2':Please ensure proper connections as specified by the data   book ...
+'2': Programming completed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =     14 sec.
+Cable is not connected.
+// *** BATCH CMD : setMode -pff
+// *** BATCH CMD : addConfigDevice  -name "spi_tetris" -path"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/"
+// *** BATCH CMD : setSubmode -pffspi
+// *** BATCH CMD : setAttribute -configdevice -attr multibootBpiType -value ""
+// *** BATCH CMD : addDesign -version 0 -name "0"
+// *** BATCH CMD : setMode -pff
+// *** BATCH CMD : addDeviceChain -index 0
+// *** BATCH CMD : setMode -pff
+// *** BATCH CMD : addDeviceChain -index 0
+Override chain at index 0.
+Overriding chain at index 0.
+// *** BATCH CMD : setAttribute -configdevice -attr compressed -value "FALSE"
+// *** BATCH CMD : setAttribute -configdevice -attr autoSize -value "FALSE"
+// *** BATCH CMD : setAttribute -configdevice -attr fileFormat -value "mcs"
+// *** BATCH CMD : setAttribute -configdevice -attr fillValue -value "FF"
+// *** BATCH CMD : setAttribute -configdevice -attr swapBit -value "FALSE"
+// *** BATCH CMD : setAttribute -configdevice -attr dir -value "UP"
+// *** BATCH CMD : setAttribute -configdevice -attr multiboot -value "FALSE"
+// *** BATCH CMD : setAttribute -configdevice -attr spiSelected -value "TRUE"
+// *** BATCH CMD : addPromDevice -p 1 -size 2048 -name 2M
+'1': Added Device 2M successfully.
+----------------------------------------------------------------------
+// *** BATCH CMD : setMode -pff
+// *** BATCH CMD : addDeviceChain -index 0
+Override chain at index 0.
+Overriding chain at index 0.
+// *** BATCH CMD : setMode -pff
+// *** BATCH CMD : addDeviceChain -index 0
+Override chain at index 0.
+Overriding chain at index 0.
+// *** BATCH CMD : setSubmode -pffspi
+// *** BATCH CMD : setMode -pff
+------------------------  GUI: Wizard Data Report  ---------------------------
+      Compression : false
+      Fill Value : FF
+      Output Format : mcs
+      Swap Bits : false
+      LoadDirection : UP
+      PROM Basename : spi_tetris
+      File Location :/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/
+      Auto Select : false
+      Number of Revisions : 1
+      Number of PROMs : 1
+      PROM Name : 2M   PROM Size : 2097152 bits
+-------------------------- END of Report ----------------------------
+// *** BATCH CMD : setAttribute -design -attr name -value "0000"
+// *** BATCH CMD : addDevice -p 1 -file"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/system.bit"
+'1': Loading file'/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/system.bit' ...
+INFO:iMPACT - Elapsed time =      1 sec.
+done.
+INFO:iMPACT:2257 - Startup Clock has been changed to 'Cclk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+Dumping bit file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/system_cclktemp.bit...
+INFO:iMPACT:501 - '1': Added Device xc3s500e successfully.
+----------------------------------------------------------------------
+Add one device.454b9INFO:iMPACT - Current time: 12/7/13 6:17 PM
+// *** BATCH CMD : setMode -pff
+// *** BATCH CMD : setSubmode -pffspi
+Total configuration bit size = 2270208  bits.
+Total configuration byte size = 283776 bytes.
+// *** BATCH CMD : generate
+0x45480 (283776) bytes loaded up from 0x0
+Using user-specified prom size of 2048K
+Writing file"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/spi_tetris.mcs".
+Writing file"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/spi_tetris.prm".
+Writing file"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/spi_tetris.cfi".
+// *** BATCH CMD : setCurrentDesign -version 0
+// *** BATCH CMD : setMode -bs
+Selected part: M25P16
+// *** BATCH CMD : attachflash -position 1 -spi "M25P16"
+Unprotect sectors: FALSE
+// *** BATCH CMD : assignfiletoattachedflash -position 1 -file"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/spi_tetris.mcs"
 // *** BATCH CMD : setMode -pff
 // *** BATCH CMD : setMode -bs
 GUI --- Auto connect to cable...
@@ -68,7 +186,7 @@ Checking cable driver.
 File version of /opt/Xilinx/14.3/ISE_DS/ISE/bin/lin64/xusbdfwu.hex = 1030.
 File version of /etc/hotplug/usb/xusbdfwu.fw/xusbdfwu.hex = 1030.
  Using libusb.
- Kernel release = 3.8.0-33-generic.
+ Kernel release = 3.8.0-34-generic.
  Max current requested during enumeration is 74 mA.
 Type = 0x0004.
  Cable Type = 3, Revision = 0.
@@ -80,966 +198,32 @@ Firmware hex file version = 1303.
 PLD file version = 0012h.
  PLD version = 0012h.
 PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
+Elapsed time =      0 sec.
 Type = 0x0004.
  ESN device is not available for this cable.
-INFO:iMPACT - Current time: 11/25/13 7:58 PM
-// *** BATCH CMD : Program -p 1 
+INFO:iMPACT - Current time: 12/7/13 6:18 PM
+// *** BATCH CMD : Program -p 1 -dataWidth 1 -spionly -e -v -loadfpga 
 Maximum TCK operating frequency for this device chain: 10000000.
 Validating chain...
 Boundary-scan chain validated successfully.
-'1': Programming device...
+'1': SPI access core not detected. SPI access core will be downloaded to thedevice to enable operations.
 PROGRESS_START - Starting Operation.
+INFO:iMPACT - Downloading core file   /opt/Xilinx/14.3/ISE_DS/ISE/spartan3e/data/xc3s500e_spi.cor.
+'1': Downloading core...
  LCK_cycle = NoWait.
 LCK cycle: NoWait
 done.
 INFO:iMPACT:2219 - Status register values:
 INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 8:02 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
+INFO:iMPACT:2492 - '1': Completed downloading core to device.
+'1': IDCODE is '207537' (in hex).
+'1': ID Check failed.
+INFO:iMPACT:2488 - The operation did not complete successfully.
+INFO:iMPACT - SPI Device not found.
+INFO:iMPACT:2488 - The operation did not complete successfully.
+INFO:iMPACT - '1': Flash was not programmed successfully.
 PROGRESS_END - End Operation.
 Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 8:04 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 8:07 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 8:23 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 8:34 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 8:36 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 8:42 PM
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 8:45 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 8:48 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 8:49 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 8:50 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 8:52 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 8:57 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 8:58 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 9:00 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 9:03 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:05 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:07 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:08 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:09 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:10 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:11 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:13 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 9:16 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:18 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:19 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 9:21 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 9:27 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:29 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 9:32 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:35 PM
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 9:38 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:41 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:46 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:48 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:51 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:52 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:53 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
-INFO:iMPACT - Current time: 11/25/13 9:55 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 9:57 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
-INFO:iMPACT - Current time: 11/25/13 10:09 PM
-Updating config file/home/jheckey/Dropbox/homework/ece253/spartan_tetris/vga/tb.bit...
-INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
-   but the original bitstream file remains unchanged.
-// *** BATCH CMD : Program -p 1 
-Maximum TCK operating frequency for this device chain: 10000000.
-Validating chain...
-Boundary-scan chain validated successfully.
-'1': Programming device...
-PROGRESS_START - Starting Operation.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-done.
-INFO:iMPACT:2219 - Status register values:
-INFO:iMPACT - 0011 0111 0001 1000 0000 0000 0000 0000 
-INFO:iMPACT:579 - '1': Completed downloading bit file to device.
-INFO:iMPACT:188 - '1': Programming completed successfully.
- LCK_cycle = NoWait.
-LCK cycle: NoWait
-INFO:iMPACT - '1': Checking done pin....done.
-'1': Programmed successfully.
-PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
 // *** BATCH CMD : setMode -bs
 // *** BATCH CMD : setMode -ss
 // *** BATCH CMD : setMode -sm
@@ -1049,11 +233,12 @@ Elapsed time =      0 sec.
 // *** BATCH CMD : setMode -acempm
 // *** BATCH CMD : setMode -pff
 // *** BATCH CMD : setMode -bs
-// *** BATCH CMD : saveProjectFile -file "/home/jheckey/ece253/vga/default.ipf"
+// *** BATCH CMD : saveProjectFile -file"/home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementation/tetris.ipf"
 INFO:iMPACT - User_EnvOsname: 'Ubuntu'
 INFO:iMPACT - User_EnvOsrelease: 'Ubuntu 13.04'
 // *** BATCH CMD : setMode -bs
-INFO:iMPACT - Launching WebTalk, please refer to the webtalk log at   /home/jheckey/ece253/vga/webtalk.log for details.
+// *** BATCH CMD : setMode -pff
+INFO:iMPACT - Launching WebTalk, please refer to the webtalk log at   /home/jheckey/Dropbox/homework/ece253/spartan_tetris/tetris_cpu/implementatio   n/webtalk.log for details.
 INFO:iMPACT - Running wbtc successfully.
 // *** BATCH CMD : setMode -bs
 // *** BATCH CMD : deleteDevice -position 1
@@ -1069,3 +254,8 @@ INFO:iMPACT - Running wbtc successfully.
 // *** BATCH CMD : setMode -acecf
 // *** BATCH CMD : setMode -acempm
 // *** BATCH CMD : setMode -pff
+// *** BATCH CMD : deletePromDevice -position 1
+// *** BATCH CMD : setCurrentDesign -version 0
+// *** BATCH CMD : deleteDevice -position 1
+// *** BATCH CMD : deleteDesign -version 0
+// *** BATCH CMD : setCurrentDesign -version -1

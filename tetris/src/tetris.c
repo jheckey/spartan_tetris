@@ -13,7 +13,7 @@
 #include <string.h>
 
 #define TETRIS_VGA_START 				0xC9A00000
-#define RESET_VALUE                 	100000000	// 100M at 50Mhz (20ns/cycle) ~= 2s
+#define RESET_VALUE                 	100000000	// * 20ns ~= 2s
 #define DEBOUNCE_TIME 	                125000	    // * 20ns = 2.5ms
 
 #define ACTION_DISPLAY					0x00000001
